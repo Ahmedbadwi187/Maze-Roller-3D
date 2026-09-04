@@ -59,6 +59,7 @@ namespace MazeRoller3D.EditorTools
             var cmCamera = cmGO.GetComponent<CinemachineCamera>();
             if (cmCamera == null) cmCamera = cmGO.AddComponent<CinemachineCamera>();
             cmCamera.Follow = ballGO.transform;
+            cmCamera.LookAt = ballGO.transform;
             var lens = cmCamera.Lens;
             lens.FieldOfView = 45f;
             cmCamera.Lens = lens;
@@ -66,6 +67,14 @@ namespace MazeRoller3D.EditorTools
             var follow = cmGO.GetComponent<CinemachineFollow>();
             if (follow == null) follow = cmGO.AddComponent<CinemachineFollow>();
             follow.FollowOffset = new Vector3(0f, 6f, -5f); // same offset BallFollowCamera used
+
+            // Body (CinemachineFollow) only controls position - an explicit Aim behaviour is
+            // needed for rotation, recomputed correctly every frame by Cinemachine itself
+            // rather than relying on whatever the transform happened to start with. Aiming at
+            // the ball with this fixed offset naturally produces ~50 degrees of downward tilt
+            // (atan(6/5)), matching the intended ~52 degree angle almost exactly.
+            var composer = cmGO.GetComponent<CinemachineRotationComposer>();
+            if (composer == null) composer = cmGO.AddComponent<CinemachineRotationComposer>();
 
             EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
             EditorSceneManager.SaveScene(EditorSceneManager.GetActiveScene());

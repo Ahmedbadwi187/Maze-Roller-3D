@@ -61,7 +61,11 @@ namespace MazeRoller3D.Monetization
             var apple = _extensions?.GetExtension<IAppleExtensions>();
             if (apple != null)
             {
-                apple.RestoreTransactions(onComplete);
+                apple.RestoreTransactions((success, message) =>
+                {
+                    if (!string.IsNullOrEmpty(message)) Debug.Log($"[IAP] RestoreTransactions: {message}");
+                    onComplete?.Invoke(success);
+                });
                 return;
             }
 
