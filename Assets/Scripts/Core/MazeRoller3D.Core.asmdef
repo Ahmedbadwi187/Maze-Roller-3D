@@ -1,0 +1,19 @@
+{
+    "name": "MazeRoller3D.Core",
+    "rootNamespace": "MazeRoller3D.Core",
+    "references": [
+        "MazeRoller3D.Persistence",
+        "MazeRoller3D.Levels",
+        "MazeRoller3D.Monetization",
+        "GUID:60bfecf5cb232594891bc622f40d6bed"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

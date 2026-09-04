@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="2" result="Passed" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-04 22:43:58Z" end-time="2026-09-04 22:43:59Z" duration="1.0677815">
+  <test-suite type="TestSuite" id="1010" name="MazeRoller3D" fullname="MazeRoller3D" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-04 22:43:58Z" end-time="2026-09-04 22:43:59Z" duration="1.067782" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="PlayMode" />
+    </properties>
+    <test-suite type="Assembly" id="1004" name="MazeRoller3D.PlayModeTests.dll" fullname="D:/Projects/Gamming App/MazeRoller3D/Library/ScriptAssemblies/MazeRoller3D.PlayModeTests.dll" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-04 22:43:58Z" end-time="2026-09-04 22:43:59Z" duration="1.064302" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="2008" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="PlayMode" />
+        <property name="EditorOnly" value="False" />
+      </properties>
+      <test-suite type="TestSuite" id="1005" name="MazeRoller3D" fullname="MazeRoller3D" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-04 22:43:58Z" end-time="2026-09-04 22:43:59Z" duration="1.064033" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1006" name="PlayModeTests" fullname="MazeRoller3D.PlayModeTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-04 22:43:58Z" end-time="2026-09-04 22:43:59Z" duration="1.063714" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1001" name="LevelFlowPlayModeTests" fullname="MazeRoller3D.PlayModeTests.LevelFlowPlayModeTests" classname="MazeRoller3D.PlayModeTests.LevelFlowPlayModeTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-04 22:43:58Z" end-time="2026-09-04 22:43:59Z" duration="1.062733" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1002" name="BallEnteringExitTrigger_CompletesLevelAndDisablesBallControl" fullname="MazeRoller3D.PlayModeTests.LevelFlowPlayModeTests.BallEnteringExitTrigger_CompletesLevelAndDisablesBallControl" methodname="BallEnteringExitTrigger_CompletesLevelAndDisablesBallControl" classname="MazeRoller3D.PlayModeTests.LevelFlowPlayModeTests" runstate="Runnable" seed="18252460" result="Passed" start-time="2026-09-04 22:43:58Z" end-time="2026-09-04 22:43:58Z" duration="0.506047" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1003" name="CompletingASelectedLevel_RecordsStarsAndTimeToProgressService" fullname="MazeRoller3D.PlayModeTests.LevelFlowPlayModeTests.CompletingASelectedLevel_RecordsStarsAndTimeToProgressService" methodname="CompletingASelectedLevel_RecordsStarsAndTimeToProgressService" classname="MazeRoller3D.PlayModeTests.LevelFlowPlayModeTests" runstate="Runnable" seed="1782208428" result="Passed" start-time="2026-09-04 22:43:58Z" end-time="2026-09-04 22:43:59Z" duration="0.549326" asserts="0">
+              <properties>
+                <property name="_JOINTYPE" value="UnityCombinatorial" />
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Unity IAP: <b>Unity In-App Purchasing</b> requires <b>Unity Gaming Services</b> to have been initialized before use.
+- Find out how to initialize <b>Unity Gaming Services</b> by following the documentation <i>https://docs.unity.com/ugs-overview/services-core-api.html#InitializationExample</i>
+or download the <i>06 Initialize Gaming Services</i> sample from <i>Package Manager > In-App Purchasing > Samples</i>.
+- If you are using the codeless API, you may want to enable the enable <b>Unity Gaming Services</b> automatic initialization by checking the <b>Automatically initialize Unity Gaming Services</b> checkbox at the bottom of the <b>IAP Catalog</b> window
+Saving results to: C:/Users/ahmed/AppData/LocalLow/DefaultCompany/MazeRoller3D\TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

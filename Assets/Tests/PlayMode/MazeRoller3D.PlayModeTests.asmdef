@@ -1,0 +1,26 @@
+{
+    "name": "MazeRoller3D.PlayModeTests",
+    "rootNamespace": "MazeRoller3D.PlayModeTests",
+    "references": [
+        "MazeRoller3D.Gameplay",
+        "MazeRoller3D.UI",
+        "MazeRoller3D.MazeGeneration",
+        "MazeRoller3D.Levels",
+        "MazeRoller3D.Persistence",
+        "UnityEngine.TestRunner",
+        "UnityEditor.TestRunner"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll"
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "UNITY_INCLUDE_TESTS"
+    ],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
