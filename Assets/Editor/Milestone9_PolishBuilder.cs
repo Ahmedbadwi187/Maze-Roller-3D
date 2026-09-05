@@ -297,8 +297,8 @@ namespace RollAndEscape.EditorTools
             ballIconRect.anchoredPosition = Vector2.zero;
             ballIconRect.sizeDelta = new Vector2(130, 130);
             var ballIconImage = ballIconGO.GetComponent<Image>();
-            ballIconImage.sprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/Knob.psd");
-            ballIconImage.color = RollAndEscapePalette.BallHighlight;
+            ballIconImage.sprite = UIBuilderHelpers.GenerateSphereSprite("Assets/Art/SplashBallIcon.png", 128, RollAndEscapePalette.BallHighlight, RollAndEscapePalette.BallBase, new Vector2(0.35f, 0.30f));
+            ballIconImage.color = Color.white;
 
             var title = UIBuilderHelpers.CreateText("Title", logoGO.transform, "Roll & Escape", new Vector2(0, -100), 76, UIBuilderHelpers.NunitoBlack);
             title.color = Color.white;

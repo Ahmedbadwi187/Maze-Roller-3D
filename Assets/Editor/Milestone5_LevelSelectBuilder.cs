@@ -160,10 +160,12 @@ namespace RollAndEscape.EditorTools
             starsChipDotRect.pivot = new Vector2(0f, 0.5f);
             starsChipDotRect.anchoredPosition = new Vector2(16, 0);
             starsChipDotRect.sizeDelta = new Vector2(28, 28);
-            // A crisp generated circle, not the built-in Knob.psd - Knob has a soft/blurred
-            // edge falloff baked in that, tinted over a light chip background, read as a washed-
-            // out gray smudge instead of a vivid gold dot.
-            starsChipDot.GetComponent<Image>().sprite = UIBuilderHelpers.GenerateCircleSprite("Assets/Art/StarChipDot.png", 64, RollAndEscapePalette.StarGoldHi);
+            // Glossy gradient sphere matching the mockup's exact recipe (radial-gradient(circle
+            // at 35% 30%, highlight, base)) - same treatment as the splash/maze ball, not a
+            // flat tinted circle (an earlier flat-circle fix over-corrected: the built-in
+            // Knob.psd's issue was its own muddy shading, not the idea of shading itself).
+            starsChipDot.GetComponent<Image>().sprite = UIBuilderHelpers.GenerateSphereSprite(
+                "Assets/Art/StarChipDot.png", 64, RollAndEscapePalette.BallHighlight, RollAndEscapePalette.BallBase, new Vector2(0.35f, 0.30f));
             starsChipDot.GetComponent<Image>().color = Color.white;
 
             var totalStarsText = UIBuilderHelpers.CreateText("StarsCount", starsChipGO.transform, "0", new Vector2(0, 0), 26, UIBuilderHelpers.NunitoBlack);
@@ -179,7 +181,7 @@ namespace RollAndEscape.EditorTools
             sectionRow.transform.SetParent(topSafeArea, false);
             var sectionRect = sectionRow.GetComponent<RectTransform>();
             sectionRect.sizeDelta = new Vector2(1000, 60);
-            UIBuilderHelpers.AnchorToTop(sectionRect, 0.5f, 460f); // below the (now taller-inset) continue card
+            UIBuilderHelpers.AnchorToTop(sectionRect, 0.5f, 510f); // extra breathing room below the continue card, per feedback that it felt cramped
 
             var sectionTitle = UIBuilderHelpers.CreateText("SectionTitle", sectionRow.transform, "Level map", new Vector2(-260, 0), 32, UIBuilderHelpers.NunitoBlack);
             sectionTitle.color = RollAndEscapePalette.SectionTitle;
@@ -278,7 +280,7 @@ namespace RollAndEscape.EditorTools
             var viewportGO = new GameObject("Viewport", typeof(RectTransform), typeof(Image), typeof(Mask));
             var viewportRect = viewportGO.GetComponent<RectTransform>();
             viewportRect.anchorMin = new Vector2(0.02f, 0.02f);
-            viewportRect.anchorMax = new Vector2(0.98f, 0.72f); // below the header + continue card + section row
+            viewportRect.anchorMax = new Vector2(0.98f, 0.70f); // below the header + continue card + section row (nudged down to match the extra card/section spacing)
             viewportRect.offsetMin = Vector2.zero;
             viewportRect.offsetMax = Vector2.zero;
             viewportGO.GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.01f); // Mask needs a raycast-able graphic

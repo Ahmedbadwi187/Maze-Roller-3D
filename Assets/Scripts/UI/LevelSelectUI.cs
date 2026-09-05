@@ -86,9 +86,15 @@ namespace RollAndEscape.UI
             }
             if (continueButton != null)
             {
+                // Explicitly forced true (defensive) - a fresh save (nothing played yet) must
+                // still be able to start level 1 from here, never appear disabled.
+                continueButton.interactable = true;
                 int levelToStart = currentLevelIndex;
                 continueButton.onClick.RemoveAllListeners();
                 continueButton.onClick.AddListener(() => OnLevelSelected(LevelRepository.GetLevel(levelToStart)));
+
+                var continueLabel = continueButton.GetComponentInChildren<Text>();
+                if (continueLabel != null) continueLabel.text = completedCount > 0 ? "Continue solving" : "Start solving";
             }
 
             if (currentButtonInstance != null) ScrollToButton(currentButtonInstance.GetComponent<RectTransform>());

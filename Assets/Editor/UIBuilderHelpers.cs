@@ -187,8 +187,8 @@ namespace RollAndEscape.EditorTools
             }, border);
         }
 
-        /// <summary>Solid-fill circle sprite - level nodes, ball/star dots, the checkmark
-        /// badge, all of which are perfect circles in the mockup.</summary>
+        /// <summary>Solid-fill circle sprite - level nodes, star dots, the checkmark badge, all
+        /// of which are perfect FLAT circles in the mockup.</summary>
         public static Sprite GenerateCircleSprite(string path, int size, Color32 fillColor)
         {
             var transparent = new Color32(0, 0, 0, 0);
@@ -196,6 +196,33 @@ namespace RollAndEscape.EditorTools
             var center = new Vector2(radius, radius);
             return GenerateSprite(path, size, size, (x, y) =>
                 Vector2.Distance(new Vector2(x + 0.5f, y + 0.5f), center) <= radius ? fillColor : transparent);
+        }
+
+        /// <summary>Glossy sphere sprite matching the mockup's exact recipe for every
+        /// "ball-style" icon (the splash/maze ball, the header points chip's coin) -
+        /// <c>radial-gradient(circle at 35% 30%, highlight, base)</c>: a circular clip with the
+        /// gradient's own origin offset toward one corner for a highlight, fading to the base
+        /// color at the farthest point in the box (CSS's default "farthest-corner" sizing).
+        /// <paramref name="highlightOffsetNormalized"/> is in CSS convention - X from the left,
+        /// Y from the TOP (flipped internally to texture space, which is Y-up).</summary>
+        public static Sprite GenerateSphereSprite(string path, int size, Color32 highlightColor, Color32 baseColor, Vector2 highlightOffsetNormalized)
+        {
+            var transparent = new Color32(0, 0, 0, 0);
+            float radius = size / 2f;
+            var center = new Vector2(radius, radius);
+            var highlightPoint = new Vector2(size * highlightOffsetNormalized.x, size * (1f - highlightOffsetNormalized.y));
+
+            float maxDist = 0f;
+            foreach (var corner in new[] { Vector2.zero, new Vector2(size, 0), new Vector2(0, size), new Vector2(size, size) })
+                maxDist = Mathf.Max(maxDist, Vector2.Distance(highlightPoint, corner));
+
+            return GenerateSprite(path, size, size, (x, y) =>
+            {
+                var point = new Vector2(x + 0.5f, y + 0.5f);
+                if (Vector2.Distance(point, center) > radius) return transparent;
+                float t = maxDist > 0f ? Vector2.Distance(point, highlightPoint) / maxDist : 0f;
+                return LerpStops(Mathf.Clamp01(t), (0f, highlightColor), (1f, baseColor));
+            });
         }
 
         public static Button CreateButton(string name, Transform parent, string label, Vector2 anchoredPosition, Vector2 size)
