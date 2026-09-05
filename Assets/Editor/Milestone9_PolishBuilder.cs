@@ -122,24 +122,61 @@ namespace RollAndEscape.EditorTools
             scaler.referenceResolution = new Vector2(1080, 1920);
             scaler.matchWidthOrHeight = 1f;
 
-            // Always-visible Pause button, top-right corner - not nested under the overlay root.
-            // Chrome only (button shape/color/font) - the maze/ball themselves are untouched,
-            // per explicit instruction not to change gameplay colors.
+            // Header row per the approved mockup: a small round button (left) - "II" Pause here
+            // rather than the mockup's instant-navigate-home chevron, since Pause (with
+            // Resume/Restart/Quit) was added specifically after real device testing showed
+            // leaving a level with no confirmation lost in-progress play - then the level
+            // title stack, then the live timer badge (right). Chrome only (button/text
+            // shape/color/font) - the maze/ball themselves are untouched, per explicit
+            // instruction not to change gameplay colors.
             var topSafeArea = UIBuilderHelpers.CreateSafeArea(canvasGO.transform);
-            var pauseButton = UIBuilderHelpers.CreateButton("PauseButton", topSafeArea, "II", new Vector2(-80, 0), new Vector2(100, 100));
-            UIBuilderHelpers.AnchorToTop(pauseButton.GetComponent<RectTransform>(), 1f, 100f);
+
+            var pauseButton = UIBuilderHelpers.CreateButton("PauseButton", topSafeArea, "II", Vector2.zero, new Vector2(72, 72));
+            var pauseButtonRect = pauseButton.GetComponent<RectTransform>();
+            pauseButtonRect.pivot = new Vector2(0f, 0.5f);
+            UIBuilderHelpers.AnchorToTop(pauseButtonRect, 0f, 76f);
+            pauseButtonRect.anchoredPosition = new Vector2(40f, pauseButtonRect.anchoredPosition.y);
             var pauseButtonImage = pauseButton.GetComponent<Image>();
             pauseButtonImage.sprite = UIBuilderHelpers.GenerateCircleSprite("Assets/Art/PauseButtonBg.png", 128, RollAndEscapePalette.White);
             pauseButtonImage.color = Color.white;
             pauseButton.GetComponentInChildren<Text>().color = RollAndEscapePalette.BackButtonText;
 
-            // Always-visible "Level N" indicator, top-left - per the spec's Game-scene HUD.
-            var levelText = UIBuilderHelpers.CreateText("LevelIndicator", topSafeArea, "Level -", new Vector2(100, 0), 40, UIBuilderHelpers.NunitoBlack);
-            UIBuilderHelpers.AnchorToTop(levelText.GetComponent<RectTransform>(), 0f, 100f);
-            levelText.color = RollAndEscapePalette.LevelEyebrow;
+            // "LEVEL N" eyebrow + "Roll to the exit" title, stacked, next to the pause button.
+            var levelEyebrow = UIBuilderHelpers.CreateText("LevelEyebrow", topSafeArea, "LEVEL -", Vector2.zero, 22, UIBuilderHelpers.NunitoBlack);
+            levelEyebrow.alignment = TextAnchor.MiddleLeft;
+            levelEyebrow.color = RollAndEscapePalette.LevelEyebrow;
+            var levelEyebrowRect = levelEyebrow.GetComponent<RectTransform>();
+            levelEyebrowRect.pivot = new Vector2(0f, 0.5f);
+            UIBuilderHelpers.AnchorToTop(levelEyebrowRect, 0f, 60f);
+            levelEyebrowRect.anchoredPosition = new Vector2(130f, levelEyebrowRect.anchoredPosition.y);
+
+            var levelText = UIBuilderHelpers.CreateText("LevelTitle", topSafeArea, "Roll to the exit", Vector2.zero, 34, UIBuilderHelpers.NunitoBlack);
+            levelText.alignment = TextAnchor.MiddleLeft;
+            levelText.color = RollAndEscapePalette.LevelTitle;
+            var levelTextRect = levelText.GetComponent<RectTransform>();
+            levelTextRect.pivot = new Vector2(0f, 0.5f);
+            UIBuilderHelpers.AnchorToTop(levelTextRect, 0f, 96f);
+            levelTextRect.anchoredPosition = new Vector2(130f, levelTextRect.anchoredPosition.y);
+
+            // Live m:ss timer badge, top-right - starts the moment the level loads, ticks
+            // ~4x/second, freezes the instant the ball reaches the exit (see LevelHudUI).
+            var timerBadgeGO = new GameObject("TimerBadge", typeof(RectTransform), typeof(Image));
+            timerBadgeGO.transform.SetParent(topSafeArea, false);
+            var timerBadgeRect = timerBadgeGO.GetComponent<RectTransform>();
+            timerBadgeRect.sizeDelta = new Vector2(150, 72);
+            UIBuilderHelpers.AnchorToTop(timerBadgeRect, 1f, 76f);
+            timerBadgeRect.anchoredPosition += new Vector2(-115f, 0f);
+            timerBadgeGO.GetComponent<Image>().sprite = UIBuilderHelpers.GenerateRoundedRectSprite("Assets/Art/TimerBadgeBg.png", 128, 36f, RollAndEscapePalette.White);
+            var timerText = UIBuilderHelpers.CreateText("TimerText", timerBadgeGO.transform, "0:00", Vector2.zero, 32, UIBuilderHelpers.NunitoBlack);
+            timerText.color = RollAndEscapePalette.CardTitleText;
+
+            var exitTriggerGOForHud = GameObject.Find("ExitTrigger");
+
             var hud = canvasGO.AddComponent<LevelHudUI>();
             var hudSo = new SerializedObject(hud);
-            hudSo.FindProperty("levelText").objectReferenceValue = levelText;
+            hudSo.FindProperty("levelText").objectReferenceValue = levelEyebrow;
+            hudSo.FindProperty("timerText").objectReferenceValue = timerText;
+            hudSo.FindProperty("exitTrigger").objectReferenceValue = exitTriggerGOForHud != null ? exitTriggerGOForHud.GetComponent<Gameplay.LevelExitTrigger>() : null;
             hudSo.ApplyModifiedPropertiesWithoutUndo();
 
             var overlayRoot = new GameObject("Overlay", typeof(RectTransform), typeof(Image));

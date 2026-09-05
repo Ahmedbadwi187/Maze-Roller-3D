@@ -79,8 +79,19 @@ namespace RollAndEscape.EditorTools
             eyebrow.alignment = TextAnchor.MiddleLeft;
             var eyebrowRect = eyebrow.GetComponent<RectTransform>();
             eyebrowRect.pivot = new Vector2(0f, 0.5f); // left-pivot so anchoredPosition.x is a left-edge inset, not a center offset - a center-pivot box here would hang half its width off the left edge of the screen
-            UIBuilderHelpers.AnchorToTop(eyebrowRect, 0f, 70f);
+            UIBuilderHelpers.AnchorToTop(eyebrowRect, 0f, 58f);
             eyebrowRect.anchoredPosition = new Vector2(40f, eyebrowRect.anchoredPosition.y);
+
+            // "Player One" under the eyebrow, per the mockup - no player-profile system exists
+            // (single-device save, no accounts), so this is a static label rather than backed
+            // by real data, same spirit as the splash screen's static "100 MAZES TO SOLVE".
+            var playerName = UIBuilderHelpers.CreateText("PlayerName", topSafeArea, "Player One", Vector2.zero, 40, UIBuilderHelpers.NunitoBlack);
+            playerName.color = RollAndEscapePalette.PlayerNameText;
+            playerName.alignment = TextAnchor.MiddleLeft;
+            var playerNameRect = playerName.GetComponent<RectTransform>();
+            playerNameRect.pivot = new Vector2(0f, 0.5f);
+            UIBuilderHelpers.AnchorToTop(playerNameRect, 0f, 108f);
+            playerNameRect.anchoredPosition = new Vector2(40f, playerNameRect.anchoredPosition.y);
 
             // Small circular gear-style icon button (was a wide "Settings" text pill) - per the
             // design update, matching the small round icon-button language used elsewhere
@@ -88,7 +99,7 @@ namespace RollAndEscape.EditorTools
             // same reasoning as the Level Complete checkmark: the bundled font may not carry a
             // gear character, so a text glyph risks a missing-tofu box.
             var settingsButton = UIBuilderHelpers.CreateButton("SettingsButton", topSafeArea, "", Vector2.zero, new Vector2(72, 72));
-            UIBuilderHelpers.AnchorToTop(settingsButton.GetComponent<RectTransform>(), 1f, 64f);
+            UIBuilderHelpers.AnchorToTop(settingsButton.GetComponent<RectTransform>(), 1f, 82f); // vertically centered against the two-line eyebrow+"Player One" header block
             settingsButton.GetComponent<RectTransform>().anchoredPosition += new Vector2(-56f, 0f);
             var settingsButtonImage = settingsButton.GetComponent<Image>();
             settingsButtonImage.sprite = UIBuilderHelpers.GenerateCircleSprite("Assets/Art/SettingsButtonBg.png", 128, RollAndEscapePalette.White);
@@ -120,7 +131,7 @@ namespace RollAndEscape.EditorTools
             starsChipGO.transform.SetParent(topSafeArea, false);
             var starsChipRect = starsChipGO.GetComponent<RectTransform>();
             starsChipRect.sizeDelta = new Vector2(150, 64);
-            UIBuilderHelpers.AnchorToTop(starsChipRect, 1f, 68f);
+            UIBuilderHelpers.AnchorToTop(starsChipRect, 1f, 82f); // vertically centered against the two-line eyebrow+"Player One" header block
             starsChipRect.anchoredPosition += new Vector2(-190f, 0f);
             starsChipGO.GetComponent<Image>().sprite = UIBuilderHelpers.GenerateRoundedRectSprite("Assets/Art/StarsChipBg.png", 128, 64f, RollAndEscapePalette.White);
 
@@ -189,13 +200,24 @@ namespace RollAndEscape.EditorTools
 
         private static (GameObject card, Text levelText, Text subtitleText, Button continueButton) CreateContinueCard(Transform parent)
         {
-            var cardGO = new GameObject("ContinueCard", typeof(RectTransform), typeof(Image));
+            var cardGO = new GameObject("ContinueCard", typeof(RectTransform), typeof(Image), typeof(RectMask2D));
             cardGO.transform.SetParent(parent, false);
             var cardRect = cardGO.GetComponent<RectTransform>();
             cardRect.sizeDelta = new Vector2(1000, 260);
-            UIBuilderHelpers.AnchorToTop(cardRect, 0.5f, 270f); // clears the eyebrow row above it (inset 70, ~40px tall) - a smaller inset here made the card's top edge overlap/obscure that text
+            UIBuilderHelpers.AnchorToTop(cardRect, 0.5f, 290f); // clears the two-line eyebrow+"Player One" header above it
             var cardImage = cardGO.GetComponent<Image>();
             cardImage.sprite = UIBuilderHelpers.GenerateRoundedRectSprite(CardSpritePath, 256, 44f, RollAndEscapePalette.White);
+
+            // Decorative soft-green circle peeking from the top-right corner, per the mockup -
+            // RectMask2D on the card clips it to the card's bounds (a rectangular clip, not
+            // perfectly following the rounded corners, but close enough at this scale).
+            var blobGO = new GameObject("DecorativeBlob", typeof(RectTransform), typeof(Image));
+            blobGO.transform.SetParent(cardGO.transform, false);
+            var blobRect = blobGO.GetComponent<RectTransform>();
+            blobRect.anchorMin = blobRect.anchorMax = new Vector2(1f, 1f);
+            blobRect.anchoredPosition = new Vector2(30, 30);
+            blobRect.sizeDelta = new Vector2(240, 240);
+            blobGO.GetComponent<Image>().sprite = UIBuilderHelpers.GenerateCircleSprite("Assets/Art/ContinueCardBlob.png", 128, new Color32(0xCC, 0xE3, 0xCE, 0x59));
 
             // Card is 1000 wide (half-width 500); left-pivot every left-aligned label here and
             // set anchoredPosition.x to a left-edge inset directly - a center-pivot box (the
@@ -319,15 +341,16 @@ namespace RollAndEscape.EditorTools
             lockShackle.GetComponent<Image>().type = Image.Type.Sliced;
             lockGO.SetActive(false);
 
-            var starDots = new Image[3];
-            for (int i = 0; i < 3; i++)
+            const int starCount = 5; // 5-star rating scale, per StarCalculator
+            var starDots = new Image[starCount];
+            for (int i = 0; i < starCount; i++)
             {
                 var dotGO = new GameObject($"Star{i}", typeof(RectTransform), typeof(Image));
                 dotGO.transform.SetParent(go.transform, false);
                 var dotRect = dotGO.GetComponent<RectTransform>();
                 dotRect.anchorMin = dotRect.anchorMax = new Vector2(0.5f, 0.5f);
-                dotRect.sizeDelta = new Vector2(16, 16);
-                dotRect.anchoredPosition = new Vector2((i - 1) * 16f, -(NodeDiameter / 2f + 12f));
+                dotRect.sizeDelta = new Vector2(13, 13);
+                dotRect.anchoredPosition = new Vector2((i - (starCount - 1) / 2f) * 13f, -(NodeDiameter / 2f + 12f));
                 var dotImage = dotGO.GetComponent<Image>();
                 dotImage.sprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/Knob.psd");
                 dotImage.color = RollAndEscapePalette.StarGoldHi;
@@ -343,8 +366,8 @@ namespace RollAndEscape.EditorTools
             so.FindProperty("currentRing").objectReferenceValue = ringGO;
             so.FindProperty("lockIcon").objectReferenceValue = lockGO;
             var starDotsProp = so.FindProperty("starDots");
-            starDotsProp.arraySize = 3;
-            for (int i = 0; i < 3; i++) starDotsProp.GetArrayElementAtIndex(i).objectReferenceValue = starDots[i];
+            starDotsProp.arraySize = starDots.Length;
+            for (int i = 0; i < starDots.Length; i++) starDotsProp.GetArrayElementAtIndex(i).objectReferenceValue = starDots[i];
             so.FindProperty("doneSprite").objectReferenceValue = doneSprite;
             so.FindProperty("currentSprite").objectReferenceValue = currentSprite;
             so.FindProperty("lockedSprite").objectReferenceValue = lockedSprite;

@@ -138,15 +138,16 @@ namespace RollAndEscape.EditorTools
             var headingText = UIBuilderHelpers.CreateText("HeadingText", panelGO.transform, "Maze solved!", new Vector2(0, 130), 46, UIBuilderHelpers.NunitoBlack);
             headingText.color = RollAndEscapePalette.White;
 
-            var starDots = new Image[3];
-            for (int i = 0; i < 3; i++)
+            const int starCount = 5; // 5-star rating scale, per StarCalculator
+            var starDots = new Image[starCount];
+            for (int i = 0; i < starCount; i++)
             {
                 var dotGO = new GameObject($"Star{i}", typeof(RectTransform), typeof(Image));
                 dotGO.transform.SetParent(panelGO.transform, false);
                 var dotRect = dotGO.GetComponent<RectTransform>();
                 dotRect.anchorMin = dotRect.anchorMax = new Vector2(0.5f, 0.5f);
-                dotRect.sizeDelta = new Vector2(46, 46);
-                dotRect.anchoredPosition = new Vector2((i - 1) * 56f, 50);
+                dotRect.sizeDelta = new Vector2(38, 38);
+                dotRect.anchoredPosition = new Vector2((i - (starCount - 1) / 2f) * 46f, 50);
                 var dotImage = dotGO.GetComponent<Image>();
                 dotImage.sprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/Knob.psd");
                 dotImage.color = RollAndEscapePalette.StarDim;
@@ -176,8 +177,8 @@ namespace RollAndEscape.EditorTools
             so.FindProperty("headingText").objectReferenceValue = headingText;
             so.FindProperty("timeText").objectReferenceValue = timeText;
             var starDotsProp = so.FindProperty("starDots");
-            starDotsProp.arraySize = 3;
-            for (int i = 0; i < 3; i++) starDotsProp.GetArrayElementAtIndex(i).objectReferenceValue = starDots[i];
+            starDotsProp.arraySize = starDots.Length;
+            for (int i = 0; i < starDots.Length; i++) starDotsProp.GetArrayElementAtIndex(i).objectReferenceValue = starDots[i];
             so.FindProperty("replayButton").objectReferenceValue = replayButton;
             so.FindProperty("nextLevelButton").objectReferenceValue = nextButton;
             so.ApplyModifiedPropertiesWithoutUndo();
