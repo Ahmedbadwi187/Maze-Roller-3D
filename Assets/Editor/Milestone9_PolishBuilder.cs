@@ -192,6 +192,9 @@ namespace RollAndEscape.EditorTools
             return prefab;
         }
 
+        private const string SplashBackgroundPath = "Assets/Art/SplashBackground.png";
+        private const string SplashIconBackgroundPath = "Assets/Art/SplashIconBackground.png";
+
         private static void BuildSplashScene()
         {
             var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
@@ -206,33 +209,57 @@ namespace RollAndEscape.EditorTools
             scaler.referenceResolution = new Vector2(1080, 1920);
             scaler.matchWidthOrHeight = 1f;
 
-            // Bright, cheerful background - a kid-friendly splash rather than a flat gray one.
+            // Deep purple radial gradient, brightest behind the icon - per the approved splash
+            // mockup (screenshot from the user), replacing the old flat turquoise background.
             var background = new GameObject("Background", typeof(RectTransform), typeof(Image));
             background.transform.SetParent(canvasGO.transform, false);
             UIBuilderHelpers.StretchToFill(background.GetComponent<RectTransform>());
-            background.GetComponent<Image>().color = new Color32(0x4E, 0xCD, 0xC4, 0xFF); // turquoise, from the wall palette
+            var backgroundImage = background.GetComponent<Image>();
+            backgroundImage.sprite = GetOrCreateGradientSprite();
+            backgroundImage.color = Color.white;
+            backgroundImage.type = Image.Type.Simple;
+            backgroundImage.preserveAspect = false;
 
             var logoGO = new GameObject("Logo", typeof(RectTransform), typeof(CanvasGroup));
             logoGO.transform.SetParent(canvasGO.transform, false);
             var logoRect = logoGO.GetComponent<RectTransform>();
             logoRect.anchorMin = logoRect.anchorMax = new Vector2(0.5f, 0.5f);
-            logoRect.sizeDelta = new Vector2(800, 500);
+            logoRect.sizeDelta = new Vector2(800, 700);
             var logoGroup = logoGO.GetComponent<CanvasGroup>();
 
-            // A little coral "ball" above the title - reinforces the game's own brand color.
+            // Green rounded-square icon "chip", per the mockup - a container the ball sits in
+            // rather than the ball floating bare on the background like the old design.
+            var iconBgGO = new GameObject("IconBackground", typeof(RectTransform), typeof(Image));
+            iconBgGO.transform.SetParent(logoGO.transform, false);
+            var iconBgRect = iconBgGO.GetComponent<RectTransform>();
+            iconBgRect.anchorMin = iconBgRect.anchorMax = new Vector2(0.5f, 0.5f);
+            iconBgRect.anchoredPosition = new Vector2(0, 150);
+            iconBgRect.sizeDelta = new Vector2(320, 320);
+            var iconBgImage = iconBgGO.GetComponent<Image>();
+            iconBgImage.sprite = GetOrCreateRoundedRectSprite();
+            iconBgImage.color = Color.white; // color baked into the generated sprite itself
+
+            // The ball, now gold/amber (was coral) and sitting inside the green chip, per the mockup.
             var ballIconGO = new GameObject("BallIcon", typeof(RectTransform), typeof(Image));
-            ballIconGO.transform.SetParent(logoGO.transform, false);
+            ballIconGO.transform.SetParent(iconBgGO.transform, false);
             var ballIconRect = ballIconGO.GetComponent<RectTransform>();
             ballIconRect.anchorMin = ballIconRect.anchorMax = new Vector2(0.5f, 0.5f);
-            ballIconRect.anchoredPosition = new Vector2(0, 130);
-            ballIconRect.sizeDelta = new Vector2(140, 140);
+            ballIconRect.anchoredPosition = Vector2.zero;
+            ballIconRect.sizeDelta = new Vector2(130, 130);
             var ballIconImage = ballIconGO.GetComponent<Image>();
             ballIconImage.sprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/Knob.psd");
-            ballIconImage.color = new Color32(0xE0, 0x7A, 0x5F, 0xFF); // coral, matching the in-game ball
+            ballIconImage.color = new Color32(0xF0, 0xAE, 0x4A, 0xFF); // gold/amber, per the mockup
 
-            var title = UIBuilderHelpers.CreateText("Title", logoGO.transform, "Roll & Escape", new Vector2(0, -60), 72);
+            var title = UIBuilderHelpers.CreateText("Title", logoGO.transform, "Roll & Escape", new Vector2(0, -100), 76);
             title.color = Color.white;
             title.fontStyle = FontStyle.Bold;
+
+            var subtitle = UIBuilderHelpers.CreateText("Subtitle", logoGO.transform, "100 MAZES TO SOLVE", new Vector2(0, -190), 30);
+            subtitle.color = new Color(1f, 1f, 1f, 0.75f);
+            subtitle.fontStyle = FontStyle.Bold;
+
+            var tapToStart = UIBuilderHelpers.CreateText("TapToStart", logoGO.transform, "Tap to start", new Vector2(0, -300), 30);
+            tapToStart.color = new Color(1f, 1f, 1f, 0.6f);
 
             var splash = canvasGO.AddComponent<SplashAnimator>();
             var so = new SerializedObject(splash);
@@ -252,6 +279,77 @@ namespace RollAndEscape.EditorTools
                 new EditorBuildSettingsScene(GameScenePath, true),
                 new EditorBuildSettingsScene(SettingsScenePath, true)
             };
+        }
+
+        /// <summary>Radial-gradient purple background for the splash screen, generated as a
+        /// pixel texture (no shader needed) rather than a flat color - brightest behind the
+        /// icon, darkening toward the top/bottom edges, matching the approved mockup.</summary>
+        private static Sprite GetOrCreateGradientSprite()
+        {
+            const int width = 270, height = 480;
+            var centerColor = new Color(0x9A / 255f, 0x6C / 255f, 0xAE / 255f);
+            var edgeColor = new Color(0x40 / 255f, 0x2A / 255f, 0x55 / 255f);
+            var centerNormalized = new Vector2(0.5f, 0.578f); // matches the icon's position, texture-space (Y from bottom)
+            float maxRadius = height * 0.75f;
+
+            return GenerateSprite(SplashBackgroundPath, width, height, (x, y) =>
+            {
+                var point = new Vector2(x, y);
+                var center = new Vector2(width * centerNormalized.x, height * centerNormalized.y);
+                float t = Mathf.Clamp01(Vector2.Distance(point, center) / maxRadius);
+                return Color32.Lerp(centerColor, edgeColor, t);
+            });
+        }
+
+        /// <summary>Green rounded-square "chip" the ball icon sits inside, generated as a pixel
+        /// texture using a standard rounded-rect signed-distance test (clamp to the inner rect,
+        /// check distance to the corner radius) rather than needing an authored sprite asset.</summary>
+        private static Sprite GetOrCreateRoundedRectSprite()
+        {
+            const int size = 256;
+            const float cornerRadius = 64f;
+            var fillColor = new Color32(0x6E, 0x9C, 0x6A, 0xFF);
+            var transparent = new Color32(0, 0, 0, 0);
+
+            return GenerateSprite(SplashIconBackgroundPath, size, size, (x, y) =>
+            {
+                float px = x + 0.5f, py = y + 0.5f;
+                float cx = Mathf.Clamp(px, cornerRadius, size - cornerRadius);
+                float cy = Mathf.Clamp(py, cornerRadius, size - cornerRadius);
+                float dist = Vector2.Distance(new Vector2(px, py), new Vector2(cx, cy));
+                return dist <= cornerRadius ? fillColor : transparent;
+            });
+        }
+
+        /// <summary>Self-healing like the other generated assets here: always re-writes the
+        /// pixels (cheap, deterministic) rather than a load-if-exists early-return, so a tuning
+        /// change (a color, a radius) reaches the asset even after it's been generated once.</summary>
+        private static Sprite GenerateSprite(string path, int width, int height, System.Func<int, int, Color32> pixelAt)
+        {
+            var texture = new Texture2D(width, height, TextureFormat.RGBA32, false);
+            var pixels = new Color32[width * height];
+            for (int y = 0; y < height; y++)
+                for (int x = 0; x < width; x++)
+                    pixels[y * width + x] = pixelAt(x, y);
+            texture.SetPixels32(pixels);
+            texture.Apply();
+
+            Directory.CreateDirectory(Path.GetDirectoryName(path));
+            File.WriteAllBytes(path, texture.EncodeToPNG());
+            Object.DestroyImmediate(texture);
+            AssetDatabase.ImportAsset(path);
+
+            if (AssetImporter.GetAtPath(path) is TextureImporter importer)
+            {
+                importer.textureType = TextureImporterType.Sprite;
+                importer.spriteImportMode = SpriteImportMode.Single;
+                importer.mipmapEnabled = false;
+                importer.filterMode = FilterMode.Bilinear;
+                importer.alphaIsTransparency = true;
+                importer.SaveAndReimport();
+            }
+
+            return AssetDatabase.LoadAssetAtPath<Sprite>(path);
         }
 
         /// <summary>

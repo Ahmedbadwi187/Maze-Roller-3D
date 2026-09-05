@@ -223,7 +223,24 @@ namespace RollAndEscape.EditorTools
         private static GameObject GetOrCreateJoystickPrefab()
         {
             var existing = AssetDatabase.LoadAssetAtPath<GameObject>(JoystickPrefabPath);
-            if (existing != null) return existing;
+            if (existing != null)
+            {
+                // Self-healing: re-stamp the background's anchor/position every run (not just at
+                // first creation) so a tuning change here - like moving the joystick from
+                // bottom-left to bottom-center - reaches an already-cached prefab asset instead
+                // of silently being skipped by the early-return above.
+                var existingBackground = existing.transform.Find("JoystickBackground") as RectTransform;
+                if (existingBackground != null)
+                {
+                    existingBackground.anchorMin = new Vector2(0.5f, 0f);
+                    existingBackground.anchorMax = new Vector2(0.5f, 0f);
+                    existingBackground.pivot = new Vector2(0.5f, 0.5f);
+                    existingBackground.anchoredPosition = new Vector2(0f, 260f);
+                    EditorUtility.SetDirty(existing);
+                    PrefabUtility.SavePrefabAsset(existing);
+                }
+                return existing;
+            }
 
             var canvasGO = new GameObject("JoystickCanvas", typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
             var canvas = canvasGO.GetComponent<Canvas>();
@@ -236,7 +253,7 @@ namespace RollAndEscape.EditorTools
             var knobSprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/Knob.psd");
 
             var background = CreateUIImage("JoystickBackground", canvasGO.transform, knobSprite,
-                new Color(1f, 1f, 1f, 0.25f), new Vector2(220, 220), new Vector2(0f, 0f), new Vector2(220, 260));
+                new Color(1f, 1f, 1f, 0.25f), new Vector2(220, 220), new Vector2(0f, 0f), new Vector2(0f, 260));
             var handle = CreateUIImage("JoystickHandle", background.transform, knobSprite,
                 new Color(1f, 1f, 1f, 0.6f), new Vector2(100, 100), Vector2.zero, Vector2.zero);
 
@@ -263,9 +280,11 @@ namespace RollAndEscape.EditorTools
 
             if (parent.GetComponent<Canvas>() != null)
             {
-                // Anchor the joystick background to the bottom-left of the screen with a margin.
-                rect.anchorMin = Vector2.zero;
-                rect.anchorMax = Vector2.zero;
+                // Anchor the joystick background to bottom-CENTER of the screen (not bottom-left)
+                // per user feedback - centered horizontally is easier to reach with either thumb
+                // and reads as "the movement control", not tucked in a corner.
+                rect.anchorMin = new Vector2(0.5f, 0f);
+                rect.anchorMax = new Vector2(0.5f, 0f);
                 rect.pivot = new Vector2(0.5f, 0.5f);
                 rect.anchoredPosition = bottomLeftOffset;
             }

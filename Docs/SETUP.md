@@ -1,4 +1,4 @@
-# Maze Roller 3D — Full Setup & How-To Guide
+# Roll & Escape — Full Setup & How-To Guide
 
 This document is the complete, step-by-step guide to getting this repository running in
 Unity, verifying what's built so far, and understanding how the project is organized so you
@@ -41,7 +41,7 @@ you just want to confirm milestone 1's result in-editor.
 ## 2. Open the project
 
 1. Unity Hub → **Projects** → **Add** → **Add project from disk** → select the
-   `MazeRoller3D/` folder (the one containing `Assets/`, `Packages/`, `ProjectSettings/`).
+   `RollAndEscape/` folder (the one containing `Assets/`, `Packages/`, `ProjectSettings/`).
 2. Click the project to open it. **First open will take a few minutes** — Unity needs to:
    - Import every package listed in `Packages/manifest.json` (URP, Input System, Cinemachine,
      Newtonsoft Json, Unity IAP, TextMeshPro, Test Framework)
@@ -66,14 +66,14 @@ once, in-editor:
 
 1. **Create the pipeline asset**: in the Project window, right-click inside
    `Assets/Settings/` → **Create → Rendering → URP Asset (with Universal Renderer)**. Name it
-   `MazeRoller3D_URP`.
-2. **Assign it globally**: **Edit → Project Settings → Graphics** → drag `MazeRoller3D_URP`
+   `RollAndEscape_URP`.
+2. **Assign it globally**: **Edit → Project Settings → Graphics** → drag `RollAndEscape_URP`
    into the **Scriptable Render Pipeline Settings** slot.
 3. **Assign it per quality level**: **Edit → Project Settings → Quality** → for each quality
    level your target devices use (at minimum the default/Medium tier), set **Render Pipeline
-   Asset** to `MazeRoller3D_URP` too — Graphics Settings alone doesn't cover every level.
+   Asset** to `RollAndEscape_URP` too — Graphics Settings alone doesn't cover every level.
 4. Mobile-friendly defaults worth setting on the URP asset now (Inspector on
-   `MazeRoller3D_URP`): disable HDR, set MSAA to 2x or off, keep Shadow Distance modest
+   `RollAndEscape_URP`): disable HDR, set MSAA to 2x or off, keep Shadow Distance modest
    (~30-50) — we'll tune this for real once milestone 2's lighting is in place.
 
 ---
@@ -82,7 +82,7 @@ once, in-editor:
 
 1. **Window → General → Test Runner**.
 2. Click the **EditMode** tab.
-3. You should see `MazeRoller3D.MazeGeneration.Tests` → `RecursiveBacktrackerMazeGeneratorTests`
+3. You should see `RollAndEscape.MazeGeneration.Tests` → `RecursiveBacktrackerMazeGeneratorTests`
    with 24 test cases (dimension checks, connectivity, perfect-maze/single-path proof,
    solution-path BFS, determinism by seed, custom entrance/exit, wall-symmetry, and
    invalid-input guards).
@@ -98,7 +98,7 @@ Because no Unity Editor was available when this code was written, correctness wa
 with a **throwaway, gitignored `dotnet test` project** that compiles the exact same source
 files (`Assets/Scripts/MazeGeneration/*.cs` and
 `Assets/Tests/EditMode/MazeGeneration/*.cs`) against real NUnit, outside of Unity entirely.
-This is not part of the shipped project (it lives outside `MazeRoller3D/` entirely, in a
+This is not part of the shipped project (it lives outside `RollAndEscape/` entirely, in a
 scratch folder) — it's included here purely so you know *why* milestone 1 is trusted as done
 before you've even opened Unity:
 
@@ -144,7 +144,7 @@ decisions, what's verified and how). This file stays focused on setup/how-to ste
 ## 8. Project structure reference
 
 ```
-MazeRoller3D/
+RollAndEscape/
   Assets/
     Scripts/
       MazeGeneration/   pure C#, no UnityEngine dependency — RecursiveBacktrackerMazeGenerator,
@@ -177,7 +177,7 @@ Editor menu command rather than a hand-authored scene, so nothing is committed a
 the scene comes to exist.
 
 1. With the project open, in the Unity menu bar click
-   **Maze Roller 3D → Milestone 2 - Build Maze Preview Scene**.
+   **Roll & Escape → Milestone 2 - Build Maze Preview Scene**.
 2. This will, in order:
    - Create four materials under `Assets/Materials/` (`Floor`, `Wall`, `EntranceMarker`,
      `ExitMarker`) using the clean-minimalist palette (soft neutral floor, soft blue walls,
@@ -209,7 +209,7 @@ the scene comes to exist.
 
 ## 10. Milestone 3: build & confirm the ball test scene
 
-1. Menu bar → **Maze Roller 3D → Milestone 3 - Build Ball Test Scene**. This rebuilds a fresh
+1. Menu bar → **Roll & Escape → Milestone 3 - Build Ball Test Scene**. This rebuilds a fresh
    Milestone 2 maze first, then adds:
    - A coral-colored ball (Rigidbody + SphereCollider + a low-friction `BallPhysics`
      PhysicsMaterial) at the maze entrance, just above the floor.
@@ -227,7 +227,7 @@ the scene comes to exist.
      the ball should roll in the dragged direction, same as tilt would.
    - The ball should roll and collide solidly against walls (no falling through floors, no
      clipping through walls) - the floor/wall colliders are the same ones from milestone 2.
-3. **Already verified without Unity's UI**: a **Maze Roller 3D → Milestone 3 - Simulate
+3. **Already verified without Unity's UI**: a **Roll & Escape → Milestone 3 - Simulate
    Physics Sanity Check** menu command manually steps the physics simulation (no Play mode
    needed) and confirms the ball settles to rest at exactly its own radius above the floor
    (not clipped through it) and moves under an applied force the same way tilt/joystick input
@@ -238,7 +238,7 @@ the scene comes to exist.
 
 ## 11. Milestone 4: build & confirm win detection
 
-1. Menu bar → **Maze Roller 3D → Milestone 4 - Build Win Condition Test Scene**. This rebuilds
+1. Menu bar → **Roll & Escape → Milestone 4 - Build Win Condition Test Scene**. This rebuilds
    a fresh Milestone 3 scene, then adds an invisible trigger volume at the maze exit
    (`Assets/Prefabs/ExitTrigger.prefab`) and a Level Complete overlay (dark scrim, time text,
    Replay + Next Level buttons - `Assets/Prefabs/UI/LevelCompleteUI.prefab`), wired together by
@@ -261,7 +261,7 @@ the scene comes to exist.
 These milestones' generator scripts all chain from one another (each rebuilds on top of the
 previous), so a single menu command gets you the fully current state of everything:
 
-1. Menu bar → **Maze Roller 3D → Milestone 9 - Build Polish**. This rebuilds Settings (which
+1. Menu bar → **Roll & Escape → Milestone 9 - Build Polish**. This rebuilds Settings (which
    rebuilds Level Select, which rebuilds Game) and then layers on the milestone 9 polish -
    so one command produces all four scenes (`Splash`, `LevelSelect`, `Game`, `Settings`) fully
    wired and current. Use the more specific `Milestone 5/7` commands instead if you only want
