@@ -37,6 +37,16 @@ namespace RollAndEscape.EditorTools
             BuildSplashScene();
             GenerateAppIcon();
 
+            // Also builds Level Summary and re-registers ALL five scenes in Build Settings -
+            // Milestone10_LevelSummaryBuilder.BuildLevelSummaryScene() ends by overwriting
+            // EditorBuildSettings.scenes with its own full list. Without this call here, running
+            // "Milestone 9 - Build Polish" alone (the menu item people habitually reach for)
+            // would leave LevelSummary out of Build Settings even though the Level Select scene
+            // still links to it - exactly the "Scene 'LevelSummary' couldn't be loaded" error a
+            // real run hit. Calling the scene-builder method directly (not Milestone10.Build(),
+            // which would call back into this method) avoids recursion.
+            Milestone10_LevelSummaryBuilder.BuildLevelSummaryScene();
+
             Debug.Log("Milestone 9: Cinemachine camera, level-complete particles/SFX, app icon, and Splash scene all built.");
         }
 
@@ -106,15 +116,18 @@ namespace RollAndEscape.EditorTools
             EditorSceneManager.SaveScene(EditorSceneManager.GetActiveScene());
         }
 
-        /// <summary>Adds a visible Pause button plus a full pause overlay (Resume/Restart/Quit
-        /// to Menu) - real device testing showed there was no way to back out of a level once
-        /// inside it (no pause menu, and the Android hardware Back button did nothing useful).</summary>
+        /// <summary>Adds the Game scene's header HUD: a back button that returns straight to
+        /// Level Select, the level title, and the live timer badge. A pause submenu
+        /// (Resume/Restart/Quit) briefly existed here after real device testing showed there
+        /// was no way to back out of a level - removed per explicit user request in favor of a
+        /// direct back-to-home button; restarting a level is still one tap away from Level
+        /// Select (tapping the same level node again rebuilds it fresh).</summary>
         private static void AddPauseMenuToGameScene()
         {
             EditorSceneManager.OpenScene(GameScenePath, OpenSceneMode.Single);
             Milestone3_BallSceneBuilder.EnsureEventSystem();
 
-            var canvasGO = new GameObject("PauseCanvas", typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
+            var canvasGO = new GameObject("GameHudCanvas", typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
             var canvas = canvasGO.GetComponent<Canvas>();
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;
             var scaler = canvasGO.GetComponent<CanvasScaler>();
@@ -122,29 +135,31 @@ namespace RollAndEscape.EditorTools
             scaler.referenceResolution = new Vector2(1080, 1920);
             scaler.matchWidthOrHeight = 1f;
 
-            // Header row per the approved mockup: a small round button (left) - "II" Pause here
-            // rather than the mockup's instant-navigate-home chevron, since Pause (with
-            // Resume/Restart/Quit) was added specifically after real device testing showed
-            // leaving a level with no confirmation lost in-progress play - then the level
-            // title stack, then the live timer badge (right). Chrome only (button/text
-            // shape/color/font) - the maze/ball themselves are untouched, per explicit
-            // instruction not to change gameplay colors.
+            // Header row per the approved mockup: a round back button (left) that returns
+            // straight to the home/level-select page - no pause submenu (explicitly removed
+            // per user request: "when click back button must return home page not open sub
+            // menu remove it") - then the level title stack, then the live timer badge (right).
+            // Chrome only (button/text shape/color/font) - the maze/ball themselves are
+            // untouched, per explicit instruction not to change gameplay colors.
             var topSafeArea = UIBuilderHelpers.CreateSafeArea(canvasGO.transform);
 
-            // Icon matches the same round back-chevron button used on Settings/Level Summary
-            // (visual consistency) - function stays Pause (opens Resume/Restart/Quit), not an
-            // instant back-navigation, per the reasoning above.
-            var pauseButton = UIBuilderHelpers.CreateButton("PauseButton", topSafeArea, "‹", Vector2.zero, new Vector2(72, 72));
-            var pauseButtonRect = pauseButton.GetComponent<RectTransform>();
-            pauseButtonRect.pivot = new Vector2(0f, 0.5f);
-            UIBuilderHelpers.AnchorToTop(pauseButtonRect, 0f, 76f);
-            pauseButtonRect.anchoredPosition = new Vector2(40f, pauseButtonRect.anchoredPosition.y);
-            var pauseButtonImage = pauseButton.GetComponent<Image>();
-            pauseButtonImage.sprite = UIBuilderHelpers.GenerateCircleSprite("Assets/Art/PauseButtonBg.png", 128, RollAndEscapePalette.White);
-            pauseButtonImage.color = Color.white;
-            var pauseButtonLabel = pauseButton.GetComponentInChildren<Text>();
-            pauseButtonLabel.fontSize = 40;
-            pauseButtonLabel.color = RollAndEscapePalette.BackButtonText;
+            var backButton = UIBuilderHelpers.CreateButton("BackButton", topSafeArea, "‹", Vector2.zero, new Vector2(72, 72));
+            var backButtonRect = backButton.GetComponent<RectTransform>();
+            backButtonRect.pivot = new Vector2(0f, 0.5f);
+            UIBuilderHelpers.AnchorToTop(backButtonRect, 0f, 76f);
+            backButtonRect.anchoredPosition = new Vector2(40f, backButtonRect.anchoredPosition.y);
+            var backButtonImage = backButton.GetComponent<Image>();
+            backButtonImage.sprite = UIBuilderHelpers.GenerateCircleSprite("Assets/Art/PauseButtonBg.png", 128, RollAndEscapePalette.White);
+            backButtonImage.color = Color.white;
+            var backButtonLabel = backButton.GetComponentInChildren<Text>();
+            backButtonLabel.fontSize = 40;
+            backButtonLabel.color = RollAndEscapePalette.BackButtonText;
+            // A runtime LoadSceneOnClick component, not a raw AddListener(lambda) here - see
+            // its doc comment for why the latter silently never fires once the scene reloads.
+            var backLoader = backButton.gameObject.AddComponent<LoadSceneOnClick>();
+            var backLoaderSo = new SerializedObject(backLoader);
+            backLoaderSo.FindProperty("sceneName").stringValue = "LevelSelect";
+            backLoaderSo.ApplyModifiedPropertiesWithoutUndo();
 
             // "LEVEL N" eyebrow + "Roll to the exit" title, stacked, next to the pause button.
             var levelEyebrow = UIBuilderHelpers.CreateText("LevelEyebrow", topSafeArea, "LEVEL -", Vector2.zero, 22, UIBuilderHelpers.NunitoBlack);
@@ -172,6 +187,7 @@ namespace RollAndEscape.EditorTools
             UIBuilderHelpers.AnchorToTop(timerBadgeRect, 1f, 76f);
             timerBadgeRect.anchoredPosition += new Vector2(-115f, 0f);
             timerBadgeGO.GetComponent<Image>().sprite = UIBuilderHelpers.GenerateRoundedRectSprite("Assets/Art/TimerBadgeBg.png", 128, 36f, RollAndEscapePalette.White);
+            timerBadgeGO.GetComponent<Image>().type = Image.Type.Sliced; // this badge is 150x72 - Simple/stretch would squash the round corners flat
             var timerText = UIBuilderHelpers.CreateText("TimerText", timerBadgeGO.transform, "0:00", Vector2.zero, 32, UIBuilderHelpers.NunitoBlack);
             timerText.color = RollAndEscapePalette.CardTitleText;
 
@@ -184,48 +200,8 @@ namespace RollAndEscape.EditorTools
             hudSo.FindProperty("exitTrigger").objectReferenceValue = exitTriggerGOForHud != null ? exitTriggerGOForHud.GetComponent<Gameplay.LevelExitTrigger>() : null;
             hudSo.ApplyModifiedPropertiesWithoutUndo();
 
-            var overlayRoot = new GameObject("Overlay", typeof(RectTransform), typeof(Image));
-            overlayRoot.transform.SetParent(canvasGO.transform, false);
-            UIBuilderHelpers.StretchToFill(overlayRoot.GetComponent<RectTransform>());
-            overlayRoot.GetComponent<Image>().color = new Color(0f, 0f, 0f, 0.6f);
-
-            UIBuilderHelpers.CreateText("PausedTitle", overlayRoot.transform, "Paused", new Vector2(0, 300), 64, UIBuilderHelpers.NunitoBlack).color = Color.white;
-
-            var resumeButton = UIBuilderHelpers.CreateButton("ResumeButton", overlayRoot.transform, "Resume", new Vector2(0, 100), new Vector2(320, 100));
-            resumeButton.GetComponent<Image>().color = RollAndEscapePalette.ContinueButtonBg;
-            var resumeLabel = resumeButton.GetComponentInChildren<Text>();
-            resumeLabel.color = RollAndEscapePalette.White;
-            resumeLabel.font = UIBuilderHelpers.NunitoBlack;
-
-            var restartButton = UIBuilderHelpers.CreateButton("RestartButton", overlayRoot.transform, "Restart", new Vector2(0, -30), new Vector2(320, 100));
-            StyleAsSecondaryButton(restartButton);
-
-            var quitButton = UIBuilderHelpers.CreateButton("QuitToMenuButton", overlayRoot.transform, "Quit to Menu", new Vector2(0, -160), new Vector2(320, 100));
-            StyleAsSecondaryButton(quitButton);
-
-            var pauseUI = canvasGO.AddComponent<PauseUI>();
-            var so = new SerializedObject(pauseUI);
-            so.FindProperty("root").objectReferenceValue = overlayRoot;
-            so.FindProperty("pauseButton").objectReferenceValue = pauseButton;
-            so.FindProperty("resumeButton").objectReferenceValue = resumeButton;
-            so.FindProperty("restartButton").objectReferenceValue = restartButton;
-            so.FindProperty("quitToMenuButton").objectReferenceValue = quitButton;
-            so.FindProperty("levelSelectSceneName").stringValue = "LevelSelect";
-            so.ApplyModifiedPropertiesWithoutUndo();
-
             EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
             EditorSceneManager.SaveScene(EditorSceneManager.GetActiveScene());
-        }
-
-        /// <summary>Transparent-fill, white-bordered button style - the mockup's secondary
-        /// action look (vs. a solid-fill primary button).</summary>
-        private static void StyleAsSecondaryButton(Button button)
-        {
-            var image = button.GetComponent<Image>();
-            image.color = new Color(0f, 0f, 0f, 0f);
-            image.sprite = UIBuilderHelpers.GenerateRoundedRectOutlineSprite($"Assets/Art/SecondaryBorder_{button.name}.png", 256, 28f, 4f, RollAndEscapePalette.White);
-            var label = button.GetComponentInChildren<Text>();
-            label.color = RollAndEscapePalette.White;
         }
 
         private static GameObject GetOrCreateParticlePrefab()

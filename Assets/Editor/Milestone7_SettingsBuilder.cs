@@ -143,6 +143,7 @@ namespace RollAndEscape.EditorTools
             var image = button.GetComponent<Image>();
             image.color = Color.white;
             image.sprite = UIBuilderHelpers.GenerateRoundedRectSprite($"Assets/Art/SettingsOutlineFill_{name}.png", 256, 20f, RollAndEscapePalette.White);
+            image.type = Image.Type.Sliced; // this button is 920x90 - Simple/stretch would squash the round corners flat
 
             var text = button.GetComponentInChildren<Text>();
             text.color = RollAndEscapePalette.CardTitleText;

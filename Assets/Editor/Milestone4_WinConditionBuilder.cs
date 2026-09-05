@@ -148,8 +148,11 @@ namespace RollAndEscape.EditorTools
                 dotRect.anchorMin = dotRect.anchorMax = new Vector2(0.5f, 0.5f);
                 dotRect.sizeDelta = new Vector2(38, 38);
                 dotRect.anchoredPosition = new Vector2((i - (starCount - 1) / 2f) * 46f, 50);
+                // A crisp white generated circle, not the built-in Knob.psd - the runtime
+                // script tints this per-star (gold/dim), and Knob's soft/blurred edge falloff
+                // reads as a washed-out smudge once tinted rather than a vivid flat dot.
                 var dotImage = dotGO.GetComponent<Image>();
-                dotImage.sprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/Knob.psd");
+                dotImage.sprite = UIBuilderHelpers.GenerateCircleSprite("Assets/Art/StarDotBase.png", 64, RollAndEscapePalette.White);
                 dotImage.color = RollAndEscapePalette.StarDim;
                 starDots[i] = dotImage;
             }
@@ -167,6 +170,7 @@ namespace RollAndEscape.EditorTools
             var replayImage = replayButton.GetComponent<Image>();
             replayImage.color = new Color(0f, 0f, 0f, 0f); // transparent fill - only the border reads, per the mockup's "Back to map" secondary-button style
             replayImage.sprite = UIBuilderHelpers.GenerateRoundedRectOutlineSprite("Assets/Art/CompleteSecondaryButtonBorder.png", 256, 32f, 4f, RollAndEscapePalette.White);
+            replayImage.type = Image.Type.Sliced; // this button is 760x90 - Simple/stretch would squash the round corners flat
             var replayLabel = replayButton.GetComponentInChildren<Text>();
             replayLabel.color = RollAndEscapePalette.White;
             replayLabel.font = UIBuilderHelpers.NunitoBold;

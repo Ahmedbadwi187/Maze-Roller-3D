@@ -23,7 +23,14 @@ namespace RollAndEscape.EditorTools
         /// gradient/rounded-shape sprite (no shader or hand-authored art needed) - always
         /// re-writes the pixels (cheap, deterministic) rather than load-if-exists, so a tuning
         /// change reaches the asset even after it's been generated once.</summary>
-        public static Sprite GenerateSprite(string path, int width, int height, Func<int, int, Color32> pixelAt)
+        /// <param name="border">Optional 9-slice border in texture pixels (left, bottom, right,
+        /// top). Required for any rounded-corner sprite that will be stretched onto a
+        /// NON-square RectTransform (a card, a wide button, a badge) - without it, Image.Type
+        /// Simple stretches the whole square texture non-uniformly, squashing round corners
+        /// into flat, barely-visible curves (this was a real bug: cards/badges rendered with
+        /// almost-square corners instead of the intended rounding). Pass null for sprites only
+        /// ever used on a square rect (a circle icon, a small dot).</param>
+        public static Sprite GenerateSprite(string path, int width, int height, Func<int, int, Color32> pixelAt, Vector4? border = null)
         {
             var texture = new Texture2D(width, height, TextureFormat.RGBA32, false);
             var pixels = new Color32[width * height];
@@ -45,6 +52,7 @@ namespace RollAndEscape.EditorTools
                 importer.mipmapEnabled = false;
                 importer.filterMode = FilterMode.Bilinear;
                 importer.alphaIsTransparency = true;
+                if (border.HasValue) importer.spriteBorder = border.Value;
                 importer.SaveAndReimport();
             }
 
@@ -139,10 +147,14 @@ namespace RollAndEscape.EditorTools
 
         /// <summary>Rounded-rect sprite via the standard signed-distance test (clamp to the
         /// inner rect, check distance to the corner radius) - shared by any card/chip/button
-        /// that needs soft corners without a 9-sliced art asset.</summary>
+        /// that needs soft corners without a 9-sliced art asset. 9-slice bordered by
+        /// cornerRadius on every side, so the caller MUST set the resulting Image's
+        /// <c>type = Image.Type.Sliced</c> for corners to render correctly on a non-square
+        /// rect (Simple/stretch distorts them - see GenerateSprite's border param doc).</summary>
         public static Sprite GenerateRoundedRectSprite(string path, int size, float cornerRadius, Color32 fillColor)
         {
             var transparent = new Color32(0, 0, 0, 0);
+            var border = new Vector4(cornerRadius, cornerRadius, cornerRadius, cornerRadius);
             return GenerateSprite(path, size, size, (x, y) =>
             {
                 float px = x + 0.5f, py = y + 0.5f;
@@ -150,15 +162,17 @@ namespace RollAndEscape.EditorTools
                 float cy = Mathf.Clamp(py, cornerRadius, size - cornerRadius);
                 float dist = Vector2.Distance(new Vector2(px, py), new Vector2(cx, cy));
                 return dist <= cornerRadius ? fillColor : transparent;
-            });
+            }, border);
         }
 
         /// <summary>Rounded-rect OUTLINE only (transparent fill) - the mockup's secondary
         /// "border only, transparent background" button style (e.g. Level Complete's "Back to
-        /// map"/"Play again" button).</summary>
+        /// map"/"Play again" button). Same 9-slice border requirement as
+        /// GenerateRoundedRectSprite above - set the Image's type to Sliced.</summary>
         public static Sprite GenerateRoundedRectOutlineSprite(string path, int size, float cornerRadius, float strokeWidth, Color32 strokeColor)
         {
             var transparent = new Color32(0, 0, 0, 0);
+            var border = new Vector4(cornerRadius, cornerRadius, cornerRadius, cornerRadius);
             return GenerateSprite(path, size, size, (x, y) =>
             {
                 float px = x + 0.5f, py = y + 0.5f;
@@ -170,7 +184,7 @@ namespace RollAndEscape.EditorTools
                     && px >= strokeWidth && px <= size - strokeWidth
                     && py >= strokeWidth && py <= size - strokeWidth;
                 return insideOuter && !insideInner ? strokeColor : transparent;
-            });
+            }, border);
         }
 
         /// <summary>Solid-fill circle sprite - level nodes, ball/star dots, the checkmark

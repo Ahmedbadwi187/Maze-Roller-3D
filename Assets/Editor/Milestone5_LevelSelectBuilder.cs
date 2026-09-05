@@ -108,15 +108,26 @@ namespace RollAndEscape.EditorTools
             gearGO.transform.SetParent(settingsButton.transform, false);
             var gearRect = gearGO.GetComponent<RectTransform>();
             gearRect.anchorMin = gearRect.anchorMax = new Vector2(0.5f, 0.5f);
-            gearRect.sizeDelta = new Vector2(30, 30);
+            gearRect.sizeDelta = new Vector2(34, 34);
+            // A real toothed-gear silhouette (angular modulation: the outer radius alternates
+            // between a "tooth" and "valley" radius every 1/16 turn, with a hollow center hole)
+            // - the earlier plain ring+dot didn't read as a gear at all.
             gearGO.GetComponent<Image>().sprite = UIBuilderHelpers.GenerateSprite("Assets/Art/GearIcon.png", 64, 64, (x, y) =>
             {
+                const int teeth = 8;
+                const float rValley = 19f, rTooth = 27f, rHole = 9f;
                 var center = new Vector2(32f, 32f);
-                float dist = Vector2.Distance(new Vector2(x + 0.5f, y + 0.5f), center);
-                bool onRing = dist <= 30f && dist >= 20f;
-                bool inDot = dist <= 12f;
+                var point = new Vector2(x + 0.5f, y + 0.5f) - center;
+                float dist = point.magnitude;
+
+                float angle = Mathf.Atan2(point.y, point.x);
+                float sector = (angle + Mathf.PI) / (2f * Mathf.PI) * teeth;
+                float frac = sector - Mathf.Floor(sector);
+                float rOuter = frac < 0.5f ? rTooth : rValley;
+
+                bool filled = dist <= rOuter && dist >= rHole;
                 var transparent = new Color32(0, 0, 0, 0);
-                return (onRing || inDot) ? (Color32)RollAndEscapePalette.BackButtonText : transparent;
+                return filled ? (Color32)RollAndEscapePalette.BackButtonText : transparent;
             });
 
             var settingsLoader = settingsButton.gameObject.AddComponent<LoadSceneOnClick>();
@@ -136,6 +147,7 @@ namespace RollAndEscape.EditorTools
             UIBuilderHelpers.AnchorToTop(starsChipRect, 1f, 82f); // vertically centered against the two-line eyebrow+"Player One" header block
             starsChipRect.anchoredPosition += new Vector2(-190f, 0f);
             starsChipGO.GetComponent<Image>().sprite = UIBuilderHelpers.GenerateRoundedRectSprite("Assets/Art/StarsChipBg.png", 128, 64f, RollAndEscapePalette.White);
+            starsChipGO.GetComponent<Image>().type = Image.Type.Sliced; // 150x64 pill shape - Simple/stretch would squash the rounded caps flat
             var starsChipLoader = starsChipGO.AddComponent<LoadSceneOnClick>();
             var starsChipLoaderSo = new SerializedObject(starsChipLoader);
             starsChipLoaderSo.FindProperty("sceneName").stringValue = "LevelSummary";
@@ -148,8 +160,11 @@ namespace RollAndEscape.EditorTools
             starsChipDotRect.pivot = new Vector2(0f, 0.5f);
             starsChipDotRect.anchoredPosition = new Vector2(16, 0);
             starsChipDotRect.sizeDelta = new Vector2(28, 28);
-            starsChipDot.GetComponent<Image>().sprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/Knob.psd");
-            starsChipDot.GetComponent<Image>().color = RollAndEscapePalette.StarGoldHi;
+            // A crisp generated circle, not the built-in Knob.psd - Knob has a soft/blurred
+            // edge falloff baked in that, tinted over a light chip background, read as a washed-
+            // out gray smudge instead of a vivid gold dot.
+            starsChipDot.GetComponent<Image>().sprite = UIBuilderHelpers.GenerateCircleSprite("Assets/Art/StarChipDot.png", 64, RollAndEscapePalette.StarGoldHi);
+            starsChipDot.GetComponent<Image>().color = Color.white;
 
             var totalStarsText = UIBuilderHelpers.CreateText("StarsCount", starsChipGO.transform, "0", new Vector2(0, 0), 26, UIBuilderHelpers.NunitoBlack);
             totalStarsText.color = RollAndEscapePalette.StarChipText;
@@ -213,6 +228,7 @@ namespace RollAndEscape.EditorTools
             UIBuilderHelpers.AnchorToTop(cardRect, 0.5f, 290f); // clears the two-line eyebrow+"Player One" header above it
             var cardImage = cardGO.GetComponent<Image>();
             cardImage.sprite = UIBuilderHelpers.GenerateRoundedRectSprite(CardSpritePath, 256, 44f, RollAndEscapePalette.White);
+            cardImage.type = Image.Type.Sliced; // this card is 1000x260 - Simple/stretch would squash the round corners flat
 
             // Decorative soft-green circle peeking from the top-right corner, per the mockup -
             // RectMask2D on the card clips it to the card's bounds (a rectangular clip, not
@@ -357,8 +373,11 @@ namespace RollAndEscape.EditorTools
                 dotRect.anchorMin = dotRect.anchorMax = new Vector2(0.5f, 0.5f);
                 dotRect.sizeDelta = new Vector2(13, 13);
                 dotRect.anchoredPosition = new Vector2((i - (starCount - 1) / 2f) * 13f, -(NodeDiameter / 2f + 12f));
+                // A crisp white generated circle, not the built-in Knob.psd - the runtime
+                // script tints this per-star (gold/dim), and Knob's soft/blurred edge falloff
+                // reads as a washed-out smudge once tinted rather than a vivid flat dot.
                 var dotImage = dotGO.GetComponent<Image>();
-                dotImage.sprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/Knob.psd");
+                dotImage.sprite = UIBuilderHelpers.GenerateCircleSprite("Assets/Art/StarDotBase.png", 64, RollAndEscapePalette.White);
                 dotImage.color = RollAndEscapePalette.StarGoldHi;
                 dotGO.SetActive(false);
                 starDots[i] = dotImage;

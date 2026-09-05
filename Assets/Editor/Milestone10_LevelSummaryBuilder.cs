@@ -143,6 +143,7 @@ namespace RollAndEscape.EditorTools
             var rect = go.GetComponent<RectTransform>();
             rect.sizeDelta = new Vector2(1020, 80);
             go.GetComponent<Image>().sprite = UIBuilderHelpers.GenerateRoundedRectSprite("Assets/Art/SummaryRowBg.png", 256, 24f, RollAndEscapePalette.White);
+            go.GetComponent<Image>().type = Image.Type.Sliced; // this row is 1020x80 - Simple/stretch would squash the round corners flat
             go.GetComponent<Image>().color = Color.white;
 
             var levelNumberText = UIBuilderHelpers.CreateText("LevelNumber", go.transform, "Level 1", new Vector2(-380, 0), 28, UIBuilderHelpers.NunitoBold);
@@ -163,8 +164,11 @@ namespace RollAndEscape.EditorTools
                 dotRect.anchorMin = dotRect.anchorMax = new Vector2(0.5f, 0.5f);
                 dotRect.sizeDelta = new Vector2(20, 20);
                 dotRect.anchoredPosition = new Vector2(-100 + i * 24f, 0);
+                // A crisp white generated circle, not the built-in Knob.psd - the runtime
+                // script tints this per-star (gold/dim), and Knob's soft/blurred edge falloff
+                // reads as a washed-out smudge once tinted rather than a vivid flat dot.
                 var dotImage = dotGO.GetComponent<Image>();
-                dotImage.sprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/Knob.psd");
+                dotImage.sprite = UIBuilderHelpers.GenerateCircleSprite("Assets/Art/StarDotBase.png", 64, RollAndEscapePalette.White);
                 dotImage.color = RollAndEscapePalette.StarDim;
                 starDots[i] = dotImage;
             }
