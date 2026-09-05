@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using MazeRoller3D.MazeGeneration;
+using RollAndEscape.MazeGeneration;
 using NUnit.Framework;
 
-namespace MazeRoller3D.MazeGeneration.Tests
+namespace RollAndEscape.MazeGeneration.Tests
 {
     [TestFixture]
     public class RecursiveBacktrackerMazeGeneratorTests

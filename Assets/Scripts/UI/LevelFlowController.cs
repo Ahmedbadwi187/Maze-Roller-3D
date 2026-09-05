@@ -1,10 +1,10 @@
-using MazeRoller3D.Core;
-using MazeRoller3D.Gameplay;
-using MazeRoller3D.Levels;
+using RollAndEscape.Core;
+using RollAndEscape.Gameplay;
+using RollAndEscape.Levels;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace MazeRoller3D.UI
+namespace RollAndEscape.UI
 {
     /// <summary>
     /// Wires a level's exit trigger to its Level Complete overlay: tracks elapsed time from
@@ -77,6 +77,12 @@ namespace MazeRoller3D.UI
 
         private void Replay()
         {
+            // See LevelSessionHelper.RearmCurrentLevel for why this is needed - without it,
+            // MazeView3D falls back to its hardcoded preview maze on reload instead of this
+            // level's real one (the Restart bug found via device testing). PauseUI's own
+            // Restart button shares this same helper rather than duplicating the fix.
+            LevelSessionHelper.RearmCurrentLevel();
+
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 

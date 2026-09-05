@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace MazeRoller3D.Gameplay
+namespace RollAndEscape.Gameplay
 {
     /// <summary>
     /// Reads the device accelerometer via the New Input System and maps it to a 2D movement

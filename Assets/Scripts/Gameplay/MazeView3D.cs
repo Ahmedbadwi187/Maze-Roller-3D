@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using MazeRoller3D.MazeGeneration;
+using RollAndEscape.MazeGeneration;
 using UnityEngine;
 
-namespace MazeRoller3D.Gameplay
+namespace RollAndEscape.Gameplay
 {
     /// <summary>
     /// Turns a <see cref="MazeModel"/> into 3D geometry: one floor tile per cell, wall

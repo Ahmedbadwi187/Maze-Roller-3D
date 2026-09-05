@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace MazeRoller3D.Levels.Tests
+namespace RollAndEscape.Levels.Tests
 {
     [TestFixture]
     public class StarCalculatorTests

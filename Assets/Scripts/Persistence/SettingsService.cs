@@ -1,4 +1,4 @@
-namespace MazeRoller3D.Persistence
+namespace RollAndEscape.Persistence
 {
     /// <summary>
     /// Sound/music/control-scheme preferences, backed by the same GameSaveData/SaveSystem as

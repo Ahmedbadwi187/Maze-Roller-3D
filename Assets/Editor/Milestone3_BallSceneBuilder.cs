@@ -1,12 +1,12 @@
 using System.IO;
-using MazeRoller3D.Gameplay;
+using RollAndEscape.Gameplay;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace MazeRoller3D.EditorTools
+namespace RollAndEscape.EditorTools
 {
     /// <summary>
     /// Milestone 3 deliverable: adds a physics-driven ball (tilt + on-screen joystick input),
@@ -15,7 +15,7 @@ namespace MazeRoller3D.EditorTools
     /// Milestone2_MazeSceneBuilder.Build() first so the ball always ends up in a scene with
     /// current maze geometry, then layering the ball/camera/UI on top.
     ///
-    /// Run via the Unity menu: Maze Roller 3D -> Milestone 3 - Build Ball Test Scene.
+    /// Run via the Unity menu: Roll & Escape -> Milestone 3 - Build Ball Test Scene.
     /// </summary>
     public static class Milestone3_BallSceneBuilder
     {
@@ -27,7 +27,7 @@ namespace MazeRoller3D.EditorTools
         private static readonly Color BallColor = new Color32(0xE0, 0x7A, 0x5F, 0xFF); // warm coral - distinct from wall blue/floor neutral
         private const float BallDiameter = 0.8f;
 
-        [MenuItem("Maze Roller 3D/Milestone 3 - Build Ball Test Scene")]
+        [MenuItem("Roll & Escape/Milestone 3 - Build Ball Test Scene")]
         public static void Build()
         {
             // Start from a fresh Milestone 2 maze so the ball always lands in an up-to-date scene.
@@ -65,7 +65,7 @@ namespace MazeRoller3D.EditorTools
         /// BallController.FixedUpdate would apply tilt/joystick input - i.e. that the
         /// Rigidbody/Collider/PhysicsMaterial setup is really functional, not just present.
         /// </summary>
-        [MenuItem("Maze Roller 3D/Milestone 3 - Simulate Physics Sanity Check")]
+        [MenuItem("Roll & Escape/Milestone 3 - Simulate Physics Sanity Check")]
         public static void SimulatePhysicsSanityCheck()
         {
             Build();

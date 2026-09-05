@@ -1,14 +1,46 @@
+using RollAndEscape.UI;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MazeRoller3D.EditorTools
+namespace RollAndEscape.EditorTools
 {
     /// <summary>Shared runtime-UI construction helpers for the milestone scene generators -
     /// factored out once a third generator (Milestone 7) needed the same
     /// Text/Button/Toggle boilerplate as milestones 4 and 5.</summary>
     internal static class UIBuilderHelpers
     {
+        /// <summary>A full-stretch child that shrinks itself to Screen.safeArea at runtime -
+        /// parent any edge-anchored interactive element (a top-corner button, a bottom HUD)
+        /// under this instead of directly under the Canvas, or it can end up rendered behind
+        /// a real device's notch/status bar, invisible and unclickable even though it looks
+        /// fine in the Editor's flat simulator preview.</summary>
+        public static RectTransform CreateSafeArea(Transform parent)
+        {
+            var go = new GameObject("SafeArea", typeof(RectTransform), typeof(SafeAreaFitter));
+            go.transform.SetParent(parent, false);
+            var rect = go.GetComponent<RectTransform>();
+            rect.anchorMin = Vector2.zero;
+            rect.anchorMax = Vector2.one;
+            rect.offsetMin = Vector2.zero;
+            rect.offsetMax = Vector2.zero;
+            return rect;
+        }
+
+        /// <summary>Re-anchors an already-built element to sit a fixed distance below the TOP
+        /// EDGE OF ITS PARENT (rather than a fixed distance from parent center) - safe
+        /// regardless of how tall the parent (typically a SafeArea) actually ends up being,
+        /// unlike a raw center-based Y offset which assumes a specific parent height and can
+        /// push the element past a *smaller* safe area's own edge.</summary>
+        /// <param name="xAnchor">0 = left edge, 0.5 = centered horizontally, 1 = right edge.</param>
+        /// <param name="insetFromTop">Distance below the parent's top edge, in the parent's own local units.</param>
+        public static void AnchorToTop(RectTransform rect, float xAnchor, float insetFromTop)
+        {
+            rect.anchorMin = new Vector2(xAnchor, 1f);
+            rect.anchorMax = new Vector2(xAnchor, 1f);
+            rect.anchoredPosition = new Vector2(rect.anchoredPosition.x, -insetFromTop);
+        }
+
         public static Text CreateText(string name, Transform parent, string content, Vector2 anchoredPosition, int fontSize)
         {
             var go = new GameObject(name, typeof(RectTransform), typeof(Text));

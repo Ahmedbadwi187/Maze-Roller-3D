@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MazeRoller3D.Gameplay
+namespace RollAndEscape.Gameplay
 {
     /// <summary>
     /// Synthesizes simple placeholder sound effects at runtime - no audio asset files needed.

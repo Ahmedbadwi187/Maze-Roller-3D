@@ -1,15 +1,15 @@
 using System.Collections;
 using System.IO;
 using System.Reflection;
-using MazeRoller3D.Gameplay;
-using MazeRoller3D.Levels;
-using MazeRoller3D.Persistence;
-using MazeRoller3D.UI;
+using RollAndEscape.Gameplay;
+using RollAndEscape.Levels;
+using RollAndEscape.Persistence;
+using RollAndEscape.UI;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 
-namespace MazeRoller3D.PlayModeTests
+namespace RollAndEscape.PlayModeTests
 {
     /// <summary>
     /// Runtime (Play mode) coverage for the win-condition chain: LevelExitTrigger firing on

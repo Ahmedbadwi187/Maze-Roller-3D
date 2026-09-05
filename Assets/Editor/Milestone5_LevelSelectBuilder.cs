@@ -1,12 +1,12 @@
 using System.IO;
-using MazeRoller3D.UI;
+using RollAndEscape.UI;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace MazeRoller3D.EditorTools
+namespace RollAndEscape.EditorTools
 {
     /// <summary>
     /// Milestone 5 deliverable: a scrollable Level Select grid (Assets/Scenes/LevelSelect.unity)
@@ -14,22 +14,21 @@ namespace MazeRoller3D.EditorTools
     /// Game in Build Settings so SceneManager.LoadScene("Game") (called from
     /// LevelSelectUI.OnLevelSelected) resolves at runtime.
     ///
-    /// Run via the Unity menu: Maze Roller 3D -> Milestone 5 - Build Level Select Scene.
+    /// Run via the Unity menu: Roll & Escape -> Milestone 5 - Build Level Select Scene.
     /// </summary>
     public static class Milestone5_LevelSelectBuilder
     {
         private const string LevelSelectScenePath = "Assets/Scenes/LevelSelect.unity";
         private const string GameScenePath = "Assets/Scenes/Game.unity";
 
-        [MenuItem("Maze Roller 3D/Milestone 5 - Build Level Select Scene")]
+        [MenuItem("Roll & Escape/Milestone 5 - Build Level Select Scene")]
         public static void Build()
         {
-            // Make sure Game.unity exists (milestone 2-4 builders create it) before we
-            // register both scenes in Build Settings.
-            if (!File.Exists(GameScenePath))
-            {
-                Milestone4_WinConditionBuilder.Build();
-            }
+            // Always rebuild Game.unity fresh (not just "if missing") - milestones 6-9 keep
+            // adding to it, and a stale Game.unity left over from an earlier partial run was
+            // exactly the cause of a real bug (a later step expecting GameObjects this scene
+            // no longer had). Matches how milestones 2-4 already always rebuild unconditionally.
+            Milestone4_WinConditionBuilder.Build();
 
             var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
             Directory.CreateDirectory(Path.GetDirectoryName(LevelSelectScenePath));
@@ -53,8 +52,15 @@ namespace MazeRoller3D.EditorTools
             var (scrollRectGO, content) = CreateScrollGrid(canvasGO.transform);
             var buttonTemplate = CreateButtonTemplate(content);
 
-            var settingsButton = UIBuilderHelpers.CreateButton("SettingsButton", canvasGO.transform, "Settings", new Vector2(0, 850), new Vector2(260, 90));
-            settingsButton.onClick.AddListener(() => UnityEngine.SceneManagement.SceneManager.LoadScene("Settings"));
+            var topSafeArea = UIBuilderHelpers.CreateSafeArea(canvasGO.transform);
+            var settingsButton = UIBuilderHelpers.CreateButton("SettingsButton", topSafeArea, "Settings", Vector2.zero, new Vector2(260, 90));
+            UIBuilderHelpers.AnchorToTop(settingsButton.GetComponent<RectTransform>(), 0.5f, 100f);
+            // A runtime LoadSceneOnClick component, not a raw AddListener(lambda) here - see
+            // its doc comment for why the latter silently never fires once the scene reloads.
+            var settingsLoader = settingsButton.gameObject.AddComponent<LoadSceneOnClick>();
+            var settingsLoaderSo = new SerializedObject(settingsLoader);
+            settingsLoaderSo.FindProperty("sceneName").stringValue = "Settings";
+            settingsLoaderSo.ApplyModifiedPropertiesWithoutUndo();
 
             var levelSelectUI = canvasGO.AddComponent<LevelSelectUI>();
             var so = new SerializedObject(levelSelectUI);
@@ -72,7 +78,7 @@ namespace MazeRoller3D.EditorTools
                 new EditorBuildSettingsScene(GameScenePath, true)
             };
 
-            Debug.Log($"Milestone 5: built {LevelSelectScenePath} with {MazeRoller3D.Levels.LevelRepository.TotalLevels} " +
+            Debug.Log($"Milestone 5: built {LevelSelectScenePath} with {RollAndEscape.Levels.LevelRepository.TotalLevels} " +
                       "level tiles, registered LevelSelect + Game in Build Settings.");
         }
 
@@ -82,7 +88,7 @@ namespace MazeRoller3D.EditorTools
             viewportGO.transform.SetParent(parent, false);
             var viewportRect = viewportGO.GetComponent<RectTransform>();
             viewportRect.anchorMin = new Vector2(0.05f, 0.05f);
-            viewportRect.anchorMax = new Vector2(0.95f, 0.9f);
+            viewportRect.anchorMax = new Vector2(0.95f, 0.82f); // leaves a dedicated header strip above for the Settings button - it must never overlap the grid
             viewportRect.offsetMin = Vector2.zero;
             viewportRect.offsetMax = Vector2.zero;
             viewportGO.GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.01f); // Mask needs a raycast-able graphic
@@ -158,6 +164,9 @@ namespace MazeRoller3D.EditorTools
             text.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             text.fontSize = fontSize;
             text.alignment = TextAnchor.MiddleCenter;
+            text.horizontalOverflow = HorizontalWrapMode.Overflow;
+            text.verticalOverflow = VerticalWrapMode.Overflow; // a tall font size in a small tile must never clip to invisible
+            text.color = Color.black;
             return text;
         }
 

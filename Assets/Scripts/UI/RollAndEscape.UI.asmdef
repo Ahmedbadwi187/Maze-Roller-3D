@@ -1,0 +1,23 @@
+{
+    "name": "RollAndEscape.UI",
+    "rootNamespace": "RollAndEscape.UI",
+    "references": [
+        "RollAndEscape.Gameplay",
+        "RollAndEscape.MazeGeneration",
+        "RollAndEscape.Levels",
+        "RollAndEscape.Core",
+        "RollAndEscape.Persistence",
+        "RollAndEscape.Monetization",
+        "GUID:60bfecf5cb232594891bc622f40d6bed",
+        "UnityEngine.UI"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

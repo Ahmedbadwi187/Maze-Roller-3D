@@ -1,4 +1,4 @@
-namespace MazeRoller3D.Monetization
+namespace RollAndEscape.Monetization
 {
     /// <summary>True once "Remove Ads" has been purchased. Separate from IAdsService so
     /// AdsGate's cadence logic can be unit-tested without any ad SDK or Unity IAP involved.</summary>

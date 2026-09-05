@@ -1,19 +1,21 @@
-using MazeRoller3D.Core;
+using RollAndEscape.Core;
 using UnityEngine;
 
-namespace MazeRoller3D.Gameplay
+namespace RollAndEscape.Gameplay
 {
     /// <summary>
     /// Picks which <see cref="IMovementInputProvider"/> feeds <see cref="BallController"/>,
     /// based on <see cref="ActiveScheme"/> - read from the persisted Settings on Awake
     /// (milestone 7's Settings screen writes it), falling back to the inspector-set default
-    /// (Tilt, the primary scheme per spec) the first time the game ever runs. Keeping this one
-    /// small class as the single switch point means BallController never needs to know a
-    /// joystick exists.
+    /// (Joystick) the first time the game ever runs. Defaults to Joystick rather than Tilt:
+    /// testing showed Tilt-by-default caused repeated "ball doesn't move" confusion since it
+    /// needs a real device tilt or the Input Debugger, while Joystick works immediately with a
+    /// mouse/finger drag. Keeping this one small class as the single switch point means
+    /// BallController never needs to know a joystick exists.
     /// </summary>
     public class PlayerInputRouter : MonoBehaviour
     {
-        [SerializeField] private ControlScheme activeScheme = ControlScheme.Tilt;
+        [SerializeField] private ControlScheme activeScheme = ControlScheme.Joystick;
         [SerializeField] private TiltInputHandler tiltInput;
         [SerializeField] private JoystickInputHandler joystickInput;
 

@@ -41,3 +41,4 @@ sysinfo.txt
 
 # Never commit ads/IAP secrets
 /Assets/Editor Default Resources/AdMobAppIds.txt
+/.utmp/

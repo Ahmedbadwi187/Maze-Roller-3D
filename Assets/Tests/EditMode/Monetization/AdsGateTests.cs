@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace MazeRoller3D.Monetization.Tests
+namespace RollAndEscape.Monetization.Tests
 {
     /// <summary>A fake IPurchaseState so these tests don't need real Unity IAP / the Fake Store.</summary>
     internal class FakePurchaseState : IPurchaseState

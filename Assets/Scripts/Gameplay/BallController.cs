@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MazeRoller3D.Gameplay
+namespace RollAndEscape.Gameplay
 {
     /// <summary>
     /// Drives the ball's Rigidbody from whatever <see cref="PlayerInputRouter"/> reports each

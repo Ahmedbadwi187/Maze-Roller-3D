@@ -1,6 +1,6 @@
 using System.IO;
-using MazeRoller3D.Gameplay;
-using MazeRoller3D.MazeGeneration;
+using RollAndEscape.Gameplay;
+using RollAndEscape.MazeGeneration;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -8,7 +8,7 @@ using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
-namespace MazeRoller3D.EditorTools
+namespace RollAndEscape.EditorTools
 {
     /// <summary>
     /// Milestone 2 deliverable: builds the clean-minimalist maze materials, prefabs, lighting,
@@ -18,7 +18,7 @@ namespace MazeRoller3D.EditorTools
     /// like this one are how scene/prefab milestones are delivered on a machine with no
     /// Unity Editor available to author or validate raw .unity/.prefab files by hand.
     ///
-    /// Run via the Unity menu: Maze Roller 3D -> Milestone 2 - Build Maze Preview Scene.
+    /// Run via the Unity menu: Roll & Escape -> Milestone 2 - Build Maze Preview Scene.
     /// Re-running it is safe: existing materials/prefabs are reused rather than duplicated
     /// (looked up via AssetDatabase.LoadAssetAtPath), while the scene itself is always
     /// rebuilt from a brand new empty scene (rather than reopening whatever was last saved
@@ -43,7 +43,7 @@ namespace MazeRoller3D.EditorTools
         private const int PreviewSeed = 1;
         private const float CellSize = 2f;
 
-        [MenuItem("Maze Roller 3D/Milestone 2 - Build Maze Preview Scene")]
+        [MenuItem("Roll & Escape/Milestone 2 - Build Maze Preview Scene")]
         public static void Build()
         {
             ConfigureColorSpace();
@@ -71,6 +71,7 @@ namespace MazeRoller3D.EditorTools
             var generator = new RecursiveBacktrackerMazeGenerator();
             var model = generator.Generate(MazeGenerationSettings.Default(PreviewWidth, PreviewHeight, PreviewSeed));
             mazeRoot.BuildMaze(model);
+            Debug.Log($"[Diag] mazeRoot(instance {mazeRoot.GetInstanceID()}, GO {mazeRoot.gameObject.GetInstanceID()}).LastBuiltExit={mazeRoot.LastBuiltExit} right after BuildMaze (model.Exit={model.Exit})");
 
             cameraFramer.Frame(PreviewWidth, PreviewHeight, CellSize, mazeRoot.transform.position);
 
@@ -87,11 +88,11 @@ namespace MazeRoller3D.EditorTools
         /// Same as <see cref="Build"/>, plus renders the framed Main Camera to a PNG under
         /// Docs/Screenshots/. This is the entry point meant for headless verification - e.g.
         /// `Unity.exe -batchmode -quit -projectPath &lt;path&gt; -executeMethod
-        /// MazeRoller3D.EditorTools.Milestone2_MazeSceneBuilder.BuildAndCaptureScreenshot` -
+        /// RollAndEscape.EditorTools.Milestone2_MazeSceneBuilder.BuildAndCaptureScreenshot` -
         /// so the result can be inspected as an image without a human clicking through the
         /// Editor UI.
         /// </summary>
-        [MenuItem("Maze Roller 3D/Milestone 2 - Build And Capture Screenshot")]
+        [MenuItem("Roll & Escape/Milestone 2 - Build And Capture Screenshot")]
         public static void BuildAndCaptureScreenshot()
         {
             Build();
@@ -173,8 +174,8 @@ namespace MazeRoller3D.EditorTools
                               "command again - some lighting state only fully re-evaluates on a fresh process.");
         }
 
-        private const string RendererDataPath = "Assets/Settings/MazeRoller3D_Renderer.asset";
-        private const string RenderPipelineAssetPath = "Assets/Settings/MazeRoller3D_URP.asset";
+        private const string RendererDataPath = "Assets/Settings/RollAndEscape_Renderer.asset";
+        private const string RenderPipelineAssetPath = "Assets/Settings/RollAndEscape_URP.asset";
 
         /// <summary>
         /// Ensures a URP pipeline asset exists and is assigned as the active render pipeline

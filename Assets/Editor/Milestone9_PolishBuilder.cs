@@ -1,12 +1,12 @@
 using System.IO;
-using MazeRoller3D.UI;
+using RollAndEscape.UI;
 using Unity.Cinemachine;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MazeRoller3D.EditorTools
+namespace RollAndEscape.EditorTools
 {
     /// <summary>
     /// Milestone 9 deliverable: swaps the Game scene's plain follow camera for a Cinemachine
@@ -15,7 +15,7 @@ namespace MazeRoller3D.EditorTools
     /// Level Select. Real SFX/art assets are a drop-in replacement for these later - see each
     /// piece's own doc comment for exactly what to swap.
     ///
-    /// Run via the Unity menu: Maze Roller 3D -> Milestone 9 - Build Polish.
+    /// Run via the Unity menu: Roll & Escape -> Milestone 9 - Build Polish.
     /// </summary>
     public static class Milestone9_PolishBuilder
     {
@@ -26,13 +26,14 @@ namespace MazeRoller3D.EditorTools
         private const string ParticlePrefabPath = "Assets/Prefabs/LevelCompleteBurst.prefab";
         private const string AppIconPath = "Assets/Art/AppIcon.png";
 
-        [MenuItem("Maze Roller 3D/Milestone 9 - Build Polish")]
+        [MenuItem("Roll & Escape/Milestone 9 - Build Polish")]
         public static void Build()
         {
             Milestone7_SettingsBuilder.Build(); // ensures LevelSelect/Game/Settings all exist and are current
 
             UpgradeGameSceneCamera();
             AddCompletionPolishToGameScene();
+            AddPauseMenuToGameScene();
             BuildSplashScene();
             GenerateAppIcon();
 
@@ -66,7 +67,7 @@ namespace MazeRoller3D.EditorTools
 
             var follow = cmGO.GetComponent<CinemachineFollow>();
             if (follow == null) follow = cmGO.AddComponent<CinemachineFollow>();
-            follow.FollowOffset = new Vector3(0f, 6f, -5f); // same offset BallFollowCamera used
+            follow.FollowOffset = new Vector3(0f, 13f, -11f); // pulled back further than BallFollowCamera's original offset so more of the maze is visible around the ball, same ~50 degree tilt ratio (13:11)
 
             // Body (CinemachineFollow) only controls position - an explicit Aim behaviour is
             // needed for rotation, recomputed correctly every frame by Cinemachine itself
@@ -99,6 +100,60 @@ namespace MazeRoller3D.EditorTools
             var so = new SerializedObject(flow);
             so.FindProperty("completionParticles").objectReferenceValue = particleSystem;
             so.FindProperty("completionAudioSource").objectReferenceValue = audioSource;
+            so.ApplyModifiedPropertiesWithoutUndo();
+
+            EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+            EditorSceneManager.SaveScene(EditorSceneManager.GetActiveScene());
+        }
+
+        /// <summary>Adds a visible Pause button plus a full pause overlay (Resume/Restart/Quit
+        /// to Menu) - real device testing showed there was no way to back out of a level once
+        /// inside it (no pause menu, and the Android hardware Back button did nothing useful).</summary>
+        private static void AddPauseMenuToGameScene()
+        {
+            EditorSceneManager.OpenScene(GameScenePath, OpenSceneMode.Single);
+            Milestone3_BallSceneBuilder.EnsureEventSystem();
+
+            var canvasGO = new GameObject("PauseCanvas", typeof(Canvas), typeof(CanvasScaler), typeof(GraphicRaycaster));
+            var canvas = canvasGO.GetComponent<Canvas>();
+            canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+            var scaler = canvasGO.GetComponent<CanvasScaler>();
+            scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+            scaler.referenceResolution = new Vector2(1080, 1920);
+            scaler.matchWidthOrHeight = 1f;
+
+            // Always-visible Pause button, top-right corner - not nested under the overlay root.
+            var topSafeArea = UIBuilderHelpers.CreateSafeArea(canvasGO.transform);
+            var pauseButton = UIBuilderHelpers.CreateButton("PauseButton", topSafeArea, "II", new Vector2(-80, 0), new Vector2(120, 100));
+            UIBuilderHelpers.AnchorToTop(pauseButton.GetComponent<RectTransform>(), 1f, 100f);
+
+            // Always-visible "Level N" indicator, top-left - per the spec's Game-scene HUD.
+            var levelText = UIBuilderHelpers.CreateText("LevelIndicator", topSafeArea, "Level -", new Vector2(100, 0), 48);
+            UIBuilderHelpers.AnchorToTop(levelText.GetComponent<RectTransform>(), 0f, 100f);
+            levelText.color = Color.black;
+            var hud = canvasGO.AddComponent<LevelHudUI>();
+            var hudSo = new SerializedObject(hud);
+            hudSo.FindProperty("levelText").objectReferenceValue = levelText;
+            hudSo.ApplyModifiedPropertiesWithoutUndo();
+
+            var overlayRoot = new GameObject("Overlay", typeof(RectTransform), typeof(Image));
+            overlayRoot.transform.SetParent(canvasGO.transform, false);
+            UIBuilderHelpers.StretchToFill(overlayRoot.GetComponent<RectTransform>());
+            overlayRoot.GetComponent<Image>().color = new Color(0f, 0f, 0f, 0.6f);
+
+            UIBuilderHelpers.CreateText("PausedTitle", overlayRoot.transform, "Paused", new Vector2(0, 300), 72).color = Color.white;
+            var resumeButton = UIBuilderHelpers.CreateButton("ResumeButton", overlayRoot.transform, "Resume", new Vector2(0, 100), new Vector2(320, 100));
+            var restartButton = UIBuilderHelpers.CreateButton("RestartButton", overlayRoot.transform, "Restart", new Vector2(0, -30), new Vector2(320, 100));
+            var quitButton = UIBuilderHelpers.CreateButton("QuitToMenuButton", overlayRoot.transform, "Quit to Menu", new Vector2(0, -160), new Vector2(320, 100));
+
+            var pauseUI = canvasGO.AddComponent<PauseUI>();
+            var so = new SerializedObject(pauseUI);
+            so.FindProperty("root").objectReferenceValue = overlayRoot;
+            so.FindProperty("pauseButton").objectReferenceValue = pauseButton;
+            so.FindProperty("resumeButton").objectReferenceValue = resumeButton;
+            so.FindProperty("restartButton").objectReferenceValue = restartButton;
+            so.FindProperty("quitToMenuButton").objectReferenceValue = quitButton;
+            so.FindProperty("levelSelectSceneName").stringValue = "LevelSelect";
             so.ApplyModifiedPropertiesWithoutUndo();
 
             EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
@@ -151,19 +206,33 @@ namespace MazeRoller3D.EditorTools
             scaler.referenceResolution = new Vector2(1080, 1920);
             scaler.matchWidthOrHeight = 1f;
 
+            // Bright, cheerful background - a kid-friendly splash rather than a flat gray one.
             var background = new GameObject("Background", typeof(RectTransform), typeof(Image));
             background.transform.SetParent(canvasGO.transform, false);
             UIBuilderHelpers.StretchToFill(background.GetComponent<RectTransform>());
-            background.GetComponent<Image>().color = new Color(0.97f, 0.97f, 0.98f, 1f);
+            background.GetComponent<Image>().color = new Color32(0x4E, 0xCD, 0xC4, 0xFF); // turquoise, from the wall palette
 
             var logoGO = new GameObject("Logo", typeof(RectTransform), typeof(CanvasGroup));
             logoGO.transform.SetParent(canvasGO.transform, false);
             var logoRect = logoGO.GetComponent<RectTransform>();
             logoRect.anchorMin = logoRect.anchorMax = new Vector2(0.5f, 0.5f);
-            logoRect.sizeDelta = new Vector2(800, 300);
+            logoRect.sizeDelta = new Vector2(800, 500);
             var logoGroup = logoGO.GetComponent<CanvasGroup>();
 
-            UIBuilderHelpers.CreateText("Title", logoGO.transform, "Maze Roller 3D", Vector2.zero, 72);
+            // A little coral "ball" above the title - reinforces the game's own brand color.
+            var ballIconGO = new GameObject("BallIcon", typeof(RectTransform), typeof(Image));
+            ballIconGO.transform.SetParent(logoGO.transform, false);
+            var ballIconRect = ballIconGO.GetComponent<RectTransform>();
+            ballIconRect.anchorMin = ballIconRect.anchorMax = new Vector2(0.5f, 0.5f);
+            ballIconRect.anchoredPosition = new Vector2(0, 130);
+            ballIconRect.sizeDelta = new Vector2(140, 140);
+            var ballIconImage = ballIconGO.GetComponent<Image>();
+            ballIconImage.sprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/Knob.psd");
+            ballIconImage.color = new Color32(0xE0, 0x7A, 0x5F, 0xFF); // coral, matching the in-game ball
+
+            var title = UIBuilderHelpers.CreateText("Title", logoGO.transform, "Roll & Escape", new Vector2(0, -60), 72);
+            title.color = Color.white;
+            title.fontStyle = FontStyle.Bold;
 
             var splash = canvasGO.AddComponent<SplashAnimator>();
             var so = new SerializedObject(splash);

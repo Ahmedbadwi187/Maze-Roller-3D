@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MazeRoller3D.UI
+namespace RollAndEscape.UI
 {
     /// <summary>
     /// Level Complete overlay: completion time, Replay and Next Level buttons. Plain

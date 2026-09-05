@@ -1,10 +1,10 @@
-using MazeRoller3D.Core;
-using MazeRoller3D.Gameplay;
-using MazeRoller3D.Levels;
+using RollAndEscape.Core;
+using RollAndEscape.Gameplay;
+using RollAndEscape.Levels;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace MazeRoller3D.UI
+namespace RollAndEscape.UI
 {
     /// <summary>
     /// Populates the level-select grid at runtime from LevelRepository + LevelProgressService

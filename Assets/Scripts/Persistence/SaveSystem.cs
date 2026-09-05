@@ -3,7 +3,7 @@ using System.IO;
 using Newtonsoft.Json;
 using UnityEngine;
 
-namespace MazeRoller3D.Persistence
+namespace RollAndEscape.Persistence
 {
     /// <summary>
     /// Lightweight JSON-file save system (Newtonsoft.Json), per the project spec's persistence

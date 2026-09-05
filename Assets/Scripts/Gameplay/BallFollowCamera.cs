@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MazeRoller3D.Gameplay
+namespace RollAndEscape.Gameplay
 {
     /// <summary>
     /// Simple smoothed follow camera: stays at a fixed tilted offset behind/above

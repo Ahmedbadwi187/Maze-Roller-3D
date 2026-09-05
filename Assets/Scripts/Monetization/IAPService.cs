@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Purchasing;
 
-namespace MazeRoller3D.Monetization
+namespace RollAndEscape.Monetization
 {
     /// <summary>
     /// Unity IAP wrapper for the single "Remove Ads" non-consumable product. Initializes

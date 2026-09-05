@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MazeRoller3D.MazeGeneration
+namespace RollAndEscape.MazeGeneration
 {
     /// <summary>
     /// Immutable-after-construction grid of <see cref="MazeCell"/>s plus the entrance/exit

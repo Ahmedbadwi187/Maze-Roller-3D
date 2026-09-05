@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MazeRoller3D.MazeGeneration
+namespace RollAndEscape.MazeGeneration
 {
     /// <summary>
     /// Settings for one maze generation call. Plain data - safe to construct from tests,

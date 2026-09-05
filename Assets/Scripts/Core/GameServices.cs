@@ -1,8 +1,8 @@
-using MazeRoller3D.Levels;
-using MazeRoller3D.Monetization;
-using MazeRoller3D.Persistence;
+using RollAndEscape.Levels;
+using RollAndEscape.Monetization;
+using RollAndEscape.Persistence;
 
-namespace MazeRoller3D.Core
+namespace RollAndEscape.Core
 {
     /// <summary>
     /// Static service locator so gameplay/UI scripts reach SettingsService/LevelProgressService

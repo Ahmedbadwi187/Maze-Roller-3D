@@ -1,6 +1,6 @@
 using System;
 
-namespace MazeRoller3D.MazeGeneration
+namespace RollAndEscape.MazeGeneration
 {
     /// <summary>
     /// Cardinal directions a maze cell can have a wall on. Deliberately a [Flags] enum so a

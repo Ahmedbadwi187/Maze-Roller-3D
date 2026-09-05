@@ -1,4 +1,4 @@
-namespace MazeRoller3D.Levels
+namespace RollAndEscape.Levels
 {
     /// <summary>
     /// Converts a completion time into a 1-3 star rating. Thresholds scale with maze size

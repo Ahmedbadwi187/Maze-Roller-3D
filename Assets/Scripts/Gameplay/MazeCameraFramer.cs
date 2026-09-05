@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MazeRoller3D.Gameplay
+namespace RollAndEscape.Gameplay
 {
     /// <summary>
     /// Positions a plain Camera at a fixed elevated, tilted 3/4 angle over a maze so the whole

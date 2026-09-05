@@ -1,0 +1,695 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+[Licensing::IpcConnector] Successfully connected to the License Client on channel: "LicenseClient-ahmed" at "2026-09-05T00:20:08.5082111Z"
+[Licensing::Client] Error: Code 10 while verifying Licensing Client signature (process Id: 15848, path: "C:/Program Files/Unity Hub/UnityLicensingClient_V1/Unity.Licensing.Client.exe")
+[Licensing::Module] Error: LicensingClient has failed validation; ignoring
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.18.3+d7ffd15
+  Session Id:              2e0e21bc1df948a78c1151d10bd7201e
+  Correlation Id:          517fa713095321602a30891ea6d42249
+  External correlation Id: 6166968176707850222
+  Machine Id:              0uAkQJj5vYWp8v0MfqTPNMjy+rw=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-ahmed" (connect: 0.00s, validation: 0.01s, handshake: 0.03s)
+[Licensing::IpcConnector] Successfully connected to the License Notification on channel: "LicenseClient-ahmed-notifications" at "2026-09-05T00:20:08.5492787Z"
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully updated license
+Built from '6000.0/staging' branch; Version is '6000.0.32f1 (b2e806cf271c) revision 11724806'; Using compiler version '193933523'; Build Type 'Release'
+OS: 'Windows 11  (10.0.26200) 64bit Core' Language: 'en' Physical Memory: 32253 MB
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] Serial number assigned to: "18968493873952-UnityPersXXXX"
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+[Licensing::Client] Successfully resolved entitlement details
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.0.32f1\Editor\Unity.exe
+-batchmode
+-quit
+-projectPath
+D:\Projects\Gamming App\MazeRoller3D
+-executeMethod
+MazeRoller3D.EditorTools.Milestone9_PolishBuilder.Build
+-logFile
+D:\Projects\Gamming App\MazeRoller3D\Docs\unity-m9-fixes-log.txt
+Successfully changed project path to: D:\Projects\Gamming App\MazeRoller3D
+D:/Projects/Gamming App/MazeRoller3D
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [37348]  Target information:
+
+Player connection [37348]  * "[IP] 192.168.8.43 [Port] 55504 [Flags] 2 [Guid] 2518252240 [EditorId] 2518252240 [Version] 1048832 [Id] WindowsEditor(7,Ahmed_Badawi) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [37348] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [37348] Host joined alternative multi-casting on [225.0.0.222:34997]...
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Package Manager] Connected to IPC stream "Upm-58360" after 0.2 seconds.
+Library Redirect Path: Library/
+[Package Manager] Restoring resolved packages state from cache
+[Licensing::Client] Successfully resolved entitlement details
+[Package Manager] Registered 35 packages:
+  Packages from [https://packages.unity.com]:
+    com.unity.cinemachine@3.1.2 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.cinemachine)
+    com.unity.inputsystem@1.11.2 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.inputsystem)
+    com.unity.microsoft.gdk@1.7.0 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.microsoft.gdk)
+    com.unity.microsoft.gdk.tools@1.7.0 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.microsoft.gdk.tools)
+    com.unity.purchasing@5.4.3 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.purchasing)
+    com.unity.test-framework@1.4.5 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.test-framework)
+    com.unity.ext.nunit@2.0.5 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.ext.nunit)
+    com.unity.services.core@1.18.0 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.services.core)
+    com.unity.microsoft.gdk.discovery@1.3.0 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.microsoft.gdk.discovery)
+    com.unity.splines@2.7.2 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.splines)
+    com.unity.searcher@4.9.2 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.searcher)
+    com.unity.burst@1.8.18 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.burst)
+    com.unity.mathematics@1.3.2 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.mathematics)
+    com.unity.collections@2.5.1 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.collections)
+    com.unity.nuget.newtonsoft-json@3.2.2 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.nuget.newtonsoft-json)
+    com.unity.settings-manager@2.0.1 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.settings-manager)
+    com.unity.nuget.mono-cecil@1.11.4 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.nuget.mono-cecil)
+    com.unity.test-framework.performance@3.0.3 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.test-framework.performance)
+  Built-in packages:
+    com.unity.render-pipelines.universal@17.0.3 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.render-pipelines.universal)
+    com.unity.modules.audio@1.0.0 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.modules.audio)
+    com.unity.modules.particlesystem@1.0.0 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.modules.particlesystem)
+    com.unity.modules.imgui@1.0.0 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.modules.imgui)
+    com.unity.modules.jsonserialize@1.0.0 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.modules.jsonserialize)
+    com.unity.render-pipelines.core@17.0.3 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.render-pipelines.core)
+    com.unity.shadergraph@17.0.3 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.shadergraph)
+    com.unity.render-pipelines.universal-config@17.0.3 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.render-pipelines.universal-config)
+    com.unity.modules.androidjni@1.0.0 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.modules.androidjni)
+    com.unity.modules.unitywebrequest@1.0.0 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.modules.unitywebrequest)
+    com.unity.modules.uielements@1.0.0 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.modules.uielements)
+    com.unity.ugui@2.0.0 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.ugui)
+    com.unity.modules.physics@1.0.0 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.modules.physics)
+    com.unity.modules.terrain@1.0.0 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.modules.terrain)
+    com.unity.rendering.light-transport@1.0.1 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.rendering.light-transport)
+    com.unity.modules.ui@1.0.0 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.modules.ui)
+    com.unity.modules.hierarchycore@1.0.0 (location: D:\Projects\Gamming App\MazeRoller3D\Library\PackageCache\com.unity.modules.hierarchycore)
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+[Subsystems] No new subsystems found in resolved package list.
+Package Manager log level set to [2]
+[Package Manager] Done registering packages in 0.20 seconds
+[Licensing::Client] Successfully resolved entitlement details
+Refreshing native plugins compatible for Editor in 3.31 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.0.32f1 (b2e806cf271c)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path D:/Projects/Gamming App/MazeRoller3D/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: Intel(R) Arc(TM) 140T GPU (16GB) (ID=0x7d51)
+    Vendor:   Intel
+    VRAM:     18384 MB
+    Driver:   32.0.101.8801
+[Licensing::Client] Successfully resolved entitlement details
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56360
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+Using cacheserver namespaces - metadata:defaultmetadata, artifacts:defaultartifacts
+ImportWorker Server TCP listen port: 0
+AcceleratorClientConnectionCallback - disconnected - :0
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+[Licensing::Client] Successfully resolved entitlement details
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.32f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
+Registered in 0.015041 seconds.
+- Loaded All Assemblies, in  0.252 seconds
+[usbmuxd] Start listen thread
+[usbmuxd] Listen thread started
+Native extension for iOS target not found
+Native extension for Android target not found
+Android Extension - Scanning For ADB Devices 2214 ms
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  2.471 seconds
+Domain Reload Profiling: 2722ms
+	BeginReloadAssembly (87ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (21ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (43ms)
+	LoadAllAssembliesAndSetupDomain (93ms)
+		LoadAssemblies (86ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (90ms)
+			TypeCache.Refresh (89ms)
+				TypeCache.ScanAssembly (80ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (2471ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (2450ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2275ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (42ms)
+			ProcessInitializeOnLoadAttributes (86ms)
+			ProcessInitializeOnLoadMethodAttributes (43ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Client] Successfully resolved entitlement details
+Application.AssetDatabase Initial Refresh Start
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+[ScriptCompilation] Requested script compilation because: Assetdatabase observed changes in script compilation related files
+info: Microsoft.Hosting.Lifetime[14]
+      Now listening on: http://localhost:80
+info: Microsoft.Hosting.Lifetime[0]
+      Application started. Press Ctrl+C to shut down.
+info: Microsoft.Hosting.Lifetime[0]
+      Hosting environment: Production
+info: Microsoft.Hosting.Lifetime[0]
+      Content root path: D:\Projects\Gamming App\MazeRoller3D\
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/Ping'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/Ping application/grpc - - 200 - application/grpc 25.5666ms
+Starting: C:\Program Files\Unity\Hub\Editor\6000.0.32f1\Editor\Data\bee_backend.exe --dont-print-to-structured-log --ipc --defer-dag-verification --dagfile="Library/Bee/1300b0aE.dag" --continue-on-failure --profile="Library/Bee/backend1.traceevents" ScriptAssemblies
+WorkingDir: D:/Projects/Gamming App/MazeRoller3D
+DisplayProgressbar: Compiling Scripts
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/ConfigurePostProcessors application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/ConfigurePostProcessors'
+warn: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Assembly system.runtime.interopservices.windowsruntime has duplicate hint path. Ignoring "C:\Program Files\Unity\Hub\Editor\6000.0.32f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Runtime.InteropServices.WindowsRuntime.dll" in favor of "C:\Program Files\Unity\Hub\Editor\6000.0.32f1\Editor\Data\NetStandard\Extensions\2.0.0\System.Runtime.InteropServices.WindowsRuntime.dll"
+warn: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Assembly system.componentmodel.composition has duplicate hint path. Ignoring "C:\Program Files\Unity\Hub\Editor\6000.0.32f1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\System.ComponentModel.Composition.dll" in favor of "C:\Program Files\Unity\Hub\Editor\6000.0.32f1\Editor\Data\NetStandard\compat\2.1.0\shims\netfx\System.ComponentModel.Composition.dll"
+info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Resolved Unity.Burst.Cecil, Version=0.11.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e with Library\PackageCache\com.unity.burst\Unity.Burst.CodeGen\Unity.Burst.Cecil.dll
+info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Resolved Mono.Cecil, Version=0.11.4.0, Culture=neutral, PublicKeyToken=50cebf1cceb9d05e with Library\PackageCache\com.unity.nuget.mono-cecil\Mono.Cecil.dll
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/ConfigurePostProcessors'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/ConfigurePostProcessors application/grpc - - 200 - application/grpc 39.8777ms
+Starting: C:\Program Files\Unity\Hub\Editor\6000.0.32f1\Editor\Data\Tools\netcorerun\netcorerun.exe "C:\Program Files\Unity\Hub\Editor\6000.0.32f1\Editor\Data\Tools\BuildPipeline\ScriptCompilationBuildProgram.exe" "Library/Bee/1300b0aE.dag.json" "Library/Bee/1300b0aE-inputdata.json" "Library\Bee\buildprogram0.traceevents"
+WorkingDir: D:/Projects/Gamming App/MazeRoller3D
+ExitCode: 4 Duration: 0s893ms
+Rebuilding DAG because FileSignature timestamp changed: Library/Bee/1300b0aE-inputdata.json
+[ 836/1099  0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+[ 837/1099  0s] Csc Library/Bee/artifacts/1300b0aE.dag/MazeRoller3D.Editor.dll (+2 others)
+Assets\Editor\AndroidBuildTool.cs(17,13): warning CS0618: 'PlayerSettings.SetApplicationIdentifier(BuildTargetGroup, string)' is obsolete: 'Use SetApplicationIdentifier(NamedBuildTarget buildTarget, string identifier) instead'
+
+Assets\Editor\Milestone9_PolishBuilder.cs(281,13): warning CS0618: 'PlayerSettings.SetIconsForTargetGroup(BuildTargetGroup, Texture2D[])' is obsolete: 'Use SetIcons(NamedBuildTarget, Texture2D[], IconKind) instead'
+
+Assets\Editor\Milestone9_PolishBuilder.cs(282,13): warning CS0618: 'PlayerSettings.SetIconsForTargetGroup(BuildTargetGroup, Texture2D[])' is obsolete: 'Use SetIcons(NamedBuildTarget, Texture2D[], IconKind) instead'
+*** Tundra requires additional run (0.87 seconds), 2 items updated, 835 evaluated
+ExitCode: 0 Duration: 0s518ms
+Starting: C:\Program Files\Unity\Hub\Editor\6000.0.32f1\Editor\Data\bee_backend.exe --dont-print-to-structured-log --ipc --defer-dag-verification --dagfile="Library/Bee/1300b0aE.dag" --continue-on-failure --dagfilejson="Library\Bee\1300b0aE.dag.json" --profile="Library/Bee/backend2.traceevents" ScriptAssemblies
+WorkingDir: D:/Projects/Gamming App/MazeRoller3D
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/ConfigurePostProcessors application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/ConfigurePostProcessors'
+info: Unity.ILPP.Runner.PostProcessingAssemblyLoadContext[0]
+      Current configuration matches the requested one, skipping
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/ConfigurePostProcessors'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/ConfigurePostProcessors application/grpc - - 200 - application/grpc 0.7960ms
+info: Microsoft.AspNetCore.Hosting.Diagnostics[1]
+      Request starting HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc -
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[0]
+      Executing endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      Processing assembly Library/Bee/artifacts/1300b0aE.dag/MazeRoller3D.Editor.dll, with 129 defines and 268 references
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running Unity.Jobs.CodeGen.JobsILPostProcessor
+info: Unity.ILPP.Runner.PostProcessingPipeline[0]
+      running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+info: Microsoft.AspNetCore.Routing.EndpointMiddleware[1]
+      Executed endpoint 'gRPC - /UnityILPP.PostProcessing/PostProcessAssembly'
+info: Microsoft.AspNetCore.Hosting.Diagnostics[2]
+      Request finished HTTP/2 POST http://ilpp/UnityILPP.PostProcessing/PostProcessAssembly application/grpc - - 200 - application/grpc 9.7912ms
+ExitCode: 0 Duration: 0s460ms
+Finished compiling graph: 1103 nodes, 18157 flattened edges (14505 ToBuild, 182 ToUse), maximum node priority 1125
+[ 837/1099  0s] ILPP-Configuration Library/ilpp-configuration.nevergeneratedoutput
+[1096/1099  0s] ILPostProcess Library/Bee/artifacts/1300b0aE.dag/post-processed/MazeRoller3D.Editor.dll (+pdb)
+Processing assembly Library/Bee/artifacts/1300b0aE.dag/MazeRoller3D.Editor.dll, with 129 defines and 268 references
+
+processors: Unity.Jobs.CodeGen.JobsILPostProcessor, zzzUnity.Burst.CodeGen.BurstILPostProcessor
+
+running Unity.Jobs.CodeGen.JobsILPostProcessor
+
+running zzzUnity.Burst.CodeGen.BurstILPostProcessor
+[1097/1099  0s] CopyFiles Library/ScriptAssemblies/MazeRoller3D.Editor.pdb
+[1098/1099  0s] CopyFiles Library/ScriptAssemblies/MazeRoller3D.Editor.dll
+*** Tundra build success (0.44 seconds), 4 items updated, 1099 evaluated
+AssetDatabase: script compilation time: 2.159342s
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.596 seconds
+'Packages/com.unity.cinemachine/Editor/Editors/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+'Packages/com.unity.cinemachine/Editor/Obsolete/CinemachineVirtualCameraBaseEditor.cs' contains partial class of Unity.Object, exactly 1 of the partial classes needs to be in a file with the same filename. This is to know the one that can be referenced from ie. GameObjects
+Refreshing native plugins compatible for Editor in 3.21 ms, found 1 plugins.
+Native extension for iOS target not found
+Native extension for Android target not found
+Native extension for WindowsStandalone target not found
+Assembly reference Packages/com.unity.cinemachine/Editor/Samples/ExposeHDRPInternals/HDRP-Editor-ref.asmref has no target assembly definition
+Refreshing native plugins compatible for Editor in 3.48 ms, found 1 plugins.
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.841 seconds
+Domain Reload Profiling: 2436ms
+	BeginReloadAssembly (227ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (8ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (133ms)
+	RebuildCommonClasses (21ms)
+	RebuildNativeTypeToScriptingClass (7ms)
+	initialDomainReloadingComplete (16ms)
+	LoadAllAssembliesAndSetupDomain (324ms)
+		LoadAssemblies (269ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (117ms)
+			TypeCache.Refresh (80ms)
+				TypeCache.ScanAssembly (70ms)
+			BuildScriptInfoCaches (28ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (1841ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (1736ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (22ms)
+			SetLoadedEditorAssemblies (2ms)
+			BeforeProcessingInitializeOnLoad (79ms)
+			ProcessInitializeOnLoadAttributes (1488ms)
+			ProcessInitializeOnLoadMethodAttributes (141ms)
+			AfterProcessingInitializeOnLoad (3ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
+Refreshing native plugins compatible for Editor in 3.39 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=2b859743943f00e42abb5e9511433732): Total: 5.206 seconds - Initiated by InitialRefreshV2(ForceSynchronousImport)
+	Summary:
+		Imports: total=0 (actual=0, local cache=0, cache server=0)
+		Asset DB Process Time: managed=0 ms, native=2251 ms
+		Asset DB Callback time: managed=123 ms, native=6 ms
+		Scripting: domain reloads=1, domain reload time=631 ms, compile time=2160 ms, other=32 ms
+		Project Asset Count: scripts=1353, non-scripts=1772
+		Asset File Changes: new=0, changed=3, moved=0, deleted=0
+		Scan Filter Count: 0
+	InvokeCustomDependenciesCallbacks: 0.001ms
+	InvokePackagesCallback: 1.215ms
+	ApplyChangesToAssetFolders: 0.257ms
+	Scan: 216.711ms
+	OnSourceAssetsModified: 0.830ms
+	CategorizeAssetsWithTransientArtifact: 19.910ms
+	ProcessAssetsWithTransientArtifactChanges: 42.686ms
+	CategorizeAssets: 25.802ms
+	ImportOutOfDateAssets: 1852.175ms (-309.582ms without children)
+		CompileScripts: 2160.386ms
+		ReloadNativeAssets: 0.015ms
+		UnloadImportedAssets: 0.458ms
+		EnsureUptoDateAssetsAreRegisteredWithGuidPM: 0.359ms
+		InitializingProgressBar: 0.000ms
+		PostProcessAllAssetNotificationsAddChangedAssets: 0.000ms
+		OnDemandSchedulerStart: 0.540ms
+	PostProcessAllAssets: 124.226ms
+	Hotreload: 4.574ms
+	GatherAllCurrentPrimaryArtifactRevisions: 0.001ms
+	UnloadStreamsBegin: 1.456ms
+	PersistCurrentRevisions: 0.070ms
+	UnloadStreamsEnd: 0.001ms
+	GenerateScriptTypeHashes: 1.877ms
+	Untracked: 2915.935ms
+
+Application.AssetDatabase Initial Refresh End
+Scanning for USB devices : 2.110ms
+Initializing Unity extensions:
+[Licensing::Client] Successfully resolved entitlement details
+[MODES] ModeService[none].Initialize
+[MODES] ModeService[none].LoadModes
+[MODES] Loading mode Default (0) for mode-current-id-MazeRoller3D
+Unloading 18 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 5892 unused Assets / (6.0 MB). Loaded Objects now: 6471.
+Memory consumption went from 181.3 MB to 175.3 MB.
+Total: 7.811500 ms (FindLiveObjects: 0.571200 ms CreateObjectMapping: 0.503700 ms MarkObjects: 4.379000 ms  DeleteObjects: 2.355600 ms)
+
+Start importing ProjectSettings/GraphicsSettings.asset using Guid(00000000000000006100000000000000) (LibraryAssetImporter) -> (artifact id: '1e88623b3fc1e29c0fc4ef4e477a0c94') in 0.005472 seconds
+Refreshing native plugins compatible for Editor in 3.13 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=77e4ba04d4f61e340b2167e94b38f68c): Total: 0.047 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Assigned Assets/Settings/MazeRoller3D_URP.asset as the active render pipeline (Graphics + Quality settings).
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MazeRoller3D.EditorTools.Milestone2_MazeSceneBuilder:ConfigureRenderPipeline () (at Assets/Editor/Milestone2_MazeSceneBuilder.cs:218)
+MazeRoller3D.EditorTools.Milestone2_MazeSceneBuilder:Build () (at Assets/Editor/Milestone2_MazeSceneBuilder.cs:50)
+MazeRoller3D.EditorTools.Milestone3_BallSceneBuilder:Build () (at Assets/Editor/Milestone3_BallSceneBuilder.cs:34)
+MazeRoller3D.EditorTools.Milestone4_WinConditionBuilder:Build () (at Assets/Editor/Milestone4_WinConditionBuilder.cs:27)
+MazeRoller3D.EditorTools.Milestone5_LevelSelectBuilder:Build () (at Assets/Editor/Milestone5_LevelSelectBuilder.cs:31)
+MazeRoller3D.EditorTools.Milestone7_SettingsBuilder:Build () (at Assets/Editor/Milestone7_SettingsBuilder.cs:30)
+MazeRoller3D.EditorTools.Milestone9_PolishBuilder:Build () (at Assets/Editor/Milestone9_PolishBuilder.cs:32)
+
+(Filename: Assets/Editor/Milestone2_MazeSceneBuilder.cs Line: 218)
+
+Unloading 10 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 74 unused Assets / (26.2 KB). Loaded Objects now: 6486.
+Memory consumption went from 161.7 MB to 161.6 MB.
+Total: 4.455700 ms (FindLiveObjects: 0.235600 ms CreateObjectMapping: 0.114500 ms MarkObjects: 3.988200 ms  DeleteObjects: 0.115600 ms)
+
+Start importing Assets/Materials/Wall.mat using Guid(a028f37d20165b44784abb73bd4188e8) (NativeFormatImporter) -> (artifact id: '00bddd43df4993536d8dec228930aede') in 0.0014314 seconds
+Start importing Assets/Materials/Floor.mat using Guid(859ad953c8013ca4b8aed2f7a646827d) (NativeFormatImporter) -> (artifact id: '7049c80f82f53518695182c6fcc213df') in 0.0010124 seconds
+Start importing Assets/Materials/EntranceMarker.mat using Guid(47cb5990b492a944c91743e5c45576e0) (NativeFormatImporter) -> (artifact id: '99da7ae0226eb62a74ee3ab3cbda92ff') in 0.0010073 seconds
+Start importing Assets/Materials/ExitMarker.mat using Guid(4a0b6e3a514e79d4fbd620894820bd09) (NativeFormatImporter) -> (artifact id: '6fa93d35c0db9744e1b2277d3390c760') in 0.0009456 seconds
+Refreshing native plugins compatible for Editor in 2.83 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=3d0f2c2a0058a1145b296b61beee6dbc): Total: 0.032 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Scenes/Game.unity using Guid(f176b7c7fac7bc44ab55365f87f7e9c0) (DefaultImporter) -> (artifact id: 'b11ca5b705516a7f9cc9234a44ec06b6') in 0.0009459 seconds
+Refreshing native plugins compatible for Editor in 3.75 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=f91fc9dc2d04e5e42bcf30aa1c5f244f): Total: 0.022 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Scenes/Game.unity using Guid(f176b7c7fac7bc44ab55365f87f7e9c0) (DefaultImporter) -> (artifact id: 'af0efde23f517b63b2d2763c76b3fa06') in 0.0010305 seconds
+Refreshing native plugins compatible for Editor in 3.65 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=1ef3a87dbe8748744a9eb9f8c85c77ed): Total: 0.026 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Milestone 2: built a 8x8 preview maze (seed 1) into Assets/Scenes/Game.unity.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MazeRoller3D.EditorTools.Milestone2_MazeSceneBuilder:Build () (at Assets/Editor/Milestone2_MazeSceneBuilder.cs:83)
+MazeRoller3D.EditorTools.Milestone3_BallSceneBuilder:Build () (at Assets/Editor/Milestone3_BallSceneBuilder.cs:34)
+MazeRoller3D.EditorTools.Milestone4_WinConditionBuilder:Build () (at Assets/Editor/Milestone4_WinConditionBuilder.cs:27)
+MazeRoller3D.EditorTools.Milestone5_LevelSelectBuilder:Build () (at Assets/Editor/Milestone5_LevelSelectBuilder.cs:31)
+MazeRoller3D.EditorTools.Milestone7_SettingsBuilder:Build () (at Assets/Editor/Milestone7_SettingsBuilder.cs:30)
+MazeRoller3D.EditorTools.Milestone9_PolishBuilder:Build () (at Assets/Editor/Milestone9_PolishBuilder.cs:32)
+
+(Filename: Assets/Editor/Milestone2_MazeSceneBuilder.cs Line: 83)
+
+Created EventSystem (none existed) - required for on-screen joystick drag and UI button clicks to work at all.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MazeRoller3D.EditorTools.Milestone3_BallSceneBuilder:EnsureEventSystem () (at Assets/Editor/Milestone3_BallSceneBuilder.cs:132)
+MazeRoller3D.EditorTools.Milestone3_BallSceneBuilder:Build () (at Assets/Editor/Milestone3_BallSceneBuilder.cs:48)
+MazeRoller3D.EditorTools.Milestone4_WinConditionBuilder:Build () (at Assets/Editor/Milestone4_WinConditionBuilder.cs:27)
+MazeRoller3D.EditorTools.Milestone5_LevelSelectBuilder:Build () (at Assets/Editor/Milestone5_LevelSelectBuilder.cs:31)
+MazeRoller3D.EditorTools.Milestone7_SettingsBuilder:Build () (at Assets/Editor/Milestone7_SettingsBuilder.cs:30)
+MazeRoller3D.EditorTools.Milestone9_PolishBuilder:Build () (at Assets/Editor/Milestone9_PolishBuilder.cs:32)
+
+(Filename: Assets/Editor/Milestone3_BallSceneBuilder.cs Line: 132)
+
+Start importing Assets/Scenes/Game.unity using Guid(f176b7c7fac7bc44ab55365f87f7e9c0) (DefaultImporter) -> (artifact id: '589d6d09b9b222a4fdd0e915a6836dfa') in 0.0010837 seconds
+Refreshing native plugins compatible for Editor in 3.46 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=1204e866448ef7a49868fb8c2d50b253): Total: 0.032 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Milestone 3: spawned ball at (0.00, 0.42, 0.00) (maze entrance MazeView3D cell), wired tilt+joystick input and follow camera, into Assets/Scenes/Game.unity.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MazeRoller3D.EditorTools.Milestone3_BallSceneBuilder:Build () (at Assets/Editor/Milestone3_BallSceneBuilder.cs:56)
+MazeRoller3D.EditorTools.Milestone4_WinConditionBuilder:Build () (at Assets/Editor/Milestone4_WinConditionBuilder.cs:27)
+MazeRoller3D.EditorTools.Milestone5_LevelSelectBuilder:Build () (at Assets/Editor/Milestone5_LevelSelectBuilder.cs:31)
+MazeRoller3D.EditorTools.Milestone7_SettingsBuilder:Build () (at Assets/Editor/Milestone7_SettingsBuilder.cs:30)
+MazeRoller3D.EditorTools.Milestone9_PolishBuilder:Build () (at Assets/Editor/Milestone9_PolishBuilder.cs:32)
+
+(Filename: Assets/Editor/Milestone3_BallSceneBuilder.cs Line: 56)
+
+Start importing Assets/Prefabs/ExitTrigger.prefab using Guid(4a208e2c9f23e52489068089805888a7) (PrefabImporter) -> (artifact id: 'bfb73467ea7bd496688fea8005431916') in 0.0110512 seconds
+Refreshing native plugins compatible for Editor in 3.28 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=9b834f3608017e64b897a3dc8b7129f3): Total: 0.041 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Scenes/Game.unity using Guid(f176b7c7fac7bc44ab55365f87f7e9c0) (DefaultImporter) -> (artifact id: 'a470f1c940aa20f659205ca6b65e2b85') in 0.0011019 seconds
+Refreshing native plugins compatible for Editor in 3.59 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=86f556ea134aee744a48f660f248ad62): Total: 0.027 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Milestone 4: exit trigger at (0.00, 0.00, 0.00), Level Complete overlay and LevelFlowController wired, into Assets/Scenes/Game.unity.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MazeRoller3D.EditorTools.Milestone4_WinConditionBuilder:Build () (at Assets/Editor/Milestone4_WinConditionBuilder.cs:48)
+MazeRoller3D.EditorTools.Milestone5_LevelSelectBuilder:Build () (at Assets/Editor/Milestone5_LevelSelectBuilder.cs:31)
+MazeRoller3D.EditorTools.Milestone7_SettingsBuilder:Build () (at Assets/Editor/Milestone7_SettingsBuilder.cs:30)
+MazeRoller3D.EditorTools.Milestone9_PolishBuilder:Build () (at Assets/Editor/Milestone9_PolishBuilder.cs:32)
+
+(Filename: Assets/Editor/Milestone4_WinConditionBuilder.cs Line: 48)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 171 unused Assets / (36.8 KB). Loaded Objects now: 6486.
+Memory consumption went from 194.8 MB to 194.8 MB.
+Total: 4.997900 ms (FindLiveObjects: 0.214000 ms CreateObjectMapping: 0.076700 ms MarkObjects: 4.501500 ms  DeleteObjects: 0.204600 ms)
+
+Start importing Assets/Scenes/LevelSelect.unity using Guid(a77e32ea560e7e34dab6dc15c1cec918) (DefaultImporter) -> (artifact id: 'a0fcb6e35c6ea5e277aa6201b61ff8ac') in 0.0009526 seconds
+Refreshing native plugins compatible for Editor in 2.93 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=d85c0718176ff9a4a99df71d1a8f398b): Total: 0.024 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Created EventSystem (none existed) - required for on-screen joystick drag and UI button clicks to work at all.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MazeRoller3D.EditorTools.Milestone3_BallSceneBuilder:EnsureEventSystem () (at Assets/Editor/Milestone3_BallSceneBuilder.cs:132)
+MazeRoller3D.EditorTools.Milestone5_LevelSelectBuilder:Build () (at Assets/Editor/Milestone5_LevelSelectBuilder.cs:37)
+MazeRoller3D.EditorTools.Milestone7_SettingsBuilder:Build () (at Assets/Editor/Milestone7_SettingsBuilder.cs:30)
+MazeRoller3D.EditorTools.Milestone9_PolishBuilder:Build () (at Assets/Editor/Milestone9_PolishBuilder.cs:32)
+
+(Filename: Assets/Editor/Milestone3_BallSceneBuilder.cs Line: 132)
+
+Start importing Assets/Scenes/LevelSelect.unity using Guid(a77e32ea560e7e34dab6dc15c1cec918) (DefaultImporter) -> (artifact id: '57abe46f6121457881cf1c75eba8f059') in 0.0010493 seconds
+Refreshing native plugins compatible for Editor in 3.22 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=3ee5aa76fa7817c4094835671aee0de1): Total: 0.024 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Milestone 5: built Assets/Scenes/LevelSelect.unity with 70 level tiles, registered LevelSelect + Game in Build Settings.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MazeRoller3D.EditorTools.Milestone5_LevelSelectBuilder:Build () (at Assets/Editor/Milestone5_LevelSelectBuilder.cs:74)
+MazeRoller3D.EditorTools.Milestone7_SettingsBuilder:Build () (at Assets/Editor/Milestone7_SettingsBuilder.cs:30)
+MazeRoller3D.EditorTools.Milestone9_PolishBuilder:Build () (at Assets/Editor/Milestone9_PolishBuilder.cs:32)
+
+(Filename: Assets/Editor/Milestone5_LevelSelectBuilder.cs Line: 74)
+
+Unloading 0 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 64 unused Assets / (14.4 KB). Loaded Objects now: 6486.
+Memory consumption went from 207.3 MB to 207.2 MB.
+Total: 5.101400 ms (FindLiveObjects: 0.217400 ms CreateObjectMapping: 0.070700 ms MarkObjects: 4.679000 ms  DeleteObjects: 0.132900 ms)
+
+Start importing ProjectSettings/EditorBuildSettings.asset using Guid(0000000000000000b000000000000000) (LibraryAssetImporter) -> (artifact id: '4b636218ef131c9239a71f4f1221d0ea') in 0.0014065 seconds
+Refreshing native plugins compatible for Editor in 2.50 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=77cc9aaf53443af40ab86060e9fca568): Total: 0.022 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Scenes/Settings.unity using Guid(e566332ce2c9b9841b4926c09dabace4) (DefaultImporter) -> (artifact id: '9722b39f2b98939f37fa06bb87bab2f4') in 0.0008388 seconds
+Refreshing native plugins compatible for Editor in 3.06 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=1ae5ad098fee7ad4ab2eaa24b8921306): Total: 0.018 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Created EventSystem (none existed) - required for on-screen joystick drag and UI button clicks to work at all.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MazeRoller3D.EditorTools.Milestone3_BallSceneBuilder:EnsureEventSystem () (at Assets/Editor/Milestone3_BallSceneBuilder.cs:132)
+MazeRoller3D.EditorTools.Milestone7_SettingsBuilder:Build () (at Assets/Editor/Milestone7_SettingsBuilder.cs:36)
+MazeRoller3D.EditorTools.Milestone9_PolishBuilder:Build () (at Assets/Editor/Milestone9_PolishBuilder.cs:32)
+
+(Filename: Assets/Editor/Milestone3_BallSceneBuilder.cs Line: 132)
+
+Start importing Assets/Scenes/Settings.unity using Guid(e566332ce2c9b9841b4926c09dabace4) (DefaultImporter) -> (artifact id: '8de9701cfaeb1210ed58564bb2f98531') in 0.0009541 seconds
+Refreshing native plugins compatible for Editor in 3.10 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=163cf0acc6569ea45bb073a96f0b68fd): Total: 0.023 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Milestone 7: built Assets/Scenes/Settings.unity with sound/music/control-scheme toggles, registered in Build Settings.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MazeRoller3D.EditorTools.Milestone7_SettingsBuilder:Build () (at Assets/Editor/Milestone7_SettingsBuilder.cs:81)
+MazeRoller3D.EditorTools.Milestone9_PolishBuilder:Build () (at Assets/Editor/Milestone9_PolishBuilder.cs:32)
+
+(Filename: Assets/Editor/Milestone7_SettingsBuilder.cs Line: 81)
+
+Opening scene 'Assets/Scenes/Game.unity'
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+Loaded scene 'Assets/Scenes/Game.unity'
+	Deserialize:            6.694 ms
+	Integration:            187.134 ms
+	Integration of assets:  0.080 ms
+	Thread Wait Time:       0.023 ms
+	Total Operation Time:   193.930 ms
+Unloading 65 unused Assets / (0.7 MB). Loaded Objects now: 7397.
+Memory consumption went from 177.3 MB to 176.7 MB.
+Total: 5.888500 ms (FindLiveObjects: 0.384400 ms CreateObjectMapping: 0.235500 ms MarkObjects: 5.116000 ms  DeleteObjects: 0.151700 ms)
+
+Start importing ProjectSettings/EditorBuildSettings.asset using Guid(0000000000000000b000000000000000) (LibraryAssetImporter) -> (artifact id: 'aced4e764fce1add50c5553a7e96d047') in 0.0015118 seconds
+Refreshing native plugins compatible for Editor in 2.59 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=2490c94a0e65db04a96007328a446692): Total: 0.023 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Scenes/Game.unity using Guid(f176b7c7fac7bc44ab55365f87f7e9c0) (DefaultImporter) -> (artifact id: '3abd0874d4bd78ebfb59458b687c4bd2') in 0.0009393 seconds
+Refreshing native plugins compatible for Editor in 3.11 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=af216c0ab29c6074a9ced9c0692bc8f3): Total: 0.024 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Opening scene 'Assets/Scenes/Game.unity'
+Unloading 11 Unused Serialized files (Serialized files now loaded: 0)
+Loaded scene 'Assets/Scenes/Game.unity'
+	Deserialize:            6.746 ms
+	Integration:            160.137 ms
+	Integration of assets:  0.004 ms
+	Thread Wait Time:       0.030 ms
+	Total Operation Time:   166.917 ms
+Unloading 65 unused Assets / (6.2 MB). Loaded Objects now: 7402.
+Memory consumption went from 182.4 MB to 176.1 MB.
+Total: 5.103300 ms (FindLiveObjects: 0.352800 ms CreateObjectMapping: 0.244000 ms MarkObjects: 4.362500 ms  DeleteObjects: 0.143200 ms)
+
+Start importing Assets/Scenes/Game.unity using Guid(f176b7c7fac7bc44ab55365f87f7e9c0) (DefaultImporter) -> (artifact id: 'ba97cd1276cb7fc4d4a3fe337bf34c7b') in 0.0008101 seconds
+Refreshing native plugins compatible for Editor in 2.56 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=7fc30a3784d889d438cf30aa155a4d13): Total: 0.025 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Opening scene 'Assets/Scenes/Game.unity'
+Unloading 11 Unused Serialized files (Serialized files now loaded: 0)
+Loaded scene 'Assets/Scenes/Game.unity'
+	Deserialize:            7.223 ms
+	Integration:            160.694 ms
+	Integration of assets:  0.003 ms
+	Thread Wait Time:       0.024 ms
+	Total Operation Time:   167.945 ms
+Unloading 65 unused Assets / (14.7 KB). Loaded Objects now: 7413.
+Memory consumption went from 176.6 MB to 176.6 MB.
+Total: 5.313100 ms (FindLiveObjects: 0.351100 ms CreateObjectMapping: 0.236100 ms MarkObjects: 4.599500 ms  DeleteObjects: 0.125600 ms)
+
+Start importing Assets/Scenes/Game.unity using Guid(f176b7c7fac7bc44ab55365f87f7e9c0) (DefaultImporter) -> (artifact id: '1d85c11f6bb409c3be80309f83cc6ca0') in 0.0007885 seconds
+Refreshing native plugins compatible for Editor in 2.65 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=24741b7c6c7bfec49a1a60e8a7726870): Total: 0.025 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Unloading 11 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 162 unused Assets / (49.5 KB). Loaded Objects now: 6486.
+Memory consumption went from 183.2 MB to 183.1 MB.
+Total: 5.138600 ms (FindLiveObjects: 0.237400 ms CreateObjectMapping: 0.073200 ms MarkObjects: 4.617300 ms  DeleteObjects: 0.209200 ms)
+
+Start importing Assets/Scenes/Splash.unity using Guid(c3177f15595f84e46ac6d406146cee43) (DefaultImporter) -> (artifact id: '635c7448549f7e7d7b1fe12a95441de9') in 0.0008758 seconds
+Refreshing native plugins compatible for Editor in 2.55 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=f0399c696a0cd374f9774cf997023a10): Total: 0.022 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Scenes/Splash.unity using Guid(c3177f15595f84e46ac6d406146cee43) (DefaultImporter) -> (artifact id: '086859932e07e7089171cd482ca4551c') in 0.0009839 seconds
+Refreshing native plugins compatible for Editor in 3.10 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=3e5aff47b38f482498b3bd8c2b67311a): Total: 0.023 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/AppIcon.png using Guid(de46e1824eea370438bc6ba50adc354b) (TextureImporter) -> (artifact id: '2f6f99f178029143b3bb79da35ec8f2c') in 0.0328455 seconds
+Refreshing native plugins compatible for Editor in 3.09 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=d4bd7b4f8b4e0ab4fbce5f75ac1ebbe6): Total: 0.051 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Start importing Assets/Art/AppIcon.png using Guid(de46e1824eea370438bc6ba50adc354b) (TextureImporter) -> (artifact id: '2f6f99f178029143b3bb79da35ec8f2c') in 0.044623 seconds
+Refreshing native plugins compatible for Editor in 3.01 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=dacd6f2585fc7054cb39e610442c5f1c): Total: 0.057 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+Milestone 9: Cinemachine camera, level-complete particles/SFX, app icon, and Splash scene all built.
+UnityEngine.Debug:ExtractStackTraceNoAlloc (byte*,int,string)
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:Internal_Log (UnityEngine.LogType,UnityEngine.LogOption,string,UnityEngine.Object)
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+MazeRoller3D.EditorTools.Milestone9_PolishBuilder:Build () (at Assets/Editor/Milestone9_PolishBuilder.cs:40)
+
+(Filename: Assets/Editor/Milestone9_PolishBuilder.cs Line: 40)
+
+Batchmode quit successfully invoked - shutting down!
+Killing ADB server in 0.0388206 seconds.
+Start importing ProjectSettings/ProjectSettings.asset using Guid(00000000000000004000000000000000) (LibraryAssetImporter) -> (artifact id: 'b5777a40c85e2aa60c1bc0a8f2b326f6') in 0.0015656 seconds
+Start importing ProjectSettings/EditorBuildSettings.asset using Guid(0000000000000000b000000000000000) (LibraryAssetImporter) -> (artifact id: '3fa707f955ccc4fcdff94040eff8c1a7') in 0.0011417 seconds
+Refreshing native plugins compatible for Editor in 3.01 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Asset Pipeline Refresh (id=8011cb2269cc9334997e92a64d8fa759): Total: 0.022 seconds - Initiated by StopAssetImportingV2(NoUpdateAssetOptions)
+[Physics::Module] Cleanup current backned.
+[Physics::Module] Id: 0xf2b8ea05
+[Licensing::IpcConnector] License Notification channel disconnected successfully.
+[Licensing::IpcConnector] License Client channel disconnected successfully.
+AcceleratorClientConnectionCallback - disconnected - :0
+Cleanup mono
+abort_threads: Failed aborting id: 00000000000061C8, mono_thread_manage will ignore it
+
+abort_threads: Failed aborting id: 000000000000BD80, mono_thread_manage will ignore it
+
+abort_threads: Failed aborting id: 00000000000061C8, mono_thread_manage will ignore it
+
+abort_threads: Failed aborting id: 000000000000BD80, mono_thread_manage will ignore it
+
+debugger-agent: Unable to listen on 3444
+[usbmuxd] Stop listen thread
+[usbmuxd] Listen thread exiting
+Exiting batchmode successfully now!
+Exiting without the bug reporter. Application will terminate with return code 0

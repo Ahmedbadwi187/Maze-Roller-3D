@@ -1,0 +1,23 @@
+{
+    "name": "RollAndEscape.Editor",
+    "rootNamespace": "RollAndEscape.EditorTools",
+    "references": [
+        "RollAndEscape.Gameplay",
+        "RollAndEscape.MazeGeneration",
+        "RollAndEscape.UI",
+        "RollAndEscape.Levels",
+        "Unity.Cinemachine",
+        "GUID:15fc0a57446b3144c949da3e2b9737a9"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

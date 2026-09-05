@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MazeRoller3D.Persistence
+namespace RollAndEscape.Persistence
 {
     /// <summary>Per-level progress: whether it's been completed, best (lowest) star-earning
     /// stars seen, and best (lowest) completion time. Default value (Completed=false,
@@ -21,7 +21,13 @@ namespace MazeRoller3D.Persistence
     {
         public bool SoundOn = true;
         public bool MusicOn = true;
-        public int ControlScheme; // 0 = Tilt, 1 = Joystick - int rather than the Gameplay enum so Persistence never needs to reference the Gameplay assembly.
+        // 0 = Tilt, 1 = Joystick - int rather than the Gameplay enum so Persistence never needs
+        // to reference the Gameplay assembly. Defaults to Joystick: real device/Editor testing
+        // showed Tilt-by-default caused repeated confusion ("ball doesn't move") since it needs
+        // a physical device tilt or the Input Debugger, while Joystick works immediately with
+        // a mouse/finger drag - only matters for a save file that doesn't exist yet, since an
+        // existing one already has an explicit value serialized.
+        public int ControlScheme = 1;
     }
 
     /// <summary>

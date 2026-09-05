@@ -1,12 +1,12 @@
 using System.IO;
-using MazeRoller3D.UI;
+using RollAndEscape.UI;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace MazeRoller3D.EditorTools
+namespace RollAndEscape.EditorTools
 {
     /// <summary>
     /// Milestone 7 deliverable: a Settings scene (Assets/Scenes/Settings.unity) with sound,
@@ -14,7 +14,7 @@ namespace MazeRoller3D.EditorTools
     /// (real IAP is milestone 8), all wired to SettingsUI. Registers Settings in Build
     /// Settings alongside LevelSelect and Game.
     ///
-    /// Run via the Unity menu: Maze Roller 3D -> Milestone 7 - Build Settings Scene.
+    /// Run via the Unity menu: Roll & Escape -> Milestone 7 - Build Settings Scene.
     /// </summary>
     public static class Milestone7_SettingsBuilder
     {
@@ -22,13 +22,12 @@ namespace MazeRoller3D.EditorTools
         private const string LevelSelectScenePath = "Assets/Scenes/LevelSelect.unity";
         private const string GameScenePath = "Assets/Scenes/Game.unity";
 
-        [MenuItem("Maze Roller 3D/Milestone 7 - Build Settings Scene")]
+        [MenuItem("Roll & Escape/Milestone 7 - Build Settings Scene")]
         public static void Build()
         {
-            if (!File.Exists(LevelSelectScenePath))
-            {
-                Milestone5_LevelSelectBuilder.Build();
-            }
+            // Always rebuild fresh - see Milestone5's Build() for why "only if missing" was
+            // wrong (it let stale scene state accumulate across a growing milestone chain).
+            Milestone5_LevelSelectBuilder.Build();
 
             var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
             Directory.CreateDirectory(Path.GetDirectoryName(SettingsScenePath));
@@ -58,7 +57,12 @@ namespace MazeRoller3D.EditorTools
             var restoreButton = UIBuilderHelpers.CreateButton("RestorePurchasesButton", canvasGO.transform, "Restore Purchases", new Vector2(0, 50), new Vector2(400, 80));
             var removeAdsButton = UIBuilderHelpers.CreateButton("RemoveAdsButton", canvasGO.transform, "Remove Ads", new Vector2(0, -50), new Vector2(400, 80));
             var backButton = UIBuilderHelpers.CreateButton("BackButton", canvasGO.transform, "Back", new Vector2(0, -700), new Vector2(300, 90));
-            backButton.onClick.AddListener(() => SceneManager.LoadScene("LevelSelect"));
+            // A runtime LoadSceneOnClick component, not a raw AddListener(lambda) here - see
+            // its doc comment for why the latter silently never fires once the scene reloads.
+            var backLoader = backButton.gameObject.AddComponent<LoadSceneOnClick>();
+            var backLoaderSo = new SerializedObject(backLoader);
+            backLoaderSo.FindProperty("sceneName").stringValue = "LevelSelect";
+            backLoaderSo.ApplyModifiedPropertiesWithoutUndo();
 
             var settingsUI = canvasGO.AddComponent<SettingsUI>();
             var so = new SerializedObject(settingsUI);

@@ -1,9 +1,9 @@
-using MazeRoller3D.Core;
-using MazeRoller3D.Gameplay;
+using RollAndEscape.Core;
+using RollAndEscape.Gameplay;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MazeRoller3D.UI
+namespace RollAndEscape.UI
 {
     /// <summary>
     /// Settings screen: sound/music toggles (persisted via GameServices.Settings - SoundOn

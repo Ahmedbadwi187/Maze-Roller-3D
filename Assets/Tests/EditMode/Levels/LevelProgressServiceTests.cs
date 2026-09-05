@@ -1,8 +1,8 @@
 using System.IO;
-using MazeRoller3D.Persistence;
+using RollAndEscape.Persistence;
 using NUnit.Framework;
 
-namespace MazeRoller3D.Levels.Tests
+namespace RollAndEscape.Levels.Tests
 {
     [TestFixture]
     public class LevelProgressServiceTests

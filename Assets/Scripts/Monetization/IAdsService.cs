@@ -1,6 +1,6 @@
 using System;
 
-namespace MazeRoller3D.Monetization
+namespace RollAndEscape.Monetization
 {
     /// <summary>
     /// Ad network abstraction - banner, interstitial, rewarded. Nothing in the rest of the

@@ -1,7 +1,7 @@
-using MazeRoller3D.Persistence;
+using RollAndEscape.Persistence;
 using UnityEngine;
 
-namespace MazeRoller3D.Levels
+namespace RollAndEscape.Levels
 {
     /// <summary>
     /// Reads/writes per-level completion, stars, and best time via <see cref="SaveSystem"/>.

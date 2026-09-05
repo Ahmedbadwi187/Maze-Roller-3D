@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-namespace MazeRoller3D.UI
+namespace RollAndEscape.UI
 {
     /// <summary>
     /// Splash screen: fades/scales the logo in, holds briefly, then loads Level Select.

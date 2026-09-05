@@ -1,8 +1,8 @@
-namespace MazeRoller3D.Gameplay
+namespace RollAndEscape.Gameplay
 {
     /// <summary>
     /// Carries which level to load across the LevelSelect -> Game scene transition. Plain
-    /// width/height/seed rather than a MazeRoller3D.Levels.LevelDefinition reference on
+    /// width/height/seed rather than a RollAndEscape.Levels.LevelDefinition reference on
     /// purpose - this assembly has no dependency on the Levels assembly, so gameplay code
     /// never needs to know what a "level" is, just what maze to build.
     ///

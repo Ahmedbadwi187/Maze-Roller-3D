@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace MazeRoller3D.Monetization
+namespace RollAndEscape.Monetization
 {
     /// <summary>
     /// Placeholder IAdsService with no real ad network wired in. The Google Mobile Ads Unity

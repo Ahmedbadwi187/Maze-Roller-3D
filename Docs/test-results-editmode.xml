@@ -1,126 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<test-run id="2" testcasecount="51" result="Passed" total="51" passed="51" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.1018482">
-  <test-suite type="TestSuite" id="1000" name="MazeRoller3D" fullname="MazeRoller3D" runstate="Runnable" testcasecount="51" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.101848" total="51" passed="51" failed="0" inconclusive="0" skipped="0" asserts="0">
+<test-run id="2" testcasecount="57" result="Passed" total="57" passed="57" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.1617474">
+  <test-suite type="TestSuite" id="1000" name="MazeRoller3D" fullname="MazeRoller3D" runstate="Runnable" testcasecount="57" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.161747" total="57" passed="57" failed="0" inconclusive="0" skipped="0" asserts="0">
     <properties>
       <property name="platform" value="EditMode" />
     </properties>
-    <test-suite type="Assembly" id="1027" name="MazeRoller3D.Levels.Tests.dll" fullname="D:/Projects/Gamming App/MazeRoller3D/Library/ScriptAssemblies/MazeRoller3D.Levels.Tests.dll" runstate="Runnable" testcasecount="22" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.082328" total="22" passed="22" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <test-suite type="Assembly" id="1034" name="MazeRoller3D.Levels.Tests.dll" fullname="D:/Projects/Gamming App/MazeRoller3D/Library/ScriptAssemblies/MazeRoller3D.Levels.Tests.dll" runstate="Runnable" testcasecount="28" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.147970" total="28" passed="28" failed="0" inconclusive="0" skipped="0" asserts="0">
       <properties>
-        <property name="_PID" value="30508" />
+        <property name="_PID" value="41076" />
         <property name="_APPDOMAIN" value="Unity Child Domain" />
         <property name="platform" value="EditMode" />
         <property name="EditorOnly" value="True" />
       </properties>
-      <test-suite type="TestSuite" id="1028" name="MazeRoller3D" fullname="MazeRoller3D" runstate="Runnable" testcasecount="22" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.082160" total="22" passed="22" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestSuite" id="1035" name="MazeRoller3D" fullname="MazeRoller3D" runstate="Runnable" testcasecount="28" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.147733" total="28" passed="28" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-suite type="TestSuite" id="1029" name="Levels" fullname="MazeRoller3D.Levels" runstate="Runnable" testcasecount="22" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.082098" total="22" passed="22" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <test-suite type="TestSuite" id="1036" name="Levels" fullname="MazeRoller3D.Levels" runstate="Runnable" testcasecount="28" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.147671" total="28" passed="28" failed="0" inconclusive="0" skipped="0" asserts="0">
           <properties />
-          <test-suite type="TestSuite" id="1030" name="Tests" fullname="MazeRoller3D.Levels.Tests" runstate="Runnable" testcasecount="22" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.082008" total="22" passed="22" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <test-suite type="TestSuite" id="1037" name="Tests" fullname="MazeRoller3D.Levels.Tests" runstate="Runnable" testcasecount="28" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.147590" total="28" passed="28" failed="0" inconclusive="0" skipped="0" asserts="0">
             <properties />
-            <test-suite type="TestFixture" id="1001" name="LevelProgressServiceTests" fullname="MazeRoller3D.Levels.Tests.LevelProgressServiceTests" classname="MazeRoller3D.Levels.Tests.LevelProgressServiceTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.073761" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <test-suite type="TestFixture" id="1001" name="LevelProgressServiceTests" fullname="MazeRoller3D.Levels.Tests.LevelProgressServiceTests" classname="MazeRoller3D.Levels.Tests.LevelProgressServiceTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.106618" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
               <properties />
-              <test-case id="1002" name="FirstLevel_IsAlwaysUnlocked_EvenWithNoSaveDataYet" fullname="MazeRoller3D.Levels.Tests.LevelProgressServiceTests.FirstLevel_IsAlwaysUnlocked_EvenWithNoSaveDataYet" methodname="FirstLevel_IsAlwaysUnlocked_EvenWithNoSaveDataYet" classname="MazeRoller3D.Levels.Tests.LevelProgressServiceTests" runstate="Runnable" seed="1011815469" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.008766" asserts="0">
+              <test-case id="1002" name="FirstLevel_IsAlwaysUnlocked_EvenWithNoSaveDataYet" fullname="MazeRoller3D.Levels.Tests.LevelProgressServiceTests.FirstLevel_IsAlwaysUnlocked_EvenWithNoSaveDataYet" methodname="FirstLevel_IsAlwaysUnlocked_EvenWithNoSaveDataYet" classname="MazeRoller3D.Levels.Tests.LevelProgressServiceTests" runstate="Runnable" seed="1310251831" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.015516" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
                 </properties>
               </test-case>
-              <test-case id="1005" name="Progress_PersistsAcrossServiceInstances" fullname="MazeRoller3D.Levels.Tests.LevelProgressServiceTests.Progress_PersistsAcrossServiceInstances" methodname="Progress_PersistsAcrossServiceInstances" classname="MazeRoller3D.Levels.Tests.LevelProgressServiceTests" runstate="Runnable" seed="190351963" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.055289" asserts="0">
+              <test-case id="1005" name="Progress_PersistsAcrossServiceInstances" fullname="MazeRoller3D.Levels.Tests.LevelProgressServiceTests.Progress_PersistsAcrossServiceInstances" methodname="Progress_PersistsAcrossServiceInstances" classname="MazeRoller3D.Levels.Tests.LevelProgressServiceTests" runstate="Runnable" seed="919634750" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.077162" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
                 </properties>
               </test-case>
-              <test-case id="1004" name="RecordCompletion_KeepsBestStarsAndBestTimeAcrossAttempts" fullname="MazeRoller3D.Levels.Tests.LevelProgressServiceTests.RecordCompletion_KeepsBestStarsAndBestTimeAcrossAttempts" methodname="RecordCompletion_KeepsBestStarsAndBestTimeAcrossAttempts" classname="MazeRoller3D.Levels.Tests.LevelProgressServiceTests" runstate="Runnable" seed="2018152079" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.001381" asserts="0">
+              <test-case id="1004" name="RecordCompletion_KeepsBestStarsAndBestTimeAcrossAttempts" fullname="MazeRoller3D.Levels.Tests.LevelProgressServiceTests.RecordCompletion_KeepsBestStarsAndBestTimeAcrossAttempts" methodname="RecordCompletion_KeepsBestStarsAndBestTimeAcrossAttempts" classname="MazeRoller3D.Levels.Tests.LevelProgressServiceTests" runstate="Runnable" seed="2110002377" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.001495" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
                 </properties>
               </test-case>
-              <test-case id="1003" name="SecondLevel_IsLocked_UntilFirstLevelCompleted" fullname="MazeRoller3D.Levels.Tests.LevelProgressServiceTests.SecondLevel_IsLocked_UntilFirstLevelCompleted" methodname="SecondLevel_IsLocked_UntilFirstLevelCompleted" classname="MazeRoller3D.Levels.Tests.LevelProgressServiceTests" runstate="Runnable" seed="890566471" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000805" asserts="0">
+              <test-case id="1003" name="SecondLevel_IsLocked_UntilFirstLevelCompleted" fullname="MazeRoller3D.Levels.Tests.LevelProgressServiceTests.SecondLevel_IsLocked_UntilFirstLevelCompleted" methodname="SecondLevel_IsLocked_UntilFirstLevelCompleted" classname="MazeRoller3D.Levels.Tests.LevelProgressServiceTests" runstate="Runnable" seed="1929563642" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000788" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
                 </properties>
               </test-case>
-              <test-case id="1006" name="UncompletedLevel_ReportsNotCompletedAndZeroStars" fullname="MazeRoller3D.Levels.Tests.LevelProgressServiceTests.UncompletedLevel_ReportsNotCompletedAndZeroStars" methodname="UncompletedLevel_ReportsNotCompletedAndZeroStars" classname="MazeRoller3D.Levels.Tests.LevelProgressServiceTests" runstate="Runnable" seed="847723443" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000217" asserts="0">
+              <test-case id="1006" name="UncompletedLevel_ReportsNotCompletedAndZeroStars" fullname="MazeRoller3D.Levels.Tests.LevelProgressServiceTests.UncompletedLevel_ReportsNotCompletedAndZeroStars" methodname="UncompletedLevel_ReportsNotCompletedAndZeroStars" classname="MazeRoller3D.Levels.Tests.LevelProgressServiceTests" runstate="Runnable" seed="704090650" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000209" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
                 </properties>
               </test-case>
             </test-suite>
-            <test-suite type="TestFixture" id="1007" name="LevelRepositoryTests" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" testcasecount="12" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.006563" total="12" passed="12" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <test-suite type="TestFixture" id="1007" name="LevelRepositoryTests" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" testcasecount="18" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.038979" total="18" passed="18" failed="0" inconclusive="0" skipped="0" asserts="0">
               <properties />
-              <test-case id="1019" name="GetAllLevels_ReturnsExactlyTotalLevelsCount" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.GetAllLevels_ReturnsExactlyTotalLevelsCount" methodname="GetAllLevels_ReturnsExactlyTotalLevelsCount" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" seed="900735417" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000570" asserts="0">
-                <properties>
-                  <property name="retryIteration" value="0" />
-                  <property name="repeatIteration" value="0" />
-                </properties>
-              </test-case>
-              <test-case id="1020" name="GetAllLevels_SeedsAreAllDistinct" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.GetAllLevels_SeedsAreAllDistinct" methodname="GetAllLevels_SeedsAreAllDistinct" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" seed="1863183590" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.001582" asserts="0">
-                <properties>
-                  <property name="retryIteration" value="0" />
-                  <property name="repeatIteration" value="0" />
-                </properties>
-              </test-case>
-              <test-case id="1017" name="GetLevel_NeverExceedsMaxSizeEvenForHighTiers" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.GetLevel_NeverExceedsMaxSizeEvenForHighTiers" methodname="GetLevel_NeverExceedsMaxSizeEvenForHighTiers" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" seed="766430587" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.001799" asserts="0">
-                <properties>
-                  <property name="retryIteration" value="0" />
-                  <property name="repeatIteration" value="0" />
-                </properties>
-              </test-case>
-              <test-case id="1018" name="GetLevel_OutOfRange_Throws" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.GetLevel_OutOfRange_Throws" methodname="GetLevel_OutOfRange_Throws" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" seed="1528668502" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000771" asserts="0">
-                <properties>
-                  <property name="retryIteration" value="0" />
-                  <property name="repeatIteration" value="0" />
-                </properties>
-              </test-case>
-              <test-suite type="ParameterizedMethod" id="1016" name="GetLevel_SizeMatchesDifficultyCurve" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.GetLevel_SizeMatchesDifficultyCurve" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.001009" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <test-suite type="ParameterizedMethod" id="1026" name="ConsecutiveLevels_ProduceSubstantiallyDifferentMazes" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.ConsecutiveLevels_ProduceSubstantiallyDifferentMazes" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.005342" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
                 <properties />
-                <test-case id="1008" name="GetLevel_SizeMatchesDifficultyCurve(0,8)" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.GetLevel_SizeMatchesDifficultyCurve(0,8)" methodname="GetLevel_SizeMatchesDifficultyCurve" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" seed="361127452" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000167" asserts="0">
+                <test-case id="1021" name="ConsecutiveLevels_ProduceSubstantiallyDifferentMazes(0)" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.ConsecutiveLevels_ProduceSubstantiallyDifferentMazes(0)" methodname="ConsecutiveLevels_ProduceSubstantiallyDifferentMazes" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" seed="1786815059" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.004337" asserts="0">
                   <properties>
                     <property name="retryIteration" value="0" />
                     <property name="repeatIteration" value="0" />
                   </properties>
                 </test-case>
-                <test-case id="1009" name="GetLevel_SizeMatchesDifficultyCurve(9,8)" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.GetLevel_SizeMatchesDifficultyCurve(9,8)" methodname="GetLevel_SizeMatchesDifficultyCurve" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" seed="1025494864" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000033" asserts="0">
+                <test-case id="1022" name="ConsecutiveLevels_ProduceSubstantiallyDifferentMazes(1)" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.ConsecutiveLevels_ProduceSubstantiallyDifferentMazes(1)" methodname="ConsecutiveLevels_ProduceSubstantiallyDifferentMazes" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" seed="540243282" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000111" asserts="0">
                   <properties>
                     <property name="retryIteration" value="0" />
                     <property name="repeatIteration" value="0" />
                   </properties>
                 </test-case>
-                <test-case id="1010" name="GetLevel_SizeMatchesDifficultyCurve(10,10)" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.GetLevel_SizeMatchesDifficultyCurve(10,10)" methodname="GetLevel_SizeMatchesDifficultyCurve" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" seed="1963407535" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000029" asserts="0">
+                <test-case id="1023" name="ConsecutiveLevels_ProduceSubstantiallyDifferentMazes(2)" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.ConsecutiveLevels_ProduceSubstantiallyDifferentMazes(2)" methodname="ConsecutiveLevels_ProduceSubstantiallyDifferentMazes" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" seed="2027251044" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000150" asserts="0">
                   <properties>
                     <property name="retryIteration" value="0" />
                     <property name="repeatIteration" value="0" />
                   </properties>
                 </test-case>
-                <test-case id="1011" name="GetLevel_SizeMatchesDifficultyCurve(19,10)" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.GetLevel_SizeMatchesDifficultyCurve(19,10)" methodname="GetLevel_SizeMatchesDifficultyCurve" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" seed="1639010357" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000022" asserts="0">
+                <test-case id="1024" name="ConsecutiveLevels_ProduceSubstantiallyDifferentMazes(10)" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.ConsecutiveLevels_ProduceSubstantiallyDifferentMazes(10)" methodname="ConsecutiveLevels_ProduceSubstantiallyDifferentMazes" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" seed="1826022954" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000120" asserts="0">
                   <properties>
                     <property name="retryIteration" value="0" />
                     <property name="repeatIteration" value="0" />
                   </properties>
                 </test-case>
-                <test-case id="1012" name="GetLevel_SizeMatchesDifficultyCurve(20,12)" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.GetLevel_SizeMatchesDifficultyCurve(20,12)" methodname="GetLevel_SizeMatchesDifficultyCurve" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" seed="1738770628" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000022" asserts="0">
+                <test-case id="1025" name="ConsecutiveLevels_ProduceSubstantiallyDifferentMazes(35)" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.ConsecutiveLevels_ProduceSubstantiallyDifferentMazes(35)" methodname="ConsecutiveLevels_ProduceSubstantiallyDifferentMazes" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" seed="955178184" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000174" asserts="0">
                   <properties>
                     <property name="retryIteration" value="0" />
                     <property name="repeatIteration" value="0" />
                   </properties>
                 </test-case>
-                <test-case id="1013" name="GetLevel_SizeMatchesDifficultyCurve(59,18)" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.GetLevel_SizeMatchesDifficultyCurve(59,18)" methodname="GetLevel_SizeMatchesDifficultyCurve" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" seed="675799863" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000021" asserts="0">
+              </test-suite>
+              <test-case id="1027" name="EveryActualLevel_IsFullyConnectedWithASolutionPath" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.EveryActualLevel_IsFullyConnectedWithASolutionPath" methodname="EveryActualLevel_IsFullyConnectedWithASolutionPath" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" seed="1690639368" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.028150" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1019" name="GetAllLevels_ReturnsExactlyTotalLevelsCount" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.GetAllLevels_ReturnsExactlyTotalLevelsCount" methodname="GetAllLevels_ReturnsExactlyTotalLevelsCount" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" seed="918296422" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000417" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1020" name="GetAllLevels_SeedsAreAllDistinct" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.GetAllLevels_SeedsAreAllDistinct" methodname="GetAllLevels_SeedsAreAllDistinct" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" seed="108314721" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.001855" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1017" name="GetLevel_NeverExceedsMaxSizeEvenForHighTiers" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.GetLevel_NeverExceedsMaxSizeEvenForHighTiers" methodname="GetLevel_NeverExceedsMaxSizeEvenForHighTiers" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" seed="979303929" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000153" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1018" name="GetLevel_OutOfRange_Throws" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.GetLevel_OutOfRange_Throws" methodname="GetLevel_OutOfRange_Throws" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" seed="1246182861" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000715" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-suite type="ParameterizedMethod" id="1016" name="GetLevel_SizeMatchesDifficultyCurve" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.GetLevel_SizeMatchesDifficultyCurve" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000913" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+                <properties />
+                <test-case id="1008" name="GetLevel_SizeMatchesDifficultyCurve(0,8)" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.GetLevel_SizeMatchesDifficultyCurve(0,8)" methodname="GetLevel_SizeMatchesDifficultyCurve" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" seed="637684246" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000163" asserts="0">
                   <properties>
                     <property name="retryIteration" value="0" />
                     <property name="repeatIteration" value="0" />
                   </properties>
                 </test-case>
-                <test-case id="1014" name="GetLevel_SizeMatchesDifficultyCurve(60,20)" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.GetLevel_SizeMatchesDifficultyCurve(60,20)" methodname="GetLevel_SizeMatchesDifficultyCurve" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" seed="1589388372" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000023" asserts="0">
+                <test-case id="1009" name="GetLevel_SizeMatchesDifficultyCurve(9,8)" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.GetLevel_SizeMatchesDifficultyCurve(9,8)" methodname="GetLevel_SizeMatchesDifficultyCurve" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" seed="495440423" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000032" asserts="0">
                   <properties>
                     <property name="retryIteration" value="0" />
                     <property name="repeatIteration" value="0" />
                   </properties>
                 </test-case>
-                <test-case id="1015" name="GetLevel_SizeMatchesDifficultyCurve(69,20)" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.GetLevel_SizeMatchesDifficultyCurve(69,20)" methodname="GetLevel_SizeMatchesDifficultyCurve" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" seed="1237423344" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000020" asserts="0">
+                <test-case id="1010" name="GetLevel_SizeMatchesDifficultyCurve(10,10)" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.GetLevel_SizeMatchesDifficultyCurve(10,10)" methodname="GetLevel_SizeMatchesDifficultyCurve" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" seed="1337021301" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000031" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1011" name="GetLevel_SizeMatchesDifficultyCurve(19,10)" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.GetLevel_SizeMatchesDifficultyCurve(19,10)" methodname="GetLevel_SizeMatchesDifficultyCurve" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" seed="1879648612" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000024" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1012" name="GetLevel_SizeMatchesDifficultyCurve(20,12)" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.GetLevel_SizeMatchesDifficultyCurve(20,12)" methodname="GetLevel_SizeMatchesDifficultyCurve" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" seed="982725488" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000033" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1013" name="GetLevel_SizeMatchesDifficultyCurve(59,18)" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.GetLevel_SizeMatchesDifficultyCurve(59,18)" methodname="GetLevel_SizeMatchesDifficultyCurve" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" seed="650782575" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000022" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1014" name="GetLevel_SizeMatchesDifficultyCurve(60,20)" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.GetLevel_SizeMatchesDifficultyCurve(60,20)" methodname="GetLevel_SizeMatchesDifficultyCurve" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" seed="808224370" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000023" asserts="0">
+                  <properties>
+                    <property name="retryIteration" value="0" />
+                    <property name="repeatIteration" value="0" />
+                  </properties>
+                </test-case>
+                <test-case id="1015" name="GetLevel_SizeMatchesDifficultyCurve(69,20)" fullname="MazeRoller3D.Levels.Tests.LevelRepositoryTests.GetLevel_SizeMatchesDifficultyCurve(69,20)" methodname="GetLevel_SizeMatchesDifficultyCurve" classname="MazeRoller3D.Levels.Tests.LevelRepositoryTests" runstate="Runnable" seed="552133881" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000020" asserts="0">
                   <properties>
                     <property name="retryIteration" value="0" />
                     <property name="repeatIteration" value="0" />
@@ -128,33 +167,33 @@
                 </test-case>
               </test-suite>
             </test-suite>
-            <test-suite type="TestFixture" id="1021" name="StarCalculatorTests" fullname="MazeRoller3D.Levels.Tests.StarCalculatorTests" classname="MazeRoller3D.Levels.Tests.StarCalculatorTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000986" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <test-suite type="TestFixture" id="1028" name="StarCalculatorTests" fullname="MazeRoller3D.Levels.Tests.StarCalculatorTests" classname="MazeRoller3D.Levels.Tests.StarCalculatorTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000995" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
               <properties />
-              <test-case id="1023" name="ExactlyAtThreeStarThreshold_StillEarns3Stars" fullname="MazeRoller3D.Levels.Tests.StarCalculatorTests.ExactlyAtThreeStarThreshold_StillEarns3Stars" methodname="ExactlyAtThreeStarThreshold_StillEarns3Stars" classname="MazeRoller3D.Levels.Tests.StarCalculatorTests" runstate="Runnable" seed="381795954" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000248" asserts="0">
+              <test-case id="1030" name="ExactlyAtThreeStarThreshold_StillEarns3Stars" fullname="MazeRoller3D.Levels.Tests.StarCalculatorTests.ExactlyAtThreeStarThreshold_StillEarns3Stars" methodname="ExactlyAtThreeStarThreshold_StillEarns3Stars" classname="MazeRoller3D.Levels.Tests.StarCalculatorTests" runstate="Runnable" seed="543653821" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000242" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
                 </properties>
               </test-case>
-              <test-case id="1024" name="JustOverThreeStarThreshold_Earns2Stars" fullname="MazeRoller3D.Levels.Tests.StarCalculatorTests.JustOverThreeStarThreshold_Earns2Stars" methodname="JustOverThreeStarThreshold_Earns2Stars" classname="MazeRoller3D.Levels.Tests.StarCalculatorTests" runstate="Runnable" seed="62799916" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000064" asserts="0">
+              <test-case id="1031" name="JustOverThreeStarThreshold_Earns2Stars" fullname="MazeRoller3D.Levels.Tests.StarCalculatorTests.JustOverThreeStarThreshold_Earns2Stars" methodname="JustOverThreeStarThreshold_Earns2Stars" classname="MazeRoller3D.Levels.Tests.StarCalculatorTests" runstate="Runnable" seed="1257895632" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000065" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
                 </properties>
               </test-case>
-              <test-case id="1026" name="LargerMaze_AllowsProportionallyMoreTimeForThreeStars" fullname="MazeRoller3D.Levels.Tests.StarCalculatorTests.LargerMaze_AllowsProportionallyMoreTimeForThreeStars" methodname="LargerMaze_AllowsProportionallyMoreTimeForThreeStars" classname="MazeRoller3D.Levels.Tests.StarCalculatorTests" runstate="Runnable" seed="1724866303" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000117" asserts="0">
+              <test-case id="1033" name="LargerMaze_AllowsProportionallyMoreTimeForThreeStars" fullname="MazeRoller3D.Levels.Tests.StarCalculatorTests.LargerMaze_AllowsProportionallyMoreTimeForThreeStars" methodname="LargerMaze_AllowsProportionallyMoreTimeForThreeStars" classname="MazeRoller3D.Levels.Tests.StarCalculatorTests" runstate="Runnable" seed="455464089" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000073" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
                 </properties>
               </test-case>
-              <test-case id="1022" name="VeryFastCompletion_Earns3Stars" fullname="MazeRoller3D.Levels.Tests.StarCalculatorTests.VeryFastCompletion_Earns3Stars" methodname="VeryFastCompletion_Earns3Stars" classname="MazeRoller3D.Levels.Tests.StarCalculatorTests" runstate="Runnable" seed="590250551" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000049" asserts="0">
+              <test-case id="1029" name="VeryFastCompletion_Earns3Stars" fullname="MazeRoller3D.Levels.Tests.StarCalculatorTests.VeryFastCompletion_Earns3Stars" methodname="VeryFastCompletion_Earns3Stars" classname="MazeRoller3D.Levels.Tests.StarCalculatorTests" runstate="Runnable" seed="188597537" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000054" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
                 </properties>
               </test-case>
-              <test-case id="1025" name="WayOverThreshold_StillEarnsAtLeast1Star" fullname="MazeRoller3D.Levels.Tests.StarCalculatorTests.WayOverThreshold_StillEarnsAtLeast1Star" methodname="WayOverThreshold_StillEarnsAtLeast1Star" classname="MazeRoller3D.Levels.Tests.StarCalculatorTests" runstate="Runnable" seed="711391389" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000046" asserts="0">
+              <test-case id="1032" name="WayOverThreshold_StillEarnsAtLeast1Star" fullname="MazeRoller3D.Levels.Tests.StarCalculatorTests.WayOverThreshold_StillEarnsAtLeast1Star" methodname="WayOverThreshold_StillEarnsAtLeast1Star" classname="MazeRoller3D.Levels.Tests.StarCalculatorTests" runstate="Runnable" seed="2052574124" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000043" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
@@ -165,175 +204,175 @@
         </test-suite>
       </test-suite>
     </test-suite>
-    <test-suite type="Assembly" id="1061" name="MazeRoller3D.MazeGeneration.Tests.dll" fullname="D:/Projects/Gamming App/MazeRoller3D/Library/ScriptAssemblies/MazeRoller3D.MazeGeneration.Tests.dll" runstate="Runnable" testcasecount="24" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.015744" total="24" passed="24" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <test-suite type="Assembly" id="1068" name="MazeRoller3D.MazeGeneration.Tests.dll" fullname="D:/Projects/Gamming App/MazeRoller3D/Library/ScriptAssemblies/MazeRoller3D.MazeGeneration.Tests.dll" runstate="Runnable" testcasecount="24" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.009243" total="24" passed="24" failed="0" inconclusive="0" skipped="0" asserts="0">
       <properties>
-        <property name="_PID" value="30508" />
+        <property name="_PID" value="41076" />
         <property name="_APPDOMAIN" value="Unity Child Domain" />
         <property name="platform" value="EditMode" />
         <property name="EditorOnly" value="True" />
       </properties>
-      <test-suite type="TestSuite" id="1062" name="MazeRoller3D" fullname="MazeRoller3D" runstate="Runnable" testcasecount="24" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.015655" total="24" passed="24" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestSuite" id="1069" name="MazeRoller3D" fullname="MazeRoller3D" runstate="Runnable" testcasecount="24" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.009159" total="24" passed="24" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-suite type="TestSuite" id="1063" name="MazeGeneration" fullname="MazeRoller3D.MazeGeneration" runstate="Runnable" testcasecount="24" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.015598" total="24" passed="24" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <test-suite type="TestSuite" id="1070" name="MazeGeneration" fullname="MazeRoller3D.MazeGeneration" runstate="Runnable" testcasecount="24" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.009110" total="24" passed="24" failed="0" inconclusive="0" skipped="0" asserts="0">
           <properties />
-          <test-suite type="TestSuite" id="1064" name="Tests" fullname="MazeRoller3D.MazeGeneration.Tests" runstate="Runnable" testcasecount="24" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.015543" total="24" passed="24" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <test-suite type="TestSuite" id="1071" name="Tests" fullname="MazeRoller3D.MazeGeneration.Tests" runstate="Runnable" testcasecount="24" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.009050" total="24" passed="24" failed="0" inconclusive="0" skipped="0" asserts="0">
             <properties />
-            <test-suite type="TestFixture" id="1031" name="RecursiveBacktrackerMazeGeneratorTests" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" testcasecount="24" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.015418" total="24" passed="24" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <test-suite type="TestFixture" id="1038" name="RecursiveBacktrackerMazeGeneratorTests" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" testcasecount="24" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.008938" total="24" passed="24" failed="0" inconclusive="0" skipped="0" asserts="0">
               <properties />
-              <test-case id="1051" name="Generate_DefaultEntranceAndExit_AreOppositeCorners" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_DefaultEntranceAndExit_AreOppositeCorners" methodname="Generate_DefaultEntranceAndExit_AreOppositeCorners" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="360062159" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.002389" asserts="0">
+              <test-case id="1058" name="Generate_DefaultEntranceAndExit_AreOppositeCorners" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_DefaultEntranceAndExit_AreOppositeCorners" methodname="Generate_DefaultEntranceAndExit_AreOppositeCorners" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="1852540965" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000243" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
                 </properties>
               </test-case>
-              <test-case id="1054" name="Generate_DifferentSeeds_ProduceDifferentLayouts" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_DifferentSeeds_ProduceDifferentLayouts" methodname="Generate_DifferentSeeds_ProduceDifferentLayouts" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="2113569440" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000620" asserts="0">
+              <test-case id="1061" name="Generate_DifferentSeeds_ProduceDifferentLayouts" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_DifferentSeeds_ProduceDifferentLayouts" methodname="Generate_DifferentSeeds_ProduceDifferentLayouts" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="1295227665" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000342" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
                 </properties>
               </test-case>
-              <test-suite type="ParameterizedMethod" id="1043" name="Generate_EveryCellIsReachableFromEveryOtherCell" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_EveryCellIsReachableFromEveryOtherCell" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.002303" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <test-suite type="ParameterizedMethod" id="1050" name="Generate_EveryCellIsReachableFromEveryOtherCell" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_EveryCellIsReachableFromEveryOtherCell" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" testcasecount="4" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.001043" total="4" passed="4" failed="0" inconclusive="0" skipped="0" asserts="0">
                 <properties />
-                <test-case id="1039" name="Generate_EveryCellIsReachableFromEveryOtherCell(8,8)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_EveryCellIsReachableFromEveryOtherCell(8,8)" methodname="Generate_EveryCellIsReachableFromEveryOtherCell" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="209778175" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.001424" asserts="0">
+                <test-case id="1046" name="Generate_EveryCellIsReachableFromEveryOtherCell(8,8)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_EveryCellIsReachableFromEveryOtherCell(8,8)" methodname="Generate_EveryCellIsReachableFromEveryOtherCell" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="1065749453" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000234" asserts="0">
                   <properties>
                     <property name="retryIteration" value="0" />
                     <property name="repeatIteration" value="0" />
                   </properties>
                 </test-case>
-                <test-case id="1040" name="Generate_EveryCellIsReachableFromEveryOtherCell(12,12)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_EveryCellIsReachableFromEveryOtherCell(12,12)" methodname="Generate_EveryCellIsReachableFromEveryOtherCell" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="57539408" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000161" asserts="0">
+                <test-case id="1047" name="Generate_EveryCellIsReachableFromEveryOtherCell(12,12)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_EveryCellIsReachableFromEveryOtherCell(12,12)" methodname="Generate_EveryCellIsReachableFromEveryOtherCell" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="716566304" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000131" asserts="0">
                   <properties>
                     <property name="retryIteration" value="0" />
                     <property name="repeatIteration" value="0" />
                   </properties>
                 </test-case>
-                <test-case id="1041" name="Generate_EveryCellIsReachableFromEveryOtherCell(20,20)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_EveryCellIsReachableFromEveryOtherCell(20,20)" methodname="Generate_EveryCellIsReachableFromEveryOtherCell" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="915472521" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000277" asserts="0">
+                <test-case id="1048" name="Generate_EveryCellIsReachableFromEveryOtherCell(20,20)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_EveryCellIsReachableFromEveryOtherCell(20,20)" methodname="Generate_EveryCellIsReachableFromEveryOtherCell" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="601933176" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000273" asserts="0">
                   <properties>
                     <property name="retryIteration" value="0" />
                     <property name="repeatIteration" value="0" />
                   </properties>
                 </test-case>
-                <test-case id="1042" name="Generate_EveryCellIsReachableFromEveryOtherCell(10,15)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_EveryCellIsReachableFromEveryOtherCell(10,15)" methodname="Generate_EveryCellIsReachableFromEveryOtherCell" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="1632940498" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000124" asserts="0">
+                <test-case id="1049" name="Generate_EveryCellIsReachableFromEveryOtherCell(10,15)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_EveryCellIsReachableFromEveryOtherCell(10,15)" methodname="Generate_EveryCellIsReachableFromEveryOtherCell" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="2068658329" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000122" asserts="0">
                   <properties>
                     <property name="retryIteration" value="0" />
                     <property name="repeatIteration" value="0" />
                   </properties>
                 </test-case>
               </test-suite>
-              <test-case id="1055" name="Generate_EveryNonBoundaryWall_HasMatchingWallOnNeighborsSide" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_EveryNonBoundaryWall_HasMatchingWallOnNeighborsSide" methodname="Generate_EveryNonBoundaryWall_HasMatchingWallOnNeighborsSide" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="2134578729" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.001464" asserts="0">
+              <test-case id="1062" name="Generate_EveryNonBoundaryWall_HasMatchingWallOnNeighborsSide" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_EveryNonBoundaryWall_HasMatchingWallOnNeighborsSide" methodname="Generate_EveryNonBoundaryWall_HasMatchingWallOnNeighborsSide" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="1130506929" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.001373" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
                 </properties>
               </test-case>
-              <test-suite type="ParameterizedMethod" id="1047" name="Generate_IsAPerfectMaze_ExactlyOnePathBetweenAnyTwoCells" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_IsAPerfectMaze_ExactlyOnePathBetweenAnyTwoCells" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000863" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <test-suite type="ParameterizedMethod" id="1054" name="Generate_IsAPerfectMaze_ExactlyOnePathBetweenAnyTwoCells" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_IsAPerfectMaze_ExactlyOnePathBetweenAnyTwoCells" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000837" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
                 <properties />
-                <test-case id="1044" name="Generate_IsAPerfectMaze_ExactlyOnePathBetweenAnyTwoCells(8,8)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_IsAPerfectMaze_ExactlyOnePathBetweenAnyTwoCells(8,8)" methodname="Generate_IsAPerfectMaze_ExactlyOnePathBetweenAnyTwoCells" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="443766822" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000301" asserts="0">
+                <test-case id="1051" name="Generate_IsAPerfectMaze_ExactlyOnePathBetweenAnyTwoCells(8,8)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_IsAPerfectMaze_ExactlyOnePathBetweenAnyTwoCells(8,8)" methodname="Generate_IsAPerfectMaze_ExactlyOnePathBetweenAnyTwoCells" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="410658872" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000292" asserts="0">
                   <properties>
                     <property name="retryIteration" value="0" />
                     <property name="repeatIteration" value="0" />
                   </properties>
                 </test-case>
-                <test-case id="1045" name="Generate_IsAPerfectMaze_ExactlyOnePathBetweenAnyTwoCells(20,20)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_IsAPerfectMaze_ExactlyOnePathBetweenAnyTwoCells(20,20)" methodname="Generate_IsAPerfectMaze_ExactlyOnePathBetweenAnyTwoCells" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="1645144858" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000212" asserts="0">
+                <test-case id="1052" name="Generate_IsAPerfectMaze_ExactlyOnePathBetweenAnyTwoCells(20,20)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_IsAPerfectMaze_ExactlyOnePathBetweenAnyTwoCells(20,20)" methodname="Generate_IsAPerfectMaze_ExactlyOnePathBetweenAnyTwoCells" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="315683124" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000218" asserts="0">
                   <properties>
                     <property name="retryIteration" value="0" />
                     <property name="repeatIteration" value="0" />
                   </properties>
                 </test-case>
-                <test-case id="1046" name="Generate_IsAPerfectMaze_ExactlyOnePathBetweenAnyTwoCells(13,7)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_IsAPerfectMaze_ExactlyOnePathBetweenAnyTwoCells(13,7)" methodname="Generate_IsAPerfectMaze_ExactlyOnePathBetweenAnyTwoCells" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="367836211" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000079" asserts="0">
+                <test-case id="1053" name="Generate_IsAPerfectMaze_ExactlyOnePathBetweenAnyTwoCells(13,7)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_IsAPerfectMaze_ExactlyOnePathBetweenAnyTwoCells(13,7)" methodname="Generate_IsAPerfectMaze_ExactlyOnePathBetweenAnyTwoCells" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="519614568" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000080" asserts="0">
                   <properties>
                     <property name="retryIteration" value="0" />
                     <property name="repeatIteration" value="0" />
                   </properties>
                 </test-case>
               </test-suite>
-              <test-suite type="ParameterizedMethod" id="1038" name="Generate_ProducesGridWithRequestedDimensions" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_ProducesGridWithRequestedDimensions" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.001328" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <test-suite type="ParameterizedMethod" id="1045" name="Generate_ProducesGridWithRequestedDimensions" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_ProducesGridWithRequestedDimensions" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.001354" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
                 <properties />
-                <test-case id="1032" name="Generate_ProducesGridWithRequestedDimensions(8,8)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_ProducesGridWithRequestedDimensions(8,8)" methodname="Generate_ProducesGridWithRequestedDimensions" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="1222155498" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000227" asserts="0">
+                <test-case id="1039" name="Generate_ProducesGridWithRequestedDimensions(8,8)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_ProducesGridWithRequestedDimensions(8,8)" methodname="Generate_ProducesGridWithRequestedDimensions" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="1818006131" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000231" asserts="0">
                   <properties>
                     <property name="retryIteration" value="0" />
                     <property name="repeatIteration" value="0" />
                   </properties>
                 </test-case>
-                <test-case id="1033" name="Generate_ProducesGridWithRequestedDimensions(12,12)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_ProducesGridWithRequestedDimensions(12,12)" methodname="Generate_ProducesGridWithRequestedDimensions" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="58680877" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000154" asserts="0">
+                <test-case id="1040" name="Generate_ProducesGridWithRequestedDimensions(12,12)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_ProducesGridWithRequestedDimensions(12,12)" methodname="Generate_ProducesGridWithRequestedDimensions" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="966361124" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000159" asserts="0">
                   <properties>
                     <property name="retryIteration" value="0" />
                     <property name="repeatIteration" value="0" />
                   </properties>
                 </test-case>
-                <test-case id="1034" name="Generate_ProducesGridWithRequestedDimensions(20,20)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_ProducesGridWithRequestedDimensions(20,20)" methodname="Generate_ProducesGridWithRequestedDimensions" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="1377108339" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000368" asserts="0">
+                <test-case id="1041" name="Generate_ProducesGridWithRequestedDimensions(20,20)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_ProducesGridWithRequestedDimensions(20,20)" methodname="Generate_ProducesGridWithRequestedDimensions" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="755505975" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000369" asserts="0">
                   <properties>
                     <property name="retryIteration" value="0" />
                     <property name="repeatIteration" value="0" />
                   </properties>
                 </test-case>
-                <test-case id="1035" name="Generate_ProducesGridWithRequestedDimensions(10,15)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_ProducesGridWithRequestedDimensions(10,15)" methodname="Generate_ProducesGridWithRequestedDimensions" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="157911" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000150" asserts="0">
+                <test-case id="1042" name="Generate_ProducesGridWithRequestedDimensions(10,15)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_ProducesGridWithRequestedDimensions(10,15)" methodname="Generate_ProducesGridWithRequestedDimensions" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="1670134839" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000152" asserts="0">
                   <properties>
                     <property name="retryIteration" value="0" />
                     <property name="repeatIteration" value="0" />
                   </properties>
                 </test-case>
-                <test-case id="1036" name="Generate_ProducesGridWithRequestedDimensions(1,1)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_ProducesGridWithRequestedDimensions(1,1)" methodname="Generate_ProducesGridWithRequestedDimensions" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="1578070953" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000039" asserts="0">
+                <test-case id="1043" name="Generate_ProducesGridWithRequestedDimensions(1,1)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_ProducesGridWithRequestedDimensions(1,1)" methodname="Generate_ProducesGridWithRequestedDimensions" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="340568872" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000037" asserts="0">
                   <properties>
                     <property name="retryIteration" value="0" />
                     <property name="repeatIteration" value="0" />
                   </properties>
                 </test-case>
-                <test-case id="1037" name="Generate_ProducesGridWithRequestedDimensions(1,5)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_ProducesGridWithRequestedDimensions(1,5)" methodname="Generate_ProducesGridWithRequestedDimensions" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="909262950" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000042" asserts="0">
+                <test-case id="1044" name="Generate_ProducesGridWithRequestedDimensions(1,5)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_ProducesGridWithRequestedDimensions(1,5)" methodname="Generate_ProducesGridWithRequestedDimensions" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="285706473" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000039" asserts="0">
                   <properties>
                     <property name="retryIteration" value="0" />
                     <property name="repeatIteration" value="0" />
                   </properties>
                 </test-case>
               </test-suite>
-              <test-case id="1052" name="Generate_RespectsCustomEntranceAndExit" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_RespectsCustomEntranceAndExit" methodname="Generate_RespectsCustomEntranceAndExit" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="431130226" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.003079" asserts="0">
+              <test-case id="1059" name="Generate_RespectsCustomEntranceAndExit" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_RespectsCustomEntranceAndExit" methodname="Generate_RespectsCustomEntranceAndExit" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="1702653368" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000326" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
                 </properties>
               </test-case>
-              <test-case id="1053" name="Generate_SameSeed_ProducesIdenticalLayout" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_SameSeed_ProducesIdenticalLayout" methodname="Generate_SameSeed_ProducesIdenticalLayout" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="847739400" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000720" asserts="0">
+              <test-case id="1060" name="Generate_SameSeed_ProducesIdenticalLayout" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_SameSeed_ProducesIdenticalLayout" methodname="Generate_SameSeed_ProducesIdenticalLayout" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="1895862710" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000555" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
                 </properties>
               </test-case>
-              <test-suite type="ParameterizedMethod" id="1050" name="Generate_SolutionPathExists_FromEntranceToExit" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_SolutionPathExists_FromEntranceToExit" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000941" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <test-suite type="ParameterizedMethod" id="1057" name="Generate_SolutionPathExists_FromEntranceToExit" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_SolutionPathExists_FromEntranceToExit" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000897" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
                 <properties />
-                <test-case id="1048" name="Generate_SolutionPathExists_FromEntranceToExit(8,8)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_SolutionPathExists_FromEntranceToExit(8,8)" methodname="Generate_SolutionPathExists_FromEntranceToExit" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="1179533147" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000387" asserts="0">
+                <test-case id="1055" name="Generate_SolutionPathExists_FromEntranceToExit(8,8)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_SolutionPathExists_FromEntranceToExit(8,8)" methodname="Generate_SolutionPathExists_FromEntranceToExit" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="1549357075" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000360" asserts="0">
                   <properties>
                     <property name="retryIteration" value="0" />
                     <property name="repeatIteration" value="0" />
                   </properties>
                 </test-case>
-                <test-case id="1049" name="Generate_SolutionPathExists_FromEntranceToExit(20,20)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_SolutionPathExists_FromEntranceToExit(20,20)" methodname="Generate_SolutionPathExists_FromEntranceToExit" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="1944230179" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000339" asserts="0">
+                <test-case id="1056" name="Generate_SolutionPathExists_FromEntranceToExit(20,20)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_SolutionPathExists_FromEntranceToExit(20,20)" methodname="Generate_SolutionPathExists_FromEntranceToExit" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="2058250995" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000318" asserts="0">
                   <properties>
                     <property name="retryIteration" value="0" />
                     <property name="repeatIteration" value="0" />
                   </properties>
                 </test-case>
               </test-suite>
-              <test-suite type="ParameterizedMethod" id="1059" name="Generate_ThrowsForNonPositiveDimensions" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_ThrowsForNonPositiveDimensions" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000522" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <test-suite type="ParameterizedMethod" id="1066" name="Generate_ThrowsForNonPositiveDimensions" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_ThrowsForNonPositiveDimensions" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000557" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
                 <properties />
-                <test-case id="1056" name="Generate_ThrowsForNonPositiveDimensions(0,8)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_ThrowsForNonPositiveDimensions(0,8)" methodname="Generate_ThrowsForNonPositiveDimensions" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="946415518" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000196" asserts="0">
+                <test-case id="1063" name="Generate_ThrowsForNonPositiveDimensions(0,8)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_ThrowsForNonPositiveDimensions(0,8)" methodname="Generate_ThrowsForNonPositiveDimensions" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="1102172799" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000204" asserts="0">
                   <properties>
                     <property name="retryIteration" value="0" />
                     <property name="repeatIteration" value="0" />
                   </properties>
                 </test-case>
-                <test-case id="1057" name="Generate_ThrowsForNonPositiveDimensions(8,0)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_ThrowsForNonPositiveDimensions(8,0)" methodname="Generate_ThrowsForNonPositiveDimensions" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="1902742048" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000058" asserts="0">
+                <test-case id="1064" name="Generate_ThrowsForNonPositiveDimensions(8,0)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_ThrowsForNonPositiveDimensions(8,0)" methodname="Generate_ThrowsForNonPositiveDimensions" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="1211286159" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000058" asserts="0">
                   <properties>
                     <property name="retryIteration" value="0" />
                     <property name="repeatIteration" value="0" />
                   </properties>
                 </test-case>
-                <test-case id="1058" name="Generate_ThrowsForNonPositiveDimensions(-1,8)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_ThrowsForNonPositiveDimensions(-1,8)" methodname="Generate_ThrowsForNonPositiveDimensions" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="1126903385" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000042" asserts="0">
+                <test-case id="1065" name="Generate_ThrowsForNonPositiveDimensions(-1,8)" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.Generate_ThrowsForNonPositiveDimensions(-1,8)" methodname="Generate_ThrowsForNonPositiveDimensions" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="326730480" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000043" asserts="0">
                   <properties>
                     <property name="retryIteration" value="0" />
                     <property name="repeatIteration" value="0" />
                   </properties>
                 </test-case>
               </test-suite>
-              <test-case id="1060" name="RemoveWallBetween_NonAdjacentCells_Throws" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.RemoveWallBetween_NonAdjacentCells_Throws" methodname="RemoveWallBetween_NonAdjacentCells_Throws" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="227710247" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000233" asserts="0">
+              <test-case id="1067" name="RemoveWallBetween_NonAdjacentCells_Throws" fullname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests.RemoveWallBetween_NonAdjacentCells_Throws" methodname="RemoveWallBetween_NonAdjacentCells_Throws" classname="MazeRoller3D.MazeGeneration.Tests.RecursiveBacktrackerMazeGeneratorTests" runstate="Runnable" seed="718119491" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000215" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
@@ -344,46 +383,46 @@
         </test-suite>
       </test-suite>
     </test-suite>
-    <test-suite type="Assembly" id="1071" name="MazeRoller3D.Monetization.Tests.dll" fullname="D:/Projects/Gamming App/MazeRoller3D/Library/ScriptAssemblies/MazeRoller3D.Monetization.Tests.dll" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.001157" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <test-suite type="Assembly" id="1078" name="MazeRoller3D.Monetization.Tests.dll" fullname="D:/Projects/Gamming App/MazeRoller3D/Library/ScriptAssemblies/MazeRoller3D.Monetization.Tests.dll" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.001168" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
       <properties>
-        <property name="_PID" value="30508" />
+        <property name="_PID" value="41076" />
         <property name="_APPDOMAIN" value="Unity Child Domain" />
         <property name="platform" value="EditMode" />
         <property name="EditorOnly" value="True" />
       </properties>
-      <test-suite type="TestSuite" id="1072" name="MazeRoller3D" fullname="MazeRoller3D" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.001073" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <test-suite type="TestSuite" id="1079" name="MazeRoller3D" fullname="MazeRoller3D" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.001083" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
         <properties />
-        <test-suite type="TestSuite" id="1073" name="Monetization" fullname="MazeRoller3D.Monetization" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.001025" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <test-suite type="TestSuite" id="1080" name="Monetization" fullname="MazeRoller3D.Monetization" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.001036" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
           <properties />
-          <test-suite type="TestSuite" id="1074" name="Tests" fullname="MazeRoller3D.Monetization.Tests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000969" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <test-suite type="TestSuite" id="1081" name="Tests" fullname="MazeRoller3D.Monetization.Tests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000978" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
             <properties />
-            <test-suite type="TestFixture" id="1065" name="AdsGateTests" fullname="MazeRoller3D.Monetization.Tests.AdsGateTests" classname="MazeRoller3D.Monetization.Tests.AdsGateTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000893" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <test-suite type="TestFixture" id="1072" name="AdsGateTests" fullname="MazeRoller3D.Monetization.Tests.AdsGateTests" classname="MazeRoller3D.Monetization.Tests.AdsGateTests" runstate="Runnable" testcasecount="5" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000885" total="5" passed="5" failed="0" inconclusive="0" skipped="0" asserts="0">
               <properties />
-              <test-case id="1069" name="AdsRemoved_NeverTriggersAnInterstitial_RegardlessOfCompletionCount" fullname="MazeRoller3D.Monetization.Tests.AdsGateTests.AdsRemoved_NeverTriggersAnInterstitial_RegardlessOfCompletionCount" methodname="AdsRemoved_NeverTriggersAnInterstitial_RegardlessOfCompletionCount" classname="MazeRoller3D.Monetization.Tests.AdsGateTests" runstate="Runnable" seed="1641811631" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000173" asserts="0">
+              <test-case id="1076" name="AdsRemoved_NeverTriggersAnInterstitial_RegardlessOfCompletionCount" fullname="MazeRoller3D.Monetization.Tests.AdsGateTests.AdsRemoved_NeverTriggersAnInterstitial_RegardlessOfCompletionCount" methodname="AdsRemoved_NeverTriggersAnInterstitial_RegardlessOfCompletionCount" classname="MazeRoller3D.Monetization.Tests.AdsGateTests" runstate="Runnable" seed="942305067" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000154" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
                 </properties>
               </test-case>
-              <test-case id="1068" name="CadenceResetsAfterEachInterstitial_NotEveryLevelAfterTheFirstOne" fullname="MazeRoller3D.Monetization.Tests.AdsGateTests.CadenceResetsAfterEachInterstitial_NotEveryLevelAfterTheFirstOne" methodname="CadenceResetsAfterEachInterstitial_NotEveryLevelAfterTheFirstOne" classname="MazeRoller3D.Monetization.Tests.AdsGateTests" runstate="Runnable" seed="1395375120" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000084" asserts="0">
+              <test-case id="1075" name="CadenceResetsAfterEachInterstitial_NotEveryLevelAfterTheFirstOne" fullname="MazeRoller3D.Monetization.Tests.AdsGateTests.CadenceResetsAfterEachInterstitial_NotEveryLevelAfterTheFirstOne" methodname="CadenceResetsAfterEachInterstitial_NotEveryLevelAfterTheFirstOne" classname="MazeRoller3D.Monetization.Tests.AdsGateTests" runstate="Runnable" seed="401418858" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000083" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
                 </properties>
               </test-case>
-              <test-case id="1066" name="FirstTwoCompletions_DoNotTriggerAnInterstitial" fullname="MazeRoller3D.Monetization.Tests.AdsGateTests.FirstTwoCompletions_DoNotTriggerAnInterstitial" methodname="FirstTwoCompletions_DoNotTriggerAnInterstitial" classname="MazeRoller3D.Monetization.Tests.AdsGateTests" runstate="Runnable" seed="1312958365" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000053" asserts="0">
+              <test-case id="1073" name="FirstTwoCompletions_DoNotTriggerAnInterstitial" fullname="MazeRoller3D.Monetization.Tests.AdsGateTests.FirstTwoCompletions_DoNotTriggerAnInterstitial" methodname="FirstTwoCompletions_DoNotTriggerAnInterstitial" classname="MazeRoller3D.Monetization.Tests.AdsGateTests" runstate="Runnable" seed="1658891998" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000055" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
                 </properties>
               </test-case>
-              <test-case id="1070" name="ShouldShowBanner_FalseOnceAdsRemoved" fullname="MazeRoller3D.Monetization.Tests.AdsGateTests.ShouldShowBanner_FalseOnceAdsRemoved" methodname="ShouldShowBanner_FalseOnceAdsRemoved" classname="MazeRoller3D.Monetization.Tests.AdsGateTests" runstate="Runnable" seed="1931053827" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000074" asserts="0">
+              <test-case id="1077" name="ShouldShowBanner_FalseOnceAdsRemoved" fullname="MazeRoller3D.Monetization.Tests.AdsGateTests.ShouldShowBanner_FalseOnceAdsRemoved" methodname="ShouldShowBanner_FalseOnceAdsRemoved" classname="MazeRoller3D.Monetization.Tests.AdsGateTests" runstate="Runnable" seed="1831853991" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000080" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />
                 </properties>
               </test-case>
-              <test-case id="1067" name="ThirdCompletion_TriggersAnInterstitial" fullname="MazeRoller3D.Monetization.Tests.AdsGateTests.ThirdCompletion_TriggersAnInterstitial" methodname="ThirdCompletion_TriggersAnInterstitial" classname="MazeRoller3D.Monetization.Tests.AdsGateTests" runstate="Runnable" seed="1890051245" result="Passed" start-time="2026-09-04 22:43:45Z" end-time="2026-09-04 22:43:45Z" duration="0.000047" asserts="0">
+              <test-case id="1074" name="ThirdCompletion_TriggersAnInterstitial" fullname="MazeRoller3D.Monetization.Tests.AdsGateTests.ThirdCompletion_TriggersAnInterstitial" methodname="ThirdCompletion_TriggersAnInterstitial" classname="MazeRoller3D.Monetization.Tests.AdsGateTests" runstate="Runnable" seed="1532228499" result="Passed" start-time="2026-09-05 01:10:57Z" end-time="2026-09-05 01:10:57Z" duration="0.000051" asserts="0">
                 <properties>
                   <property name="retryIteration" value="0" />
                   <property name="repeatIteration" value="0" />

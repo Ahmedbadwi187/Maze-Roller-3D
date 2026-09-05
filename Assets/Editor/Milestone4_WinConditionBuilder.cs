@@ -1,12 +1,12 @@
 using System.IO;
-using MazeRoller3D.Gameplay;
-using MazeRoller3D.UI;
+using RollAndEscape.Gameplay;
+using RollAndEscape.UI;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MazeRoller3D.EditorTools
+namespace RollAndEscape.EditorTools
 {
     /// <summary>
     /// Milestone 4 deliverable: an invisible trigger volume at the maze exit
@@ -14,14 +14,14 @@ namespace MazeRoller3D.EditorTools
     /// Complete overlay (time + Replay/Next Level buttons), and a LevelFlowController wiring
     /// the two together on top of the Milestone 3 ball scene.
     ///
-    /// Run via the Unity menu: Maze Roller 3D -> Milestone 4 - Build Win Condition Test Scene.
+    /// Run via the Unity menu: Roll & Escape -> Milestone 4 - Build Win Condition Test Scene.
     /// </summary>
     public static class Milestone4_WinConditionBuilder
     {
         private const string ExitTriggerPrefabPath = "Assets/Prefabs/ExitTrigger.prefab";
         private const string LevelCompleteUIPrefabPath = "Assets/Prefabs/UI/LevelCompleteUI.prefab";
 
-        [MenuItem("Maze Roller 3D/Milestone 4 - Build Win Condition Test Scene")]
+        [MenuItem("Roll & Escape/Milestone 4 - Build Win Condition Test Scene")]
         public static void Build()
         {
             Milestone3_BallSceneBuilder.Build();
@@ -29,6 +29,7 @@ namespace MazeRoller3D.EditorTools
             var mazeRootGO = GameObject.Find("MazeRoot");
             var mazeView = mazeRootGO.GetComponent<MazeView3D>();
             var ballGO = GameObject.Find("Ball");
+            Debug.Log($"[Diag] mazeRootGO={mazeRootGO.GetInstanceID()}, mazeView.LastBuiltExit={mazeView.LastBuiltExit}, mazeView.LastBuiltEntrance={mazeView.LastBuiltEntrance}");
 
             var exitTriggerGO = SpawnExitTrigger(mazeView);
             var levelCompleteUIGO = (GameObject)PrefabUtility.InstantiatePrefab(GetOrCreateLevelCompleteUIPrefab());
@@ -68,12 +69,21 @@ namespace MazeRoller3D.EditorTools
         private static GameObject GetOrCreateExitTriggerPrefab()
         {
             var existing = AssetDatabase.LoadAssetAtPath<GameObject>(ExitTriggerPrefabPath);
-            if (existing != null) return existing;
+            if (existing != null)
+            {
+                // Re-stamp the collider size every run, not just on first creation - a tuning
+                // change here (like the exit-trigger size fix) must reach an already-cached
+                // prefab, not silently no-op against it forever.
+                var existingCollider = existing.GetComponent<BoxCollider>();
+                if (existingCollider != null) existingCollider.size = new Vector3(1.95f, 2f, 1.95f);
+                EditorUtility.SetDirty(existing);
+                return existing;
+            }
 
             var go = new GameObject("ExitTrigger");
             var collider = go.AddComponent<BoxCollider>();
             collider.isTrigger = true;
-            collider.size = new Vector3(1.6f, 1f, 1.6f); // comfortably wider than the ball, well inside the 2-unit cell
+            collider.size = new Vector3(1.95f, 2f, 1.95f); // nearly the full 2-unit cell - a ball that rolls in and settles against a wall (not dead-center) must still count as reaching the exit
             go.AddComponent<LevelExitTrigger>();
 
             Directory.CreateDirectory(Path.GetDirectoryName(ExitTriggerPrefabPath));

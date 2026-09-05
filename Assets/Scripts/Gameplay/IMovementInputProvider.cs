@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MazeRoller3D.Gameplay
+namespace RollAndEscape.Gameplay
 {
     /// <summary>
     /// A source of 2D movement input (X = left/right, Y = forward/back on the maze's floor

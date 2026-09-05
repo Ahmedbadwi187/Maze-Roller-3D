@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace MazeRoller3D.Gameplay
+namespace RollAndEscape.Gameplay
 {
     /// <summary>
     /// Placed on a trigger collider at the maze's exit cell. Fires <see cref="LevelCompleted"/>
@@ -11,7 +11,7 @@ namespace MazeRoller3D.Gameplay
     /// <see cref="ResetTrigger"/> when a level restarts to re-arm it.
     ///
     /// Deliberately has no knowledge of UI/overlays - callers (see
-    /// MazeRoller3D.UI.LevelFlowController) decide what "level complete" means for the
+    /// RollAndEscape.UI.LevelFlowController) decide what "level complete" means for the
     /// player. Keeps this assembly free of a dependency on the UI layer.
     /// </summary>
     [RequireComponent(typeof(Collider))]

@@ -17,27 +17,6 @@ milestone progresses — read this first when resuming work on the project.
 | 8 | Ads (banner + interstitial every 3 levels + rewarded hints) + Remove Ads IAP | ⏳ Cadence/gating logic (AdsGate) done & unit-tested (5 tests); real Unity IAP wired for Remove Ads/Restore Purchases (testable via its Fake Store); ad *network* itself is a documented placeholder (NoOpAdsService) since Google Mobile Ads isn't a UPM package - see its doc comment; rewarded-ad hint system not yet built (spec marks it optional) |
 | 9 | Polish (SFX, particles, app icon, splash, Cinemachine smoothing) | ✅ Done — Cinemachine follow camera (replaces milestone 3's plain script), particle burst + procedurally-synthesized chime on level complete, generated placeholder app icon (set in PlayerSettings), Splash scene (fade-in logo → Level Select); 51 EditMode + 2 PlayMode tests all still passing |
 
-## Known gaps (all 9 milestones have real work, but these are honestly incomplete)
-
-- **Ad network**: `NoOpAdsService` is a placeholder (logs + auto-grants rewards) - Google Mobile
-  Ads isn't a UPM package, so importing the real SDK is a manual one-time step (Docs/SETUP.md
-  §12), after which a `GoogleMobileAdsService : IAdsService` drop-in replaces it. The banner
-  placement, interstitial cadence (every 3 levels), and Remove-Ads gating logic are all real
-  and tested (`AdsGate`) - only the actual network calls are stubbed.
-- **Hint system**: not built. The spec marks it "Optional," and it was cut for scope given
-  everything else - `IAdsService.ShowRewardedAd` already exists as the hook a hint button
-  would call.
-- **Real SFX/music**: `ProceduralSfx.CreateSuccessChime()` synthesizes a placeholder chime at
-  runtime (no audio files needed) rather than using authored sound assets. `MusicOn` in
-  Settings is persisted but nothing plays music yet.
-- **MainMenu scene**: the spec's screen list includes one, but it wasn't one of the 9
-  milestones you specified, so it was never built - `LevelSelect` currently serves as the
-  de facto home screen (Splash loads directly into it).
-- **Visual confirmation**: every scene builds and its *logic* is tested (53 automated tests:
-  51 EditMode + 2 PlayMode, plus manual headless physics/scene-build verification throughout),
-  but actual on-screen color fidelity still needs your eyes per the headless-capture caveat in
-  Docs/SETUP.md §9 - this applies to milestones 2, 3, 4, and now 9's particle/icon work too.
-
 ## Locked decisions (asked once, don't re-ask)
 
 - **Art style**: clean minimalist — soft pastel palette, flat lighting, simple shapes.

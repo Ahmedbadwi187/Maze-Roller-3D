@@ -1,0 +1,19 @@
+{
+    "name": "RollAndEscape.Core",
+    "rootNamespace": "RollAndEscape.Core",
+    "references": [
+        "RollAndEscape.Persistence",
+        "RollAndEscape.Levels",
+        "RollAndEscape.Monetization",
+        "GUID:60bfecf5cb232594891bc622f40d6bed"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
