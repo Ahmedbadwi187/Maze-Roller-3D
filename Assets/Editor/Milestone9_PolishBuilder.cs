@@ -123,14 +123,20 @@ namespace RollAndEscape.EditorTools
             scaler.matchWidthOrHeight = 1f;
 
             // Always-visible Pause button, top-right corner - not nested under the overlay root.
+            // Chrome only (button shape/color/font) - the maze/ball themselves are untouched,
+            // per explicit instruction not to change gameplay colors.
             var topSafeArea = UIBuilderHelpers.CreateSafeArea(canvasGO.transform);
-            var pauseButton = UIBuilderHelpers.CreateButton("PauseButton", topSafeArea, "II", new Vector2(-80, 0), new Vector2(120, 100));
+            var pauseButton = UIBuilderHelpers.CreateButton("PauseButton", topSafeArea, "II", new Vector2(-80, 0), new Vector2(100, 100));
             UIBuilderHelpers.AnchorToTop(pauseButton.GetComponent<RectTransform>(), 1f, 100f);
+            var pauseButtonImage = pauseButton.GetComponent<Image>();
+            pauseButtonImage.sprite = UIBuilderHelpers.GenerateCircleSprite("Assets/Art/PauseButtonBg.png", 128, RollAndEscapePalette.White);
+            pauseButtonImage.color = Color.white;
+            pauseButton.GetComponentInChildren<Text>().color = RollAndEscapePalette.BackButtonText;
 
             // Always-visible "Level N" indicator, top-left - per the spec's Game-scene HUD.
-            var levelText = UIBuilderHelpers.CreateText("LevelIndicator", topSafeArea, "Level -", new Vector2(100, 0), 48);
+            var levelText = UIBuilderHelpers.CreateText("LevelIndicator", topSafeArea, "Level -", new Vector2(100, 0), 40, UIBuilderHelpers.NunitoBlack);
             UIBuilderHelpers.AnchorToTop(levelText.GetComponent<RectTransform>(), 0f, 100f);
-            levelText.color = Color.black;
+            levelText.color = RollAndEscapePalette.LevelEyebrow;
             var hud = canvasGO.AddComponent<LevelHudUI>();
             var hudSo = new SerializedObject(hud);
             hudSo.FindProperty("levelText").objectReferenceValue = levelText;
@@ -141,10 +147,19 @@ namespace RollAndEscape.EditorTools
             UIBuilderHelpers.StretchToFill(overlayRoot.GetComponent<RectTransform>());
             overlayRoot.GetComponent<Image>().color = new Color(0f, 0f, 0f, 0.6f);
 
-            UIBuilderHelpers.CreateText("PausedTitle", overlayRoot.transform, "Paused", new Vector2(0, 300), 72).color = Color.white;
+            UIBuilderHelpers.CreateText("PausedTitle", overlayRoot.transform, "Paused", new Vector2(0, 300), 64, UIBuilderHelpers.NunitoBlack).color = Color.white;
+
             var resumeButton = UIBuilderHelpers.CreateButton("ResumeButton", overlayRoot.transform, "Resume", new Vector2(0, 100), new Vector2(320, 100));
+            resumeButton.GetComponent<Image>().color = RollAndEscapePalette.ContinueButtonBg;
+            var resumeLabel = resumeButton.GetComponentInChildren<Text>();
+            resumeLabel.color = RollAndEscapePalette.White;
+            resumeLabel.font = UIBuilderHelpers.NunitoBlack;
+
             var restartButton = UIBuilderHelpers.CreateButton("RestartButton", overlayRoot.transform, "Restart", new Vector2(0, -30), new Vector2(320, 100));
+            StyleAsSecondaryButton(restartButton);
+
             var quitButton = UIBuilderHelpers.CreateButton("QuitToMenuButton", overlayRoot.transform, "Quit to Menu", new Vector2(0, -160), new Vector2(320, 100));
+            StyleAsSecondaryButton(quitButton);
 
             var pauseUI = canvasGO.AddComponent<PauseUI>();
             var so = new SerializedObject(pauseUI);
@@ -158,6 +173,17 @@ namespace RollAndEscape.EditorTools
 
             EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
             EditorSceneManager.SaveScene(EditorSceneManager.GetActiveScene());
+        }
+
+        /// <summary>Transparent-fill, white-bordered button style - the mockup's secondary
+        /// action look (vs. a solid-fill primary button).</summary>
+        private static void StyleAsSecondaryButton(Button button)
+        {
+            var image = button.GetComponent<Image>();
+            image.color = new Color(0f, 0f, 0f, 0f);
+            image.sprite = UIBuilderHelpers.GenerateRoundedRectOutlineSprite($"Assets/Art/SecondaryBorder_{button.name}.png", 256, 28f, 4f, RollAndEscapePalette.White);
+            var label = button.GetComponentInChildren<Text>();
+            label.color = RollAndEscapePalette.White;
         }
 
         private static GameObject GetOrCreateParticlePrefab()
@@ -209,13 +235,18 @@ namespace RollAndEscape.EditorTools
             scaler.referenceResolution = new Vector2(1080, 1920);
             scaler.matchWidthOrHeight = 1f;
 
-            // Deep purple radial gradient, brightest behind the icon - per the approved splash
-            // mockup (screenshot from the user), replacing the old flat turquoise background.
+            // 160deg purple linear gradient, per the approved "Buze" mockup (Claude Design
+            // project d6305a3a, Buze.dc.html's splash screen) - replacing the earlier radial
+            // approximation with the mockup's actual gradient angle/colors.
             var background = new GameObject("Background", typeof(RectTransform), typeof(Image));
             background.transform.SetParent(canvasGO.transform, false);
             UIBuilderHelpers.StretchToFill(background.GetComponent<RectTransform>());
             var backgroundImage = background.GetComponent<Image>();
-            backgroundImage.sprite = GetOrCreateGradientSprite();
+            backgroundImage.sprite = UIBuilderHelpers.GenerateSprite(SplashBackgroundPath, 270, 480, (x, y) =>
+            {
+                float t = UIBuilderHelpers.LinearGradientT(x, y, 270, 480, 160f);
+                return UIBuilderHelpers.LerpStops(t, (0f, RollAndEscapePalette.SplashBgTop), (1f, RollAndEscapePalette.SplashBgBottom));
+            });
             backgroundImage.color = Color.white;
             backgroundImage.type = Image.Type.Simple;
             backgroundImage.preserveAspect = false;
@@ -236,10 +267,11 @@ namespace RollAndEscape.EditorTools
             iconBgRect.anchoredPosition = new Vector2(0, 150);
             iconBgRect.sizeDelta = new Vector2(320, 320);
             var iconBgImage = iconBgGO.GetComponent<Image>();
-            iconBgImage.sprite = GetOrCreateRoundedRectSprite();
+            iconBgImage.sprite = UIBuilderHelpers.GenerateRoundedRectSprite(SplashIconBackgroundPath, 256, 64f, RollAndEscapePalette.IconSquareGreen);
             iconBgImage.color = Color.white; // color baked into the generated sprite itself
 
-            // The ball, now gold/amber (was coral) and sitting inside the green chip, per the mockup.
+            // The ball, gold/amber with a highlight - matches the mockup's radial-gradient ball
+            // (approximated as a solid tint since uGUI Image can't do a 2-stop radial fill).
             var ballIconGO = new GameObject("BallIcon", typeof(RectTransform), typeof(Image));
             ballIconGO.transform.SetParent(iconBgGO.transform, false);
             var ballIconRect = ballIconGO.GetComponent<RectTransform>();
@@ -248,17 +280,15 @@ namespace RollAndEscape.EditorTools
             ballIconRect.sizeDelta = new Vector2(130, 130);
             var ballIconImage = ballIconGO.GetComponent<Image>();
             ballIconImage.sprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/Knob.psd");
-            ballIconImage.color = new Color32(0xF0, 0xAE, 0x4A, 0xFF); // gold/amber, per the mockup
+            ballIconImage.color = RollAndEscapePalette.BallHighlight;
 
-            var title = UIBuilderHelpers.CreateText("Title", logoGO.transform, "Roll & Escape", new Vector2(0, -100), 76);
+            var title = UIBuilderHelpers.CreateText("Title", logoGO.transform, "Roll & Escape", new Vector2(0, -100), 76, UIBuilderHelpers.NunitoBlack);
             title.color = Color.white;
-            title.fontStyle = FontStyle.Bold;
 
-            var subtitle = UIBuilderHelpers.CreateText("Subtitle", logoGO.transform, "100 MAZES TO SOLVE", new Vector2(0, -190), 30);
+            var subtitle = UIBuilderHelpers.CreateText("Subtitle", logoGO.transform, "100 MAZES TO SOLVE", new Vector2(0, -190), 26);
             subtitle.color = new Color(1f, 1f, 1f, 0.75f);
-            subtitle.fontStyle = FontStyle.Bold;
 
-            var tapToStart = UIBuilderHelpers.CreateText("TapToStart", logoGO.transform, "Tap to start", new Vector2(0, -300), 30);
+            var tapToStart = UIBuilderHelpers.CreateText("TapToStart", logoGO.transform, "Tap to start", new Vector2(0, -300), 28, UIBuilderHelpers.NunitoBlack);
             tapToStart.color = new Color(1f, 1f, 1f, 0.6f);
 
             var splash = canvasGO.AddComponent<SplashAnimator>();
@@ -279,77 +309,6 @@ namespace RollAndEscape.EditorTools
                 new EditorBuildSettingsScene(GameScenePath, true),
                 new EditorBuildSettingsScene(SettingsScenePath, true)
             };
-        }
-
-        /// <summary>Radial-gradient purple background for the splash screen, generated as a
-        /// pixel texture (no shader needed) rather than a flat color - brightest behind the
-        /// icon, darkening toward the top/bottom edges, matching the approved mockup.</summary>
-        private static Sprite GetOrCreateGradientSprite()
-        {
-            const int width = 270, height = 480;
-            var centerColor = new Color(0x9A / 255f, 0x6C / 255f, 0xAE / 255f);
-            var edgeColor = new Color(0x40 / 255f, 0x2A / 255f, 0x55 / 255f);
-            var centerNormalized = new Vector2(0.5f, 0.578f); // matches the icon's position, texture-space (Y from bottom)
-            float maxRadius = height * 0.75f;
-
-            return GenerateSprite(SplashBackgroundPath, width, height, (x, y) =>
-            {
-                var point = new Vector2(x, y);
-                var center = new Vector2(width * centerNormalized.x, height * centerNormalized.y);
-                float t = Mathf.Clamp01(Vector2.Distance(point, center) / maxRadius);
-                return Color32.Lerp(centerColor, edgeColor, t);
-            });
-        }
-
-        /// <summary>Green rounded-square "chip" the ball icon sits inside, generated as a pixel
-        /// texture using a standard rounded-rect signed-distance test (clamp to the inner rect,
-        /// check distance to the corner radius) rather than needing an authored sprite asset.</summary>
-        private static Sprite GetOrCreateRoundedRectSprite()
-        {
-            const int size = 256;
-            const float cornerRadius = 64f;
-            var fillColor = new Color32(0x6E, 0x9C, 0x6A, 0xFF);
-            var transparent = new Color32(0, 0, 0, 0);
-
-            return GenerateSprite(SplashIconBackgroundPath, size, size, (x, y) =>
-            {
-                float px = x + 0.5f, py = y + 0.5f;
-                float cx = Mathf.Clamp(px, cornerRadius, size - cornerRadius);
-                float cy = Mathf.Clamp(py, cornerRadius, size - cornerRadius);
-                float dist = Vector2.Distance(new Vector2(px, py), new Vector2(cx, cy));
-                return dist <= cornerRadius ? fillColor : transparent;
-            });
-        }
-
-        /// <summary>Self-healing like the other generated assets here: always re-writes the
-        /// pixels (cheap, deterministic) rather than a load-if-exists early-return, so a tuning
-        /// change (a color, a radius) reaches the asset even after it's been generated once.</summary>
-        private static Sprite GenerateSprite(string path, int width, int height, System.Func<int, int, Color32> pixelAt)
-        {
-            var texture = new Texture2D(width, height, TextureFormat.RGBA32, false);
-            var pixels = new Color32[width * height];
-            for (int y = 0; y < height; y++)
-                for (int x = 0; x < width; x++)
-                    pixels[y * width + x] = pixelAt(x, y);
-            texture.SetPixels32(pixels);
-            texture.Apply();
-
-            Directory.CreateDirectory(Path.GetDirectoryName(path));
-            File.WriteAllBytes(path, texture.EncodeToPNG());
-            Object.DestroyImmediate(texture);
-            AssetDatabase.ImportAsset(path);
-
-            if (AssetImporter.GetAtPath(path) is TextureImporter importer)
-            {
-                importer.textureType = TextureImporterType.Sprite;
-                importer.spriteImportMode = SpriteImportMode.Single;
-                importer.mipmapEnabled = false;
-                importer.filterMode = FilterMode.Bilinear;
-                importer.alphaIsTransparency = true;
-                importer.SaveAndReimport();
-            }
-
-            return AssetDatabase.LoadAssetAtPath<Sprite>(path);
         }
 
         /// <summary>

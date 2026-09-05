@@ -92,6 +92,9 @@ namespace RollAndEscape.EditorTools
             return prefab;
         }
 
+        private const string CompleteBackgroundPath = "Assets/Art/CompleteBackground.png";
+        private const string CheckmarkCirclePath = "Assets/Art/CheckmarkCircle.png";
+
         private static GameObject GetOrCreateLevelCompleteUIPrefab()
         {
             var existing = AssetDatabase.LoadAssetAtPath<GameObject>(LevelCompleteUIPrefabPath);
@@ -105,17 +108,76 @@ namespace RollAndEscape.EditorTools
             scaler.referenceResolution = new Vector2(1080, 1920);
             scaler.matchWidthOrHeight = 1f;
 
-            var panelGO = CreateFullScreenPanel("Panel", canvasGO.transform, new Color(0f, 0f, 0f, 0.6f));
-            var timeText = CreateText("TimeText", panelGO.transform, "00:00", new Vector2(0, 150), 64);
-            var starsText = CreateText("StarsText", panelGO.transform, "", new Vector2(0, 40), 48);
-            var replayButton = CreateButton("ReplayButton", panelGO.transform, "Replay", new Vector2(-150, -150));
-            var nextButton = CreateButton("NextLevelButton", panelGO.transform, "Next Level", new Vector2(150, -150));
+            // Purple gradient panel per the approved "Buze" mockup (Claude Design project
+            // d6305a3a, Buze.dc.html) - was a flat dark scrim with plain text.
+            var panelGO = new GameObject("Panel", typeof(RectTransform), typeof(Image));
+            panelGO.transform.SetParent(canvasGO.transform, false);
+            StretchToFill(panelGO.GetComponent<RectTransform>());
+            var panelImage = panelGO.GetComponent<Image>();
+            panelImage.sprite = UIBuilderHelpers.GenerateSprite(CompleteBackgroundPath, 270, 480, (x, y) =>
+            {
+                float t = UIBuilderHelpers.LinearGradientT(x, y, 270, 480, 180f);
+                return UIBuilderHelpers.LerpStops(t, (0f, RollAndEscapePalette.CompleteBgTop), (1f, RollAndEscapePalette.CompleteBgBottom));
+            });
+            panelImage.preserveAspect = false;
+
+            var checkmarkBg = new GameObject("CheckmarkCircle", typeof(RectTransform), typeof(Image));
+            checkmarkBg.transform.SetParent(panelGO.transform, false);
+            var checkmarkRect = checkmarkBg.GetComponent<RectTransform>();
+            checkmarkRect.anchorMin = checkmarkRect.anchorMax = new Vector2(0.5f, 0.5f);
+            checkmarkRect.anchoredPosition = new Vector2(0, 280);
+            checkmarkRect.sizeDelta = new Vector2(180, 180);
+            checkmarkBg.GetComponent<Image>().sprite = UIBuilderHelpers.GenerateCircleSprite(CheckmarkCirclePath, 128, RollAndEscapePalette.White);
+
+            // Drawn as two rotated bars rather than a "✓" text glyph - Nunito (like most body
+            // text faces) doesn't include a checkmark character, so a glyph would render as a
+            // missing-tofu box instead of an actual check.
+            CreateCheckmarkBar(checkmarkBg.transform, new Vector2(-22, -6), 46, -45f);
+            CreateCheckmarkBar(checkmarkBg.transform, new Vector2(14, 10), 78, 45f);
+
+            var headingText = UIBuilderHelpers.CreateText("HeadingText", panelGO.transform, "Maze solved!", new Vector2(0, 130), 46, UIBuilderHelpers.NunitoBlack);
+            headingText.color = RollAndEscapePalette.White;
+
+            var starDots = new Image[3];
+            for (int i = 0; i < 3; i++)
+            {
+                var dotGO = new GameObject($"Star{i}", typeof(RectTransform), typeof(Image));
+                dotGO.transform.SetParent(panelGO.transform, false);
+                var dotRect = dotGO.GetComponent<RectTransform>();
+                dotRect.anchorMin = dotRect.anchorMax = new Vector2(0.5f, 0.5f);
+                dotRect.sizeDelta = new Vector2(46, 46);
+                dotRect.anchoredPosition = new Vector2((i - 1) * 56f, 50);
+                var dotImage = dotGO.GetComponent<Image>();
+                dotImage.sprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/Knob.psd");
+                dotImage.color = RollAndEscapePalette.StarDim;
+                starDots[i] = dotImage;
+            }
+
+            var timeText = UIBuilderHelpers.CreateText("TimeText", panelGO.transform, "Solved in 00:00", new Vector2(0, -30), 26);
+            timeText.color = new Color(1f, 1f, 1f, 0.85f);
+
+            var nextButton = UIBuilderHelpers.CreateButton("NextLevelButton", panelGO.transform, "Next maze →", new Vector2(0, -130), new Vector2(760, 96));
+            nextButton.GetComponent<Image>().color = RollAndEscapePalette.White;
+            var nextLabel = nextButton.GetComponentInChildren<Text>();
+            nextLabel.color = RollAndEscapePalette.NextMazeButtonText;
+            nextLabel.font = UIBuilderHelpers.NunitoBlack;
+
+            var replayButton = UIBuilderHelpers.CreateButton("ReplayButton", panelGO.transform, "Play again", new Vector2(0, -250), new Vector2(760, 90));
+            var replayImage = replayButton.GetComponent<Image>();
+            replayImage.color = new Color(0f, 0f, 0f, 0f); // transparent fill - only the border reads, per the mockup's "Back to map" secondary-button style
+            replayImage.sprite = UIBuilderHelpers.GenerateRoundedRectOutlineSprite("Assets/Art/CompleteSecondaryButtonBorder.png", 256, 32f, 4f, RollAndEscapePalette.White);
+            var replayLabel = replayButton.GetComponentInChildren<Text>();
+            replayLabel.color = RollAndEscapePalette.White;
+            replayLabel.font = UIBuilderHelpers.NunitoBold;
 
             var ui = canvasGO.AddComponent<LevelCompleteUI>();
             var so = new SerializedObject(ui);
             so.FindProperty("root").objectReferenceValue = panelGO;
+            so.FindProperty("headingText").objectReferenceValue = headingText;
             so.FindProperty("timeText").objectReferenceValue = timeText;
-            so.FindProperty("starsText").objectReferenceValue = starsText;
+            var starDotsProp = so.FindProperty("starDots");
+            starDotsProp.arraySize = 3;
+            for (int i = 0; i < 3; i++) starDotsProp.GetArrayElementAtIndex(i).objectReferenceValue = starDots[i];
             so.FindProperty("replayButton").objectReferenceValue = replayButton;
             so.FindProperty("nextLevelButton").objectReferenceValue = nextButton;
             so.ApplyModifiedPropertiesWithoutUndo();
@@ -126,55 +188,28 @@ namespace RollAndEscape.EditorTools
             return prefab;
         }
 
-        private static GameObject CreateFullScreenPanel(string name, Transform parent, Color color)
+        private static void StretchToFill(RectTransform rect)
         {
-            var go = new GameObject(name, typeof(RectTransform), typeof(Image));
-            go.transform.SetParent(parent, false);
-            var rect = go.GetComponent<RectTransform>();
             rect.anchorMin = Vector2.zero;
             rect.anchorMax = Vector2.one;
             rect.offsetMin = Vector2.zero;
             rect.offsetMax = Vector2.zero;
-            go.GetComponent<Image>().color = color;
-            return go;
         }
 
-        private static Text CreateText(string name, Transform parent, string content, Vector2 anchoredPosition, int fontSize)
+        /// <summary>One stroke of the checkmark badge - a thin rounded bar rotated in place.</summary>
+        private static void CreateCheckmarkBar(Transform parent, Vector2 anchoredPosition, float length, float rotationDegrees)
         {
-            var go = new GameObject(name, typeof(RectTransform), typeof(Text));
+            var go = new GameObject("CheckmarkBar", typeof(RectTransform), typeof(Image));
             go.transform.SetParent(parent, false);
             var rect = go.GetComponent<RectTransform>();
-            rect.anchorMin = new Vector2(0.5f, 0.5f);
-            rect.anchorMax = new Vector2(0.5f, 0.5f);
-            rect.pivot = new Vector2(0.5f, 0.5f);
+            rect.anchorMin = rect.anchorMax = new Vector2(0.5f, 0.5f);
             rect.anchoredPosition = anchoredPosition;
-            rect.sizeDelta = new Vector2(600, 100);
-
-            var text = go.GetComponent<Text>();
-            text.text = content;
-            text.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-            text.fontSize = fontSize;
-            text.alignment = TextAnchor.MiddleCenter;
-            text.color = Color.white;
-            return text;
-        }
-
-        private static Button CreateButton(string name, Transform parent, string label, Vector2 anchoredPosition)
-        {
-            var go = new GameObject(name, typeof(RectTransform), typeof(Image), typeof(Button));
-            go.transform.SetParent(parent, false);
-            var rect = go.GetComponent<RectTransform>();
-            rect.anchorMin = new Vector2(0.5f, 0.5f);
-            rect.anchorMax = new Vector2(0.5f, 0.5f);
-            rect.pivot = new Vector2(0.5f, 0.5f);
-            rect.anchoredPosition = anchoredPosition;
-            rect.sizeDelta = new Vector2(220, 80);
-            go.GetComponent<Image>().color = new Color(1f, 1f, 1f, 0.9f);
-
-            var label_ = CreateText(name + "_Label", go.transform, label, Vector2.zero, 36);
-            label_.color = Color.black;
-
-            return go.GetComponent<Button>();
+            rect.sizeDelta = new Vector2(10, length);
+            rect.localRotation = Quaternion.Euler(0, 0, rotationDegrees);
+            var image = go.GetComponent<Image>();
+            image.sprite = AssetDatabase.GetBuiltinExtraResource<Sprite>("UI/Skin/Background.psd");
+            image.type = Image.Type.Sliced;
+            image.color = RollAndEscapePalette.CheckmarkColor;
         }
     }
 }

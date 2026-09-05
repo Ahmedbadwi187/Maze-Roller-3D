@@ -1,3 +1,5 @@
+using System;
+using System.IO;
 using RollAndEscape.UI;
 using UnityEditor;
 using UnityEngine;
@@ -10,6 +12,80 @@ namespace RollAndEscape.EditorTools
     /// Text/Button/Toggle boilerplate as milestones 4 and 5.</summary>
     internal static class UIBuilderHelpers
     {
+        // Bundled Nunito weights (SIL Open Font License) - the app-wide typeface per the
+        // approved "Buze" mockup, replacing Unity's default LegacyRuntime.ttf everywhere.
+        private static Font _nunitoBold;
+        private static Font _nunitoBlack;
+        public static Font NunitoBold => _nunitoBold != null ? _nunitoBold : (_nunitoBold = AssetDatabase.LoadAssetAtPath<Font>("Assets/Fonts/Nunito-Bold.ttf"));
+        public static Font NunitoBlack => _nunitoBlack != null ? _nunitoBlack : (_nunitoBlack = AssetDatabase.LoadAssetAtPath<Font>("Assets/Fonts/Nunito-Black.ttf"));
+
+        /// <summary>Self-healing pixel-texture generator shared by every screen that needs a
+        /// gradient/rounded-shape sprite (no shader or hand-authored art needed) - always
+        /// re-writes the pixels (cheap, deterministic) rather than load-if-exists, so a tuning
+        /// change reaches the asset even after it's been generated once.</summary>
+        public static Sprite GenerateSprite(string path, int width, int height, Func<int, int, Color32> pixelAt)
+        {
+            var texture = new Texture2D(width, height, TextureFormat.RGBA32, false);
+            var pixels = new Color32[width * height];
+            for (int y = 0; y < height; y++)
+                for (int x = 0; x < width; x++)
+                    pixels[y * width + x] = pixelAt(x, y);
+            texture.SetPixels32(pixels);
+            texture.Apply();
+
+            Directory.CreateDirectory(Path.GetDirectoryName(path));
+            File.WriteAllBytes(path, texture.EncodeToPNG());
+            UnityEngine.Object.DestroyImmediate(texture);
+            AssetDatabase.ImportAsset(path);
+
+            if (AssetImporter.GetAtPath(path) is TextureImporter importer)
+            {
+                importer.textureType = TextureImporterType.Sprite;
+                importer.spriteImportMode = SpriteImportMode.Single;
+                importer.mipmapEnabled = false;
+                importer.filterMode = FilterMode.Bilinear;
+                importer.alphaIsTransparency = true;
+                importer.SaveAndReimport();
+            }
+
+            return AssetDatabase.LoadAssetAtPath<Sprite>(path);
+        }
+
+        /// <summary>Multi-stop color lerp, stops given as (0-1 position, color) pairs in
+        /// ascending order - mirrors CSS's <c>linear-gradient()</c>/<c>radial-gradient()</c>
+        /// stop list so mockup gradients translate directly.</summary>
+        public static Color32 LerpStops(float t, params (float pos, Color32 color)[] stops)
+        {
+            t = Mathf.Clamp01(t);
+            for (int i = 0; i < stops.Length - 1; i++)
+            {
+                if (t <= stops[i + 1].pos)
+                {
+                    float span = stops[i + 1].pos - stops[i].pos;
+                    float localT = span > 0f ? (t - stops[i].pos) / span : 0f;
+                    return Color32.Lerp(stops[i].color, stops[i + 1].color, Mathf.Clamp01(localT));
+                }
+            }
+            return stops[stops.Length - 1].color;
+        }
+
+        /// <summary>0-1 gradient position for a pixel under a CSS-style linear-gradient angle
+        /// (0deg = to top, 90deg = to right, 180deg = to bottom, clockwise) - texture space is
+        /// Y-up (pixel (0,0) is bottom-left), the opposite of CSS's Y-down, so this flips Y.</summary>
+        public static float LinearGradientT(int x, int y, int width, int height, float angleDegrees)
+        {
+            float rad = angleDegrees * Mathf.Deg2Rad;
+            var dir = new Vector2(Mathf.Sin(rad), Mathf.Cos(rad)); // texture-space (Y-up) direction of travel
+            var center = new Vector2((width - 1) / 2f, (height - 1) / 2f);
+            var point = new Vector2(x, y) - center;
+
+            // Project every corner to find the gradient line's extent, so t=0/1 land exactly on
+            // the rect's edges regardless of angle or aspect ratio.
+            float half = Mathf.Abs(dir.x) * width / 2f + Mathf.Abs(dir.y) * height / 2f;
+            float projected = Vector2.Dot(point, dir);
+            return half > 0f ? (projected + half) / (2f * half) : 0f;
+        }
+
         /// <summary>A full-stretch child that shrinks itself to Screen.safeArea at runtime -
         /// parent any edge-anchored interactive element (a top-corner button, a bottom HUD)
         /// under this instead of directly under the Canvas, or it can end up rendered behind
@@ -41,7 +117,7 @@ namespace RollAndEscape.EditorTools
             rect.anchoredPosition = new Vector2(rect.anchoredPosition.x, -insetFromTop);
         }
 
-        public static Text CreateText(string name, Transform parent, string content, Vector2 anchoredPosition, int fontSize)
+        public static Text CreateText(string name, Transform parent, string content, Vector2 anchoredPosition, int fontSize, Font font = null)
         {
             var go = new GameObject(name, typeof(RectTransform), typeof(Text));
             go.transform.SetParent(parent, false);
@@ -54,11 +130,58 @@ namespace RollAndEscape.EditorTools
 
             var text = go.GetComponent<Text>();
             text.text = content;
-            text.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+            text.font = font != null ? font : NunitoBold;
             text.fontSize = fontSize;
             text.alignment = TextAnchor.MiddleCenter;
             text.color = Color.black;
             return text;
+        }
+
+        /// <summary>Rounded-rect sprite via the standard signed-distance test (clamp to the
+        /// inner rect, check distance to the corner radius) - shared by any card/chip/button
+        /// that needs soft corners without a 9-sliced art asset.</summary>
+        public static Sprite GenerateRoundedRectSprite(string path, int size, float cornerRadius, Color32 fillColor)
+        {
+            var transparent = new Color32(0, 0, 0, 0);
+            return GenerateSprite(path, size, size, (x, y) =>
+            {
+                float px = x + 0.5f, py = y + 0.5f;
+                float cx = Mathf.Clamp(px, cornerRadius, size - cornerRadius);
+                float cy = Mathf.Clamp(py, cornerRadius, size - cornerRadius);
+                float dist = Vector2.Distance(new Vector2(px, py), new Vector2(cx, cy));
+                return dist <= cornerRadius ? fillColor : transparent;
+            });
+        }
+
+        /// <summary>Rounded-rect OUTLINE only (transparent fill) - the mockup's secondary
+        /// "border only, transparent background" button style (e.g. Level Complete's "Back to
+        /// map"/"Play again" button).</summary>
+        public static Sprite GenerateRoundedRectOutlineSprite(string path, int size, float cornerRadius, float strokeWidth, Color32 strokeColor)
+        {
+            var transparent = new Color32(0, 0, 0, 0);
+            return GenerateSprite(path, size, size, (x, y) =>
+            {
+                float px = x + 0.5f, py = y + 0.5f;
+                float cx = Mathf.Clamp(px, cornerRadius, size - cornerRadius);
+                float cy = Mathf.Clamp(py, cornerRadius, size - cornerRadius);
+                float dist = Vector2.Distance(new Vector2(px, py), new Vector2(cx, cy));
+                bool insideOuter = dist <= cornerRadius;
+                bool insideInner = dist <= cornerRadius - strokeWidth
+                    && px >= strokeWidth && px <= size - strokeWidth
+                    && py >= strokeWidth && py <= size - strokeWidth;
+                return insideOuter && !insideInner ? strokeColor : transparent;
+            });
+        }
+
+        /// <summary>Solid-fill circle sprite - level nodes, ball/star dots, the checkmark
+        /// badge, all of which are perfect circles in the mockup.</summary>
+        public static Sprite GenerateCircleSprite(string path, int size, Color32 fillColor)
+        {
+            var transparent = new Color32(0, 0, 0, 0);
+            float radius = size / 2f;
+            var center = new Vector2(radius, radius);
+            return GenerateSprite(path, size, size, (x, y) =>
+                Vector2.Distance(new Vector2(x + 0.5f, y + 0.5f), center) <= radius ? fillColor : transparent);
         }
 
         public static Button CreateButton(string name, Transform parent, string label, Vector2 anchoredPosition, Vector2 size)

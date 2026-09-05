@@ -69,7 +69,8 @@ namespace RollAndEscape.UI
                 }
             }
 
-            if (levelCompleteUI != null) levelCompleteUI.Show(elapsed, stars);
+            int levelNumber = LevelSessionContext.CurrentLevelIndex >= 0 ? LevelSessionContext.CurrentLevelIndex + 1 : -1;
+            if (levelCompleteUI != null) levelCompleteUI.Show(elapsed, stars, levelNumber);
 
             if (completionParticles != null) completionParticles.Play();
             if (completionAudioSource != null) completionAudioSource.PlayOneShot(ProceduralSfx.CreateSuccessChime());
