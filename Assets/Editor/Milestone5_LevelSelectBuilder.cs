@@ -127,13 +127,19 @@ namespace RollAndEscape.EditorTools
             // Total-stars/points chip, left of the settings button - the running total across
             // all levels, so it visibly grows as the player completes more mazes (the "develop
             // point achieve when move from level to another" ask).
-            var starsChipGO = new GameObject("StarsChip", typeof(RectTransform), typeof(Image));
+            // Clickable - opens the Level Summary screen (per-level stars/best time list), the
+            // "level achievement clickable in home page" ask.
+            var starsChipGO = new GameObject("StarsChip", typeof(RectTransform), typeof(Image), typeof(Button));
             starsChipGO.transform.SetParent(topSafeArea, false);
             var starsChipRect = starsChipGO.GetComponent<RectTransform>();
             starsChipRect.sizeDelta = new Vector2(150, 64);
             UIBuilderHelpers.AnchorToTop(starsChipRect, 1f, 82f); // vertically centered against the two-line eyebrow+"Player One" header block
             starsChipRect.anchoredPosition += new Vector2(-190f, 0f);
             starsChipGO.GetComponent<Image>().sprite = UIBuilderHelpers.GenerateRoundedRectSprite("Assets/Art/StarsChipBg.png", 128, 64f, RollAndEscapePalette.White);
+            var starsChipLoader = starsChipGO.AddComponent<LoadSceneOnClick>();
+            var starsChipLoaderSo = new SerializedObject(starsChipLoader);
+            starsChipLoaderSo.FindProperty("sceneName").stringValue = "LevelSummary";
+            starsChipLoaderSo.ApplyModifiedPropertiesWithoutUndo();
 
             var starsChipDot = new GameObject("StarDot", typeof(RectTransform), typeof(Image));
             starsChipDot.transform.SetParent(starsChipGO.transform, false);

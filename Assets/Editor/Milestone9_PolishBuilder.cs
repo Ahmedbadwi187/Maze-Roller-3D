@@ -131,7 +131,10 @@ namespace RollAndEscape.EditorTools
             // instruction not to change gameplay colors.
             var topSafeArea = UIBuilderHelpers.CreateSafeArea(canvasGO.transform);
 
-            var pauseButton = UIBuilderHelpers.CreateButton("PauseButton", topSafeArea, "II", Vector2.zero, new Vector2(72, 72));
+            // Icon matches the same round back-chevron button used on Settings/Level Summary
+            // (visual consistency) - function stays Pause (opens Resume/Restart/Quit), not an
+            // instant back-navigation, per the reasoning above.
+            var pauseButton = UIBuilderHelpers.CreateButton("PauseButton", topSafeArea, "‹", Vector2.zero, new Vector2(72, 72));
             var pauseButtonRect = pauseButton.GetComponent<RectTransform>();
             pauseButtonRect.pivot = new Vector2(0f, 0.5f);
             UIBuilderHelpers.AnchorToTop(pauseButtonRect, 0f, 76f);
@@ -139,7 +142,9 @@ namespace RollAndEscape.EditorTools
             var pauseButtonImage = pauseButton.GetComponent<Image>();
             pauseButtonImage.sprite = UIBuilderHelpers.GenerateCircleSprite("Assets/Art/PauseButtonBg.png", 128, RollAndEscapePalette.White);
             pauseButtonImage.color = Color.white;
-            pauseButton.GetComponentInChildren<Text>().color = RollAndEscapePalette.BackButtonText;
+            var pauseButtonLabel = pauseButton.GetComponentInChildren<Text>();
+            pauseButtonLabel.fontSize = 40;
+            pauseButtonLabel.color = RollAndEscapePalette.BackButtonText;
 
             // "LEVEL N" eyebrow + "Roll to the exit" title, stacked, next to the pause button.
             var levelEyebrow = UIBuilderHelpers.CreateText("LevelEyebrow", topSafeArea, "LEVEL -", Vector2.zero, 22, UIBuilderHelpers.NunitoBlack);
